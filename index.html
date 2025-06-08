@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eason's Game</title>
   <style>
     html, body {
@@ -28,8 +29,9 @@
     h1 {
       position: relative;
       z-index: 1;
+      margin: 0;
       padding-top: 30vh;
-      font-size: 3em;
+      font-size: clamp(2rem, 6vw, 3.5rem);
       text-shadow: 0 0 10px #00ffff;
     }
   </style>
@@ -40,11 +42,11 @@
 
   <!-- 背景音乐 -->
   <audio autoplay loop>
-    <source src="背景音乐1.mp3" type="audio/mpeg">
+    <source src="1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 粒子动画库 -->
+  <!-- 粒子动画 -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
