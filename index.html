@@ -18,6 +18,14 @@
       color: white;
       text-align: center;
     }
+
+    /* 竖屏时使用竖版背景 */
+    @media (orientation: portrait) {
+      body {
+        background-image: url("easongame2.png");
+      }
+    }
+
     #particles-js {
       position: fixed;
       top: 0;
@@ -26,6 +34,7 @@
       height: 100%;
       z-index: 0;
     }
+
     h1 {
       position: relative;
       z-index: 1;
@@ -46,7 +55,7 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 粒子动画 -->
+  <!-- 粒子特效 -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
