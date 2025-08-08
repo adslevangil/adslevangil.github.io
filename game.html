@@ -110,7 +110,7 @@
   const successNote = document.getElementById('successNote');
   const container = document.getElementById('container');
 
-  let player = { x: 290, y: 290, size: 20, speed: 4 };
+  let player = { x: 290, y: 290, size: 20, speed: 4, tx: 290, ty: 290 };
   let bullets = [];
   let keys = {};
   let countdown = 30; // 倒计时秒数
@@ -129,6 +129,25 @@
   document.addEventListener('keydown', (e) => { keys[e.keyCode] = true; });
   document.addEventListener('keyup', (e) => { keys[e.keyCode] = false; });
 
+  // 鼠标点击移动玩家方块到点击位置
+  canvas.addEventListener('click', function(e) {
+    if (gameState !== 'playing') return;
+    const rect = canvas.getBoundingClientRect();
+    // 计算相对于 canvas 的点击位置
+    let clickX = e.clientX - rect.left;
+    let clickY = e.clientY - rect.top;
+    // 设定目标点为点击位置的中心
+    let tx = clickX - player.size / 2;
+    let ty = clickY - player.size / 2;
+    // 边界限制目标点
+    if (tx < 0) tx = 0;
+    if (tx > canvas.width - player.size) tx = canvas.width - player.size;
+    if (ty < 0) ty = 0;
+    if (ty > canvas.height - player.size) ty = canvas.height - player.size;
+    player.tx = tx;
+    player.ty = ty;
+  });
+
   function startGame() {
     menu.style.display = 'none';
     canvas.style.display = 'block';
@@ -140,6 +159,9 @@
     fragments = [];
     spawnIntervalTime = 500;
     countdown = 30;
+    // 初始化目标点为当前玩家位置
+    player.tx = player.x;
+    player.ty = player.y;
     timerElement.textContent = String(countdown);
     timerInterval = setInterval(() => {
       countdown--;
@@ -206,6 +228,9 @@
     spawnIntervalTime = 500;
     player.x = 290;
     player.y = 290;
+    // 初始化目标点为当前玩家位置
+    player.tx = player.x;
+    player.ty = player.y;
     countdown = 30;
     timerElement.textContent = String(countdown);
     timerInterval = setInterval(() => {
@@ -264,15 +289,21 @@
   }
 
   function updatePlayer() {
-    // 左或 A
-    if (keys[37] || keys[65]) { player.x -= player.speed; }
-    // 右或 D
-    if (keys[39] || keys[68]) { player.x += player.speed; }
-    // 上或 W
-    if (keys[38] || keys[87]) { player.y -= player.speed; }
-    // 下或 S
-    if (keys[40] || keys[83]) { player.y += player.speed; }
-    // 边界限制
+    // 按一定速度向目标点移动
+    // 计算到目标点的向量
+    const dx = player.tx - player.x;
+    const dy = player.ty - player.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist > player.speed) {
+      // 按比例移动到下一位置
+      player.x += (dx / dist) * player.speed;
+      player.y += (dy / dist) * player.speed;
+    } else {
+      // 距离小于速度时直接停到目标
+      player.x = player.tx;
+      player.y = player.ty;
+    }
+    // 边界限制当前方块位置
     if (player.x < 0) player.x = 0;
     if (player.x > canvas.width - player.size) player.x = canvas.width - player.size;
     if (player.y < 0) player.y = 0;
