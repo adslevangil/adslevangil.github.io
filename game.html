@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>小游戏</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+    }
+    #container {
+      position: relative;
+      width: 80vw;  /* 宽度为屏幕的 80% */
+      height: 80vh; /* 高度为屏幕的 80% */
+      background-color: #000;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    #gameCanvas {
+      display: block;
+      background-color: #000;
+    }
+    #menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #222;
+      color: #fff;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="menu">
+      <h1>欢迎来到小游戏</h1>
+      <button onclick="startGame()">开始游戏</button>
+      <button onclick="closeGame()">退出</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="overlay" style="display: none;">
+      <h1 id="resultMessage"></h1>
+      <button id="restartBtn" onclick="restartGame()" style="display: none;">重新开始</button>
+      <div id="successNote" style="font-size: 14px; margin-top: 20px; display: none;">点击任意位置返回主菜单</div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    let canvasWidth = window.innerWidth * 0.8; // 80% 宽度
+    let canvasHeight = window.innerHeight * 0.8; // 80% 高度
+
+    // 设置canvas的宽高
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    let player = { x: 290, y: 290, size: 20, speed: 4, tx: 290, ty: 290 };
+    let bullets = [];
+    let fragments = [];
+    let countdown = 30;
+    let gameInterval = null;
+    let spawnInterval = null;
+    let spawnIntervalTime = 500;
+    let densityInterval = null;
+    let gameState = 'menu';
+    let running = false;
+
+    document.addEventListener('keydown', (e) => { keys[e.keyCode] = true; });
+    document.addEventListener('keyup', (e) => { keys[e.keyCode] = false; });
+
+    // 调整点击事件
+    canvas.addEventListener('touchstart', function(e) {
+      e.preventDefault(); // 防止页面滚动
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.touches[0].clientX - rect.left;
+      const clickY = e.touches[0].clientY - rect.top;
+      player.tx = clickX;
+      player.ty = clickY;
+    });
+
+    canvas.addEventListener('click', function(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      player.tx = clickX;
+      player.ty = clickY;
+    });
+
+    // 启动游戏
+    function startGame() {
+      gameState = 'playing';
+      player.x = 290;
+      player.y = 290;
+      player.tx = player.x;
+      player.ty = player.y;
+      bullets = [];
+      fragments = [];
+      spawnIntervalTime = 500;
+      countdown = 30;
+      document.getElementById('menu').style.display = 'none';
+      canvas.style.display = 'block';
+      document.getElementById('overlay').style.display = 'none';
+      timerElement = setInterval(() => {
+        countdown--;
+        if (countdown <= 0) {
+          endGame('success');
+        }
+      }, 1000);
+      spawnInterval = setInterval(spawnBullet, spawnIntervalTime);
+      densityInterval = setInterval(increaseDensity, 3000);
+      running = true;
+      requestAnimationFrame(gameLoop);
+    }
+
+    // 关闭游戏
+    function closeGame() {
+      if (window.close) {
+        window.close();
+      }
+      location.href = 'about:blank';
+    }
+
+    // 结束游戏
+    function endGame(state) {
+      gameState = state;
+      clearInterval(spawnInterval);
+      clearInterval(densityInterval);
+      clearInterval(timerElement);
+      if (gameInterval) {
+        cancelAnimationFrame(gameInterval);
+        gameInterval = null;
+      }
+      running = false;
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('resultMessage').textContent = (state === 'success') ? '游戏成功通关！' : '游戏失败！';
+      document.getElementById('restartBtn').style.display = (state === 'fail') ? 'inline-block' : 'none';
+      document.getElementById('successNote').style.display = (state === 'success') ? 'block' : 'none';
+      if (state === 'success') {
+        container.addEventListener('click', returnToMenuOnce);
+      }
+    }
+
+    // 返回主菜单
+    function returnToMenuOnce() {
+      container.removeEventListener('click', returnToMenuOnce);
+      returnToMenu();
+    }
+
+    // 返回主菜单
+    function returnToMenu() {
+      document.getElementById('overlay').style.display = 'none';
+      canvas.style.display = 'none';
+      document.getElementById('menu').style.display = 'flex';
+    }
+
+    // 重新开始游戏
+    function restartGame() {
+      document.getElementById('overlay').style.display = 'none';
+      canvas.style.display = 'block';
+      bullets = [];
+      fragments = [];
+      spawnIntervalTime = 500;
+      player.x = 290;
+      player.y = 290;
+      player.tx = player.x;
+      player.ty = player.y;
+      countdown = 30;
+      document.getElementById('timer').textContent = String(countdown);
+      timerElement = setInterval(() => {
+        countdown--;
+        document.getElementById('timer').textContent = String(countdown);
+        if (countdown <= 0) {
+          endGame('success');
+        }
+      }, 1000);
+      spawnInterval = setInterval(spawnBullet, spawnIntervalTime);
+      densityInterval = setInterval(increaseDensity, 3000);
+      running = true;
+      requestAnimationFrame(gameLoop);
+    }
+
+    // 每 3 秒降低子弹间隔（增加密度）
+    function increaseDensity() {
+      spawnIntervalTime = spawnIntervalTime * 0.8;
+      clearInterval(spawnInterval);
+      spawnInterval = setInterval(spawnBullet, spawnIntervalTime);
+    }
+
+    // 生成子弹
+    function spawnBullet() {
+      if (gameState !== 'playing') return;
+      const side = Math.floor(Math.random() * 4);
+      let x, y, targetX, targetY;
+      const speed = 3;
+      switch (side) {
+        case 0:
+          x = -2; y = Math.random() * canvas.height;
+          targetX = canvas.width + 2; targetY = Math.random() * canvas.height;
+          break;
+        case 1:
+          x = canvas.width + 2; y = Math.random() * canvas.height;
+          targetX = -2; targetY = Math.random() * canvas.height;
+          break;
+        case 2:
+          x = Math.random() * canvas.width; y = -2;
+          targetX = Math.random() * canvas.width; targetY = canvas.height + 2;
+          break;
+        default:
+          x = Math.random() * canvas.width; y = canvas.height + 2;
+          targetX = Math.random() * canvas.width; targetY = -2;
+          break;
+      }
+      const dx = targetX - x;
+      const dy = targetY - y;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      const vx = dx / len * speed;
+      const vy = dy / len * speed;
+      bullets.push({ x: x, y: y, vx: vx, vy: vy, size: 4 });
+    }
+
+    // 更新玩家位置
+    function updatePlayer() {
+      const dx = player.tx - player.x;
+      const dy = player.ty - player.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist > player.speed) {
+        const angle = Math.atan2(dy, dx);
+        player.x += Math.cos(angle) * player.speed;
+        player.y += Math.sin(angle) * player.speed;
+      } else {
+        player.x = player.tx;
+        player.y = player.ty;
+      }
+
+      if (player.x < 0) player.x = 0;
+      if (player.x > canvas.width - player.size) player.x = canvas.width - player.size;
+      if (player.y < 0) player.y = 0;
+      if (player.y > canvas.height - player.size) player.y = canvas.height - player.size;
+    }
+
+    // 绘制游戏元素
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(player.x, player.y, player.size, player.size);
+      ctx.fillStyle = '#FF0000';
+      for (let i = 0; i < bullets.length; i++) {
+        const b = bullets[i];
+        ctx.fillRect(b.x, b.y, b.size, b.size);
+      }
+      if (fragments.length > 0) {
+        ctx.fillStyle = '#FFEE00';
+        for (let i = 0; i < fragments.length; i++) {
+          const f = fragments[i];
+          ctx.fillRect(f.x, f.y, 2, 2);
+        }
+      }
+    }
+
+    // 游戏主循环
+    function gameLoop() {
+      if (gameState === 'playing') {
+        updatePlayer();
+        updateBullets();
+        checkCollisions();
+      }
+      draw();
+      if (running) {
+        requestAnimationFrame(gameLoop);
+      }
+    }
+  </script>
+</body>
+</html>
