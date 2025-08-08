@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>躲避小游戏</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #333;
+      overflow: hidden;
+    }
+    #container {
+      position: relative;
+      width: 80vw;     /* 画布宽度 = 80% 视口宽 */
+      height: 80vh;    /* 画布高度 = 80% 视口高 */
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,.6);
+    }
+    canvas { display:block;background:#000 }
+    #menu, #overlay {
+      position:absolute;inset:0;
+      display:flex;flex-direction:column;
+      justify-content:center;align-items:center;
+      background:#222; color:#fff; font-family:sans-serif;
+    }
+    button{
+      margin:10px;padding:2vh 5vw;
+      font-size:5vw;max-font-size:32px;
+      color:#fff;background:#444;border:2px solid #fff;
+      cursor:pointer
+    }
+    h1{margin:0 0 20px 0;font-size:6vw;max-font-size:36px}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- 主菜单 -->
+    <div id="menu">
+      <h1>躲避小游戏</h1>
+      <button id="startBtn">开始游戏</button>
+      <button id="closeBtn">退出</button>
+    </div>
+
+    <!-- 画布 -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- 结束/胜利覆盖层 -->
+    <div id="overlay" style="display:none">
+      <h1 id="resultText">游戏结束</h1>
+      <button id="restartBtn" style="display:none">重新开始</button>
+      <div id="tapToMenu" style="margin-top:20px;display:none;font-size:4vw">点击任意处返回菜单</div>
+    </div>
+  </div>
+
+<script>
+/* --------- 全局变量 --------- */
+const canvas   = document.getElementById('gameCanvas');
+const ctx      = canvas.getContext('2d');
+const menu     = document.getElementById('menu');
+const overlay  = document.getElementById('overlay');
+const resultTx = document.getElementById('resultText');
+const restartB = document.getElementById('restartBtn');
+const tap2Menu = document.getElementById('tapToMenu');
+const startB   = document.getElementById('startBtn');
+const closeB   = document.getElementById('closeBtn');
+
+let gameState = 'menu';   // menu | playing | fragment | success | fail
+let running   = false;    // 控制 requestAnimationFrame
+let bullets   = [];
+let fragments = [];
+let countdown = 30;
+let spawnInterval, densityInterval, timerInterval;
+
+const player = { x:0, y:0, size:20, speed:4, tx:0, ty:0 };
+
+/* --------- 自适应尺寸 --------- */
+function resizeCanvas(){
+  const w = document.getElementById('container').clientWidth;
+  const h = document.getElementById('container').clientHeight;
+  canvas.width  = w;
+  canvas.height = h;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+/* --------- 事件绑定 --------- */
+startB.onclick  = () => initGame();
+restartB.onclick= () => initGame();
+closeB.onclick  = () => location.href = 'about:blank';
+canvas.addEventListener('click', e=>{
+  if(gameState!=='playing') return;
+  const rect = canvas.getBoundingClientRect();
+  player.tx = e.clientX - rect.left;
+  player.ty = e.clientY - rect.top;
+});
+overlay.addEventListener('click', ()=>{ if(gameState==='success') backToMenu(); });
+
+/* --------- 核心函数 --------- */
+function backToMenu(){
+  overlay.style.display='none';
+  menu.style.display='flex';
+  canvas.style.display='none';
+  gameState='menu';
+}
+
+function initGame(){
+  // 重置
+  bullets=[];fragments=[];countdown=30;
+  player.x = player.tx = canvas.width/2 - player.size/2;
+  player.y = player.ty = canvas.height/2 - player.size/2;
+
+  // UI
+  menu.style.display='none';
+  canvas.style.display='block';
+  overlay.style.display='none';
+  restartB.style.display='none';
+
+  // 计时器
+  clearInterval(spawnInterval); clearInterval(densityInterval); clearInterval(timerInterval);
+  spawnIntervalTime = 500;
+  spawnInterval   = setInterval(spawnBullet, spawnIntervalTime);
+  densityInterval = setInterval(()=>{ spawnIntervalTime*=0.8; clearInterval(spawnInterval); spawnInterval=setInterval(spawnBullet,spawnIntervalTime)},3000);
+  timerInterval   = setInterval(()=>{ countdown--; if(countdown<=0) endGame('success'); },1000);
+
+  // 状态
+  gameState='playing'; running=true;
+  requestAnimationFrame(gameLoop);
+}
+
+function endGame(type){
+  gameState=type; running=false;
+  clearInterval(spawnInterval); clearInterval(densityInterval); clearInterval(timerInterval);
+  resultTx.textContent = (type==='success')?'成功通关！':'游戏失败';
+  restartB.style.display = (type==='fail') ? 'block' : 'none';
+  tap2Menu .style.display = (type==='success')? 'block' : 'none';
+  overlay.style.display='flex';
+}
+
+function spawnBullet(){
+  if(gameState!=='playing') return;
+  const side=Math.floor(Math.random()*4);
+  let x,y,tx,ty;
+  const speed=3,r=4;
+  switch(side){
+    case 0: x=-r; y=Math.random()*canvas.height; tx=canvas.width+r; ty=Math.random()*canvas.height; break;
+    case 1: x=canvas.width+r; y=Math.random()*canvas.height; tx=-r; ty=Math.random()*canvas.height; break;
+    case 2: x=Math.random()*canvas.width; y=-r; tx=Math.random()*canvas.width; ty=canvas.height+r; break;
+    default:x=Math.random()*canvas.width; y=canvas.height+r; tx=Math.random()*canvas.width; ty=-r;
+  }
+  const dx=tx-x, dy=ty-y, len=Math.hypot(dx,dy);
+  bullets.push({x,y,vx:dx/len*speed, vy:dy/len*speed, size:r});
+}
+
+function updatePlayer(){
+  const dx=player.tx-player.x, dy=player.ty-player.y;
+  const dist=Math.hypot(dx,dy);
+  if(dist>player.speed){
+    const a=Math.atan2(dy,dx);
+    player.x+=Math.cos(a)*player.speed;
+    player.y+=Math.sin(a)*player.speed;
+  }else{ player.x=player.tx; player.y=player.ty; }
+
+  // 边界
+  player.x=Math.max(0,Math.min(canvas.width -player.size,player.x));
+  player.y=Math.max(0,Math.min(canvas.height-player.size,player.y));
+}
+
+function updateBullets(){
+  for(let i=bullets.length-1;i>=0;i--){
+    const b=bullets[i]; b.x+=b.vx; b.y+=b.vy;
+    if(b.x<-10||b.x>canvas.width+10||b.y<-10||b.y>canvas.height+10){ bullets.splice(i,1); }
+  }
+}
+
+function checkCollisions(){
+  for(const b of bullets){
+    if(b.x+b.size>player.x&&b.x<player.x+player.size&&b.y+b.size>player.y&&b.y<player.y+player.size){
+      // 碰撞
+      endGame('fail'); return;
+    }
+  }
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // player
+  ctx.fillStyle='#fff';
+  ctx.fillRect(player.x,player.y,player.size,player.size);
+  // bullets
+  ctx.fillStyle='#f00';
+  bullets.forEach(b=>ctx.fillRect(b.x,b.y,b.size,b.size));
+}
+
+function gameLoop(){
+  if(gameState==='playing'){
+    updatePlayer(); updateBullets(); checkCollisions();
+  }
+  draw();
+  if(running) requestAnimationFrame(gameLoop);
+}
+</script>
+</body>
+</html>
