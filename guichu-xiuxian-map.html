@@ -21,20 +21,28 @@
       width: min(100vw, calc(100vh * 16 / 9));
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.18)),
-        url("assets/projects/guichu-world-map.png") center / 100% 100% no-repeat,
-        #07101c;
+      background: #07101c;
       box-shadow: 0 0 70px rgba(0,0,0,.8);
+    }
+    .map-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      z-index: 0;
+      user-select: none;
+      -webkit-user-drag: none;
     }
     .map::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
+      z-index: 1;
       background:
-        radial-gradient(circle at 50% 48%, transparent 55%, rgba(0,0,0,.18)),
-        linear-gradient(90deg, rgba(0,0,0,.18), transparent 18%, transparent 82%, rgba(0,0,0,.18));
+        radial-gradient(circle at 50% 48%, transparent 58%, rgba(0,0,0,.16)),
+        linear-gradient(90deg, rgba(0,0,0,.16), transparent 18%, transparent 82%, rgba(0,0,0,.16));
     }
     .topbar {
       position: absolute;
@@ -49,11 +57,7 @@
       text-shadow: 0 2px 8px #000;
     }
     .topbar a { color: #ffe3a3; text-decoration: none; }
-    .topbar h1 {
-      margin: 5px 0 0;
-      font-size: clamp(18px, 2.5vw, 36px);
-      letter-spacing: .08em;
-    }
+    .topbar h1 { margin: 5px 0 0; font-size: clamp(18px, 2.5vw, 36px); letter-spacing: .08em; }
     .city {
       position: absolute;
       left: calc(var(--x) * 1%);
@@ -125,9 +129,22 @@
       color: rgba(255,238,195,.82);
       font-size: clamp(11px, .85vw, 13px);
     }
+    .load-error {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      place-items: center;
+      background: rgba(0,0,0,.78);
+      color: #ffe3a3;
+      padding: 30px;
+      text-align: center;
+      line-height: 1.7;
+    }
     @media (max-width: 760px) {
       body { overflow: auto; display: block; background: #030711; }
-      .map { width: 100vw; min-height: 100vh; aspect-ratio: auto; background-size: cover; }
+      .map { width: 100vw; min-height: 100vh; aspect-ratio: auto; }
+      .map-bg { object-fit: cover; }
       .panel { width: calc(100vw - 28px); left: 14px; bottom: 14px; }
       .hint { display: none; }
     }
@@ -135,6 +152,12 @@
 </head>
 <body>
   <main class="map">
+    <img class="map-bg" src="/assets/projects/guichu-world-map.png?v=20260519b" alt="鬼畜修仙传大世界地图" onerror="document.querySelector('.load-error').style.display='grid'" />
+
+    <div class="load-error">
+      地图图片加载失败。<br />请确认文件存在：/assets/projects/guichu-world-map.png
+    </div>
+
     <section class="topbar">
       <a href="index.html">← 返回首页</a>
       <h1>鬼畜修仙传 · 大世界地图</h1>
