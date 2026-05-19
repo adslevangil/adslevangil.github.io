@@ -1,1 +1,210 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>鬼畜修仙传 · 大世界地图</title><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#07101c;color:#f7e8c6;font-family:Arial,'Microsoft YaHei',sans-serif;overflow:hidden}.map{position:relative;width:100vw;height:100vh;background:radial-gradient(circle at 50% 45%,#d0bf88 0 18%,#8aa35e 19% 35%,#314f39 36% 50%,#19334a 51% 100%)}.map:before{content:'';position:absolute;inset:3%;border:2px solid rgba(243,198,109,.7);box-shadow:inset 0 0 80px rgba(0,0,0,.45);pointer-events:none}.zone{position:absolute;border-radius:50%;filter:blur(.2px);opacity:.9}.snow{left:18%;top:3%;width:62%;height:25%;background:linear-gradient(#fff,#b8d2e8)}.jungle{left:14%;top:65%;width:45%;height:30%;background:#174d32}.west{left:3%;top:26%;width:25%;height:42%;background:#6b4a2d}.east{right:4%;top:18%;width:26%;height:55%;background:#143c5a}.capital{left:38%;top:34%;width:24%;height:23%;background:#b99855}.title{position:absolute;left:4%;top:4%;z-index:3;text-shadow:0 3px 12px #000}.title h1{margin:0;font-size:clamp(26px,4vw,56px)}.title a{color:#ffe3a3;text-decoration:none}.road{position:absolute;height:3px;background:rgba(255,236,185,.65);transform-origin:left center;box-shadow:0 0 8px #000}.city{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:22px;height:22px;transform:translate(-50%,-50%) rotate(-45deg);border-radius:50% 50% 50% 10%;border:1px solid #fff0b5;background:radial-gradient(circle,#fff8c6 0 18%,#f3c66d 19% 42%,#8d2b17 43%);box-shadow:0 0 0 3px rgba(0,0,0,.55),0 0 18px rgba(255,205,80,.7);cursor:pointer;z-index:5}.city:hover,.city.active{filter:brightness(1.5);scale:1.45;box-shadow:0 0 0 5px rgba(255,220,100,.28),0 0 35px #ffd46f}.city:after{content:attr(data-name);position:absolute;bottom:150%;left:50%;transform:translateX(-50%) rotate(45deg);white-space:nowrap;background:rgba(0,0,0,.7);border:1px solid #f3c66d;border-radius:999px;padding:4px 9px;color:#ffe3a3;font-size:13px;opacity:0}.city:hover:after,.city.active:after{opacity:1}.panel{position:absolute;left:4%;bottom:5%;width:min(380px,88vw);min-height:210px;background:rgba(6,10,16,.86);border:1px solid #f3c66d;box-shadow:0 18px 50px rgba(0,0,0,.6);padding:20px;z-index:6}.panel h2{margin:0 0 10px;color:#fff1c4;font-size:30px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.stat{background:rgba(255,255,255,.07);padding:7px;border:1px solid rgba(255,255,255,.08)}.stat b{color:#f3c66d}.desc{line-height:1.65;color:rgba(255,245,216,.88)}.legend{position:absolute;right:4%;bottom:5%;background:rgba(0,0,0,.5);border:1px solid rgba(243,198,109,.55);padding:12px;line-height:1.9}.label{position:absolute;color:#fff6d6;text-shadow:0 2px 10px #000;font-weight:bold;letter-spacing:.1em}.l1{left:48%;top:11%}.l2{left:47%;top:44%}.l3{left:32%;top:79%}.l4{left:83%;top:39%}.l5{left:10%;top:43%}</style></head><body><main class="map"><div class="snow zone"></div><div class="jungle zone"></div><div class="west zone"></div><div class="east zone"></div><div class="capital zone"></div><section class="title"><a href="index.html">← 返回首页</a><h1>鬼畜修仙传 · 大世界地图</h1></section><div class="label l1">北方雪原</div><div class="label l2">中州城市</div><div class="label l3">南方丛林</div><div class="label l4">东方倭寇</div><div class="label l5">西方教廷</div><section class="panel"><h2 id="n">中州皇城</h2><div class="stats"><div class="stat"><b>所属势力：</b><span id="f">中州仙盟</span></div><div class="stat"><b>人口：</b><span id="p">八十五万</span></div><div class="stat"><b>经济：</b><span id="e">95</span></div><div class="stat"><b>防御：</b><span id="d">90</span></div></div><div class="desc" id="x">九州交通与灵石贸易中心，是主线剧情的核心据点。</div></section><div class="legend">鼠标移到城市图标会高亮<br>点击城市查看信息</div></main><script>const cities=[['中州皇城','中州仙盟','八十五万','95','90','九州交通与灵石贸易中心，宗门、商会、黑市并存，是主线剧情核心据点。',50,45],['雪岭关','北方雪原','十二万','42','88','镇守北境的冰原要塞，盛产寒铁与冰魄灵矿。',52,18],['北冥冰宫','寒霜宗','六万','55','92','建于万年玄冰上的宗门圣地，传闻藏有冻结时间的秘法。',43,12],['赤焰城','西荒火脉','二十六万','70','80','靠近活火山的铸器名城，武器产量惊人。',18,52],['圣辉教廷','西方教廷','四十万','86','94','西方神权势力的核心圣城，拥有严密骑士团与审判机关。',11,36],['万藤寨','南方丛林','九万','58','68','隐藏于巨木与藤桥之间的丛林城寨，擅长药草、蛊术与陷阱。',35,78],['碧泽水寨','南泽部族','十一万','63','60','河网沼泽中的水上聚落，是走私商与情报贩子的乐园。',54,76],['黑潮港','东方倭寇','三十二万','82','76','东方海盗与雇佣武士控制的港口，商贸繁荣但秩序混乱。',80,48],['浪切岛','东方倭寇','七万','50','83','倭寇舰队的前哨岛，修有灯塔、船坞与海上烽火台。',88,34],['青云镇','中立商会','十八万','75','52','中州与南境之间的商道重镇，适合作为新手补给点。',39,56],['龙门渡','中州仙盟','十五万','78','65','控制大河交通的渡口城市，是连接东西势力的战略关口。',62,58],['迷神古城','失落遗迹','未知','未知','未知','半沉入地脉裂隙的古城废墟，没人能确认它是否真实存在。',49,68]];const map=document.querySelector('.map'),ids=['n','f','p','e','d','x'].map(id=>document.getElementById(id));let active;function show(c,b){if(active)active.classList.remove('active');active=b;b.classList.add('active');ids.forEach((el,i)=>el.textContent=c[i])}cities.forEach(c=>{let b=document.createElement('button');b.className='city';b.style.setProperty('--x',c[6]);b.style.setProperty('--y',c[7]);b.dataset.name=c[0];b.onclick=()=>show(c,b);map.appendChild(b)});show(cities[0],document.querySelector('.city'));</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>鬼畜修仙传 · 大世界地图</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 35%, #172235, #030711 72%);
+      color: #f7e8c6;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+    }
+    .map {
+      position: relative;
+      width: min(100vw, calc(100vh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.18)),
+        url("assets/projects/guichu-world-map.png") center / 100% 100% no-repeat,
+        #07101c;
+      box-shadow: 0 0 70px rgba(0,0,0,.8);
+    }
+    .map::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 48%, transparent 55%, rgba(0,0,0,.18)),
+        linear-gradient(90deg, rgba(0,0,0,.18), transparent 18%, transparent 82%, rgba(0,0,0,.18));
+    }
+    .topbar {
+      position: absolute;
+      left: 3%;
+      top: 3%;
+      z-index: 8;
+      padding: 10px 14px;
+      background: rgba(5,8,14,.58);
+      border: 1px solid rgba(243,198,109,.5);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      text-shadow: 0 2px 8px #000;
+    }
+    .topbar a { color: #ffe3a3; text-decoration: none; }
+    .topbar h1 {
+      margin: 5px 0 0;
+      font-size: clamp(18px, 2.5vw, 36px);
+      letter-spacing: .08em;
+    }
+    .city {
+      position: absolute;
+      left: calc(var(--x) * 1%);
+      top: calc(var(--y) * 1%);
+      width: clamp(14px, 1.25vw, 22px);
+      height: clamp(14px, 1.25vw, 22px);
+      transform: translate(-50%, -50%) rotate(-45deg);
+      border-radius: 50% 50% 50% 10%;
+      border: 1px solid #fff0b5;
+      background: radial-gradient(circle, #fff8c6 0 18%, #f3c66d 19% 42%, #8d2b17 43%);
+      box-shadow: 0 0 0 3px rgba(0,0,0,.55), 0 0 18px rgba(255,205,80,.7);
+      cursor: pointer;
+      z-index: 5;
+      transition: scale .15s ease, filter .15s ease, box-shadow .15s ease;
+    }
+    .city:hover, .city.active {
+      filter: brightness(1.5);
+      scale: 1.45;
+      box-shadow: 0 0 0 5px rgba(255,220,100,.28), 0 0 35px #ffd46f;
+      z-index: 12;
+    }
+    .city::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      white-space: nowrap;
+      background: rgba(0,0,0,.74);
+      border: 1px solid #f3c66d;
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: #ffe3a3;
+      font-size: clamp(11px, .8vw, 14px);
+      opacity: 0;
+      pointer-events: none;
+      text-shadow: 0 1px 4px #000;
+    }
+    .city:hover::after, .city.active::after { opacity: 1; }
+    .panel {
+      position: absolute;
+      left: 3.5%;
+      bottom: 4.5%;
+      width: min(390px, 33vw);
+      min-height: 210px;
+      background: rgba(6,10,16,.86);
+      border: 1px solid #f3c66d;
+      box-shadow: 0 18px 50px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
+      padding: 20px;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+    }
+    .kicker { color: #f3c66d; letter-spacing: .22em; font-size: 12px; margin-bottom: 7px; }
+    .panel h2 { margin: 0 0 10px; color: #fff1c4; font-size: clamp(22px, 2vw, 30px); }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .stat { background: rgba(255,255,255,.07); padding: 7px; border: 1px solid rgba(255,255,255,.08); font-size: clamp(12px, .9vw, 14px); }
+    .stat b { color: #f3c66d; }
+    .desc { line-height: 1.65; color: rgba(255,245,216,.88); font-size: clamp(12px, .95vw, 15px); }
+    .hint {
+      position: absolute;
+      right: 3.5%;
+      bottom: 4.5%;
+      z-index: 10;
+      background: rgba(0,0,0,.54);
+      border: 1px solid rgba(243,198,109,.55);
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: rgba(255,238,195,.82);
+      font-size: clamp(11px, .85vw, 13px);
+    }
+    @media (max-width: 760px) {
+      body { overflow: auto; display: block; background: #030711; }
+      .map { width: 100vw; min-height: 100vh; aspect-ratio: auto; background-size: cover; }
+      .panel { width: calc(100vw - 28px); left: 14px; bottom: 14px; }
+      .hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="map">
+    <section class="topbar">
+      <a href="index.html">← 返回首页</a>
+      <h1>鬼畜修仙传 · 大世界地图</h1>
+    </section>
+
+    <section class="panel">
+      <div class="kicker">城市情报</div>
+      <h2 id="cityName">中州皇城</h2>
+      <div class="stats">
+        <div class="stat"><b>所属势力：</b><span id="cityFaction">中州仙盟</span></div>
+        <div class="stat"><b>人口：</b><span id="cityPopulation">八十五万</span></div>
+        <div class="stat"><b>经济：</b><span id="cityEconomy">95</span></div>
+        <div class="stat"><b>防御：</b><span id="cityDefense">90</span></div>
+      </div>
+      <div class="desc" id="cityDesc">九州交通与灵石贸易中心，是主线剧情的核心据点。</div>
+    </section>
+
+    <div class="hint">鼠标悬停高亮，点击城市查看情报</div>
+  </main>
+
+  <script>
+    const cities = [
+      { name: "中州皇城", faction: "中州仙盟", population: "八十五万", economy: "95", defense: "90", x: 50, y: 43, desc: "九州交通与灵石贸易中心，宗门、商会、黑市并存，是主线剧情核心据点。" },
+      { name: "雪岭关", faction: "北方雪原", population: "十二万", economy: "42", defense: "88", x: 55.5, y: 19, desc: "镇守北境的冰原要塞，盛产寒铁与冰魄灵矿。" },
+      { name: "北冥冰宫", faction: "寒霜宗", population: "六万", economy: "55", defense: "92", x: 47.5, y: 12.5, desc: "建于万年玄冰上的宗门圣地，传闻藏有冻结时间的秘法。" },
+      { name: "赤焰城", faction: "西荒火脉", population: "二十六万", economy: "70", defense: "80", x: 18, y: 48.5, desc: "靠近活火山的铸器名城，武器产量惊人。" },
+      { name: "圣辉教廷", faction: "西方教廷", population: "四十万", economy: "86", defense: "94", x: 12, y: 27.5, desc: "西方神权势力的核心圣城，拥有严密骑士团与审判机关。" },
+      { name: "万藤寨", faction: "南方丛林", population: "九万", economy: "58", defense: "68", x: 37, y: 80, desc: "隐藏于巨木与藤桥之间的丛林城寨，擅长药草、蛊术与陷阱。" },
+      { name: "碧泽水寨", faction: "南泽部族", population: "十一万", economy: "63", defense: "60", x: 56.8, y: 77, desc: "河网沼泽中的水上聚落，是走私商与情报贩子的乐园。" },
+      { name: "黑潮港", faction: "东方倭寇", population: "三十二万", economy: "82", defense: "76", x: 79, y: 51, desc: "东方海盗与雇佣武士控制的港口，商贸繁荣但秩序混乱。" },
+      { name: "浪切岛", faction: "东方倭寇", population: "七万", economy: "50", defense: "83", x: 88.5, y: 37, desc: "倭寇舰队的前哨岛，修有灯塔、船坞与海上烽火台。" },
+      { name: "青云镇", faction: "中立商会", population: "十八万", economy: "75", defense: "52", x: 40, y: 53.5, desc: "中州与南境之间的商道重镇，适合作为新手补给点。" },
+      { name: "龙门渡", faction: "中州仙盟", population: "十五万", economy: "78", defense: "65", x: 62, y: 59.5, desc: "控制大河交通的渡口城市，是连接东西势力的战略关口。" },
+      { name: "迷神古城", faction: "失落遗迹", population: "未知", economy: "未知", defense: "未知", x: 49.5, y: 69.5, desc: "半沉入地脉裂隙的古城废墟，没人能确认它是否真实存在。" }
+    ];
+
+    const map = document.querySelector(".map");
+    const refs = {
+      name: document.getElementById("cityName"),
+      faction: document.getElementById("cityFaction"),
+      population: document.getElementById("cityPopulation"),
+      economy: document.getElementById("cityEconomy"),
+      defense: document.getElementById("cityDefense"),
+      desc: document.getElementById("cityDesc")
+    };
+    let activeButton = null;
+
+    function showCity(city, button) {
+      if (activeButton) activeButton.classList.remove("active");
+      activeButton = button;
+      activeButton.classList.add("active");
+      refs.name.textContent = city.name;
+      refs.faction.textContent = city.faction;
+      refs.population.textContent = city.population;
+      refs.economy.textContent = city.economy;
+      refs.defense.textContent = city.defense;
+      refs.desc.textContent = city.desc;
+    }
+
+    cities.forEach((city) => {
+      const button = document.createElement("button");
+      button.className = "city";
+      button.type = "button";
+      button.dataset.name = city.name;
+      button.style.setProperty("--x", city.x);
+      button.style.setProperty("--y", city.y);
+      button.addEventListener("click", () => showCity(city, button));
+      map.appendChild(button);
+    });
+    showCity(cities[0], document.querySelector(".city"));
+  </script>
+</body>
+</html>
