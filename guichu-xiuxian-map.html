@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="鬼畜修仙传的大世界地图页面，可点击城市查看势力、人口、经济与背景设定。"
+  />
   <title>鬼畜修仙传 · 大世界地图</title>
   <style>
     * { box-sizing: border-box; }
@@ -159,7 +163,7 @@
     </div>
 
     <section class="topbar">
-      <a href="index.html">← 返回首页</a>
+      <a href="/index.html">← 返回首页</a>
       <h1>鬼畜修仙传 · 大世界地图</h1>
     </section>
 
@@ -175,7 +179,7 @@
       <div class="desc" id="cityDesc">九州交通与灵石贸易中心，是主线剧情的核心据点。</div>
     </section>
 
-    <div class="hint">鼠标悬停高亮，点击城市查看情报</div>
+    <div class="hint">悬停或点击城市查看情报，移动端可直接点按探索</div>
   </main>
 
   <script>
@@ -222,6 +226,8 @@
       button.className = "city";
       button.type = "button";
       button.dataset.name = city.name;
+      button.title = city.name;
+      button.setAttribute("aria-label", `查看 ${city.name} 情报`);
       button.style.setProperty("--x", city.x);
       button.style.setProperty("--y", city.y);
       button.addEventListener("click", () => showCity(city, button));

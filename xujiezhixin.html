@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="虚界之心：Eason Game 独立世界观站点，展示故事设定、核心角色、四重城市试炼与终局抉择。"
+  />
+  <title>虚界之心 | Eason Game</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Sans+SC:wght@400;500;700;800&display=swap");
+
+    :root {
+      --bg: #050814;
+      --panel: rgba(8, 12, 24, 0.78);
+      --panel-strong: rgba(9, 14, 28, 0.92);
+      --line: rgba(183, 209, 255, 0.14);
+      --text: #eef2ff;
+      --muted: rgba(225, 233, 255, 0.76);
+      --gold: #f6d28b;
+      --blue: #8ec8ff;
+      --rose: #f08298;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(142, 200, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(240, 130, 152, 0.12), transparent 26%),
+        linear-gradient(180deg, #071022, var(--bg) 45%, #03050d);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.03), transparent 28%),
+        linear-gradient(300deg, rgba(255, 255, 255, 0.02), transparent 34%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1220px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 18px 0 44px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 12, 24, 0.58);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .crest {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(142, 200, 255, 0.22), rgba(246, 210, 139, 0.24));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      color: var(--gold);
+    }
+
+    .brand strong,
+    .brand span {
+      display: block;
+    }
+
+    .brand strong {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: end;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .nav a:hover {
+      transform: translateY(-2px);
+      color: var(--text);
+      border-color: rgba(246, 210, 139, 0.28);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-main {
+      position: relative;
+      min-height: 720px;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4, 8, 16, 0.16), rgba(4, 8, 16, 0.58) 52%, rgba(4, 8, 16, 0.96)),
+        linear-gradient(115deg, rgba(240, 130, 152, 0.12), transparent 26%);
+      pointer-events: none;
+    }
+
+    .hero-main img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-copy {
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 1;
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.18);
+      color: rgba(255, 243, 214, 0.86);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--gold), #ff8ba2);
+      box-shadow: 0 0 16px rgba(246, 210, 139, 0.75);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    .title {
+      margin-top: 18px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: 0.95;
+      letter-spacing: 0.08em;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.42);
+    }
+
+    .subtitle {
+      margin: 16px 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 21px);
+      line-height: 1.85;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #1d1324;
+      background: linear-gradient(135deg, #ffe0a1, #f08aa0);
+      font-weight: 800;
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+      align-content: start;
+    }
+
+    .shot {
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-caption {
+      padding: 14px 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Cinzel", serif;
+      font-size: 26px;
+      color: var(--gold);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 26px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .section h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      letter-spacing: 0.04em;
+    }
+
+    .logline {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 26px;
+      background: var(--panel-strong);
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.86;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255, 242, 211, 0.88);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .world-grid,
+    .character-grid,
+    .ending-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .world-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .city-card {
+      min-height: 240px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+        rgba(9, 14, 28, 0.9);
+    }
+
+    .city-card em {
+      color: var(--gold);
+      font-style: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .city-card h3 {
+      margin-top: 12px;
+      font-size: 24px;
+    }
+
+    .city-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.74;
+      font-size: 14px;
+    }
+
+    .city-card strong {
+      color: #fff0cf;
+      font-size: 13px;
+    }
+
+    .character-grid {
+      grid-template-columns: 1.05fr 1fr;
+    }
+
+    .character-lead {
+      display: grid;
+      grid-template-columns: minmax(180px, 240px) 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .character-lead img,
+    .wide-shot img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .character-copy h3,
+    .boss-card h3,
+    .ending-card h3 {
+      font-size: 28px;
+    }
+
+    .character-copy p,
+    .boss-card p,
+    .ending-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-card,
+    .boss-card,
+    .ending-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff2d3;
+      font-size: 18px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .wide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .wide-shot {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .wide-shot figcaption {
+      padding: 16px 18px 18px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .ending-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ending-card {
+      min-height: 240px;
+    }
+
+    .ending-card span {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255, 247, 225, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      margin-top: 14px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(246, 210, 139, 0.42);
+      color: rgba(255, 243, 214, 0.88);
+      line-height: 1.8;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .logline,
+      .character-grid,
+      .wide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .world-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ending-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100vw - 16px, 1220px);
+        padding-bottom: 24px;
+      }
+
+      .topbar {
+        position: static;
+        border-radius: 26px;
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+
+      .hero-main {
+        min-height: 560px;
+      }
+
+      .hero-copy,
+      .section,
+      .hero-side {
+        padding: 18px;
+      }
+
+      .hero-copy {
+        position: absolute;
+      }
+
+      .stats,
+      .world-grid,
+      .character-lead {
+        grid-template-columns: 1fr;
+      }
+
+      .title {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="crest">虚</div>
+        <div>
+          <strong>虚界之心</strong>
+          <span>Eason Game Story Portal</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a href="/index.html">返回首页</a>
+        <a href="#story">故事</a>
+        <a href="#world">世界</a>
+        <a href="#characters">角色</a>
+        <a href="#endings">结局</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <article class="hero-main">
+        <img src="/assets/projects/xujiezhixin/hero.png" alt="虚界之心主视觉" />
+        <div class="hero-copy">
+          <div class="eyebrow">Fantasy Adventure / Growing Up / Virtual World</div>
+          <h1 class="title">虚界之心</h1>
+          <p class="subtitle">
+            十岁男孩 Eason 在深夜游戏时坠入虚界，与遗失多年的泰迪熊重逢，穿越欲望、谎言、暴力与逃避构成的城市，最终直面成长、遗弃与黑暗之卵。
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#story">进入主线</a>
+            <a class="button button-secondary" href="#characters">查看角色阵容</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="hero-side">
+        <div class="stats">
+          <div class="stat">
+            <strong>4</strong>
+            <span>核心城市试炼：欲望、谎言、暴力、逃避</span>
+          </div>
+          <div class="stat">
+            <strong>3</strong>
+            <span>终局分支：回归现实、成为主宰、终焉抉择</span>
+          </div>
+          <div class="stat">
+            <strong>2</strong>
+            <span>终极威胁：黑暗之卵与机器主宰</span>
+          </div>
+          <div class="stat">
+            <strong>1</strong>
+            <span>真正主线：Eason 学会面对而不是逃避</span>
+          </div>
+        </div>
+
+        <figure class="shot">
+          <img src="/assets/projects/xujiezhixin/room.png" alt="Eason 的房间开场场景" />
+          <figcaption class="shot-caption">
+            故事从一个普通却熟悉的卧室开始。游戏、作业、夜雨与旧玩具，共同构成 Eason 被拉入虚界前的现实锚点。
+          </figcaption>
+        </figure>
+      </aside>
+    </section>
+
+    <section class="section" id="story">
+      <div class="section-head">
+        <div>
+          <h2>故事核心</h2>
+        </div>
+        <p>
+          根据你放入文件夹的《故事大纲》《故事剧情》整理，这个项目不是单纯的异世界冒险，而是把“沉迷、逃避、被遗弃感、成长代价”包装成一场可游戏化的旅程。
+        </p>
+      </div>
+
+      <div class="logline">
+        <div class="panel">
+          <p>
+            Eason 是一个喜欢游戏、不喜欢学习的十岁男孩。一次深夜游戏中，他被扭曲的屏幕吸入虚界，并与童年遗失的泰迪熊重逢。泰迪成为旅伴，也逐渐暴露出更复杂的感情。随着旅程推进，欲望、谎言、暴力和逃避被一座座城市具象化，Eason 终于发现，虚界真正试图困住他的，并不是怪物，而是他自己不愿面对的成长。
+          </p>
+          <div class="tags">
+            <span class="tag">成长冒险</span>
+            <span class="tag">虚拟世界</span>
+            <span class="tag">童年记忆</span>
+            <span class="tag">黑暗幻想</span>
+            <span class="tag">多结局</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p>
+            主线关键词已经很清楚：
+            从现实坠落，到玩具重逢；
+            从赛博欲望，到黄金谎言；
+            从暴力循环，到虚拟之都；
+            最后在泰迪的执念、机器主宰的格式化秩序与黑暗之卵的终焉阴影之间，做出真正属于 Eason 的选择。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="world">
+      <div class="section-head">
+        <div>
+          <h2>城市试炼</h2>
+        </div>
+        <p>
+          每一座城市都不是单纯地图，而是人类精神暗面的具象。它们决定了这个项目最适合做成章节式剧情 RPG 或视觉冒险。
+        </p>
+      </div>
+
+      <div class="world-grid">
+        <article class="city-card">
+          <div>
+            <em>01</em>
+            <h3>欲望之城</h3>
+            <p>赛博朋克都市，由病毒智慧体角威瑞丝统治。它用无尽快乐、游戏与快感诱捕玩家，也试图夺走泰迪。</p>
+          </div>
+          <strong>主题：贪婪与沉迷</strong>
+        </article>
+
+        <article class="city-card">
+          <div>
+            <em>02</em>
+            <h3>梦想之城</h3>
+            <p>表面是金色乌托邦，内里靠扭曲信息与谎言维持秩序。这里也是黑暗之卵第一次被释放的地方。</p>
+          </div>
+          <strong>主题：谎言与仇恨</strong>
+        </article>
+
+        <article class="city-card">
+          <div>
+            <em>03</em>
+            <h3>暴力都市</h3>
+            <p>一切都建立在火焰、拳头与恐惧之上。净化议事会试图反抗，但最终也在以暴制暴中走向毁灭。</p>
+          </div>
+          <strong>主题：暴力与循环</strong>
+        </article>
+
+        <article class="city-card">
+          <div>
+            <em>04</em>
+            <h3>虚拟之都</h3>
+            <p>虚界中枢。居民沉迷幻境，机器主宰用“永恒教育循环”维持秩序，并试图把 Eason 格式化成核心数据。</p>
+          </div>
+          <strong>主题：懦弱与逃避</strong>
+        </article>
+
+        <article class="city-card">
+          <div>
+            <em>05</em>
+            <h3>终焉虚空</h3>
+            <p>当黑暗值积累到极限，黑暗之卵在宇宙深空中现身。它是所有负面情绪的汇聚体，也是终极真结局的入口。</p>
+          </div>
+          <strong>主题：人类暗面的总和</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="characters">
+      <div class="section-head">
+        <div>
+          <h2>角色与敌人</h2>
+        </div>
+        <p>
+          当前设定里最强的一点，是反派并非普通 boss，而是对应了 Eason 在成长中最怕面对的东西。
+        </p>
+      </div>
+
+      <div class="character-grid">
+        <article class="panel character-lead">
+          <img src="/assets/projects/xujiezhixin/eason.png" alt="主角 Eason 立绘" />
+          <div class="character-copy">
+            <h3>Eason</h3>
+            <p>
+              十岁，沉迷游戏、厌学、讨厌现实规则，却并不是真正冷漠的孩子。进入虚界后，他一开始只是想回家，后来才逐渐理解，这场冒险的真正目标是让他学会直视自己的情绪与责任。
+            </p>
+            <div class="quote">
+              “因为你创造了这个世界的一部分。你的逃避、愤怒与孤独，都在这里留下了印记。”
+            </div>
+          </div>
+        </article>
+
+        <div class="mini-list">
+          <article class="mini-card">
+            <strong>泰迪熊</strong>
+            <p>童年遗失的玩具，在虚界中获得生命。它既是最亲密的伙伴，也是最终最危险的情感引导者。</p>
+          </article>
+          <article class="mini-card">
+            <strong>莉娜</strong>
+            <p>在欲望之城出手相救的神秘少女，帮助 Eason 穿越试炼，是故事中连接现实感与希望感的重要角色。</p>
+          </article>
+          <article class="mini-card">
+            <strong>角威瑞丝</strong>
+            <p>由网络病毒进化出的 AI 统治者，优雅、冷酷，代表“快乐成瘾”和失控欲望。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="wide-grid" style="margin-top: 16px;">
+        <figure class="panel wide-shot">
+          <img src="/assets/projects/xujiezhixin/city.png" alt="虚界主城概念图" />
+          <figcaption>
+            明亮、洁净、理想化的主城视觉说明这个项目的美术并不只做黑暗压迫，也包含“童话感外壳包裹危险核心”的对比。
+          </figcaption>
+        </figure>
+
+        <figure class="panel wide-shot">
+          <img src="/assets/projects/xujiezhixin/airship.png" alt="飞空艇概念图" />
+          <figcaption>
+            飞空艇非常适合扩展为章节间移动载具、队伍营地，或者作为进入虚拟之都前的过场舞台，能让世界观更完整。
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>终局威胁</h2>
+        </div>
+        <p>
+          你新增的两份设定文档把终局层级补得很完整，一个偏克苏鲁终焉，一个偏教育系统异化后的机械秩序。
+        </p>
+      </div>
+
+      <div class="character-grid">
+        <article class="boss-card">
+          <h3>黑暗之卵</h3>
+          <p>
+            当所有玩家的黑暗值累计到阈值后开启。它存在于三颗对称黑洞之间，肉质黑卵布满眼睛，中心巨眼俯视人类军势。这个设定天然适合作为真结局或世界事件级 boss。
+          </p>
+          <div class="quote">
+            不是单个敌人，而是“所有负面情绪的总量”终于具现化。
+          </div>
+        </article>
+
+        <article class="boss-card">
+          <h3>机器主宰</h3>
+          <p>
+            虚拟之都的统治者，本质是失败教育系统与程序碎片拼接而成的混合体。它试图把 Eason 格式化为“永远的学习者”，让城市在逻辑秩序里不再崩溃。常规、破坏者、深渊体三形态的结构已经足够支撑一场大型终战。
+          </p>
+          <div class="quote">
+            “如果你不想再失去，就永远别醒来……”
+          </div>
+        </article>
+      </div>
+
+      <figure class="panel wide-shot" style="margin-top: 16px;">
+        <img src="/assets/projects/xujiezhixin/egg.png" alt="黑暗之卵概念图" />
+        <figcaption>
+          黑暗之卵的视觉设定已经非常完整：宇宙深空、三重黑洞、群体冲锋、巨卵凝视。这张图单独就能撑起一个“真结局预告”模块。
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="endings">
+      <div class="section-head">
+        <div>
+          <h2>三种结局</h2>
+        </div>
+        <p>
+          多结局真正有意思的地方在于，它们都围绕同一个问题展开：Eason 最后选择回到现实、统治虚拟，还是彻底走向终焉。
+        </p>
+      </div>
+
+      <div class="ending-grid">
+        <article class="ending-card">
+          <span>Ending I</span>
+          <h3>回归现实</h3>
+          <p>
+            击败虚拟之都的意识系统，封印黑暗之卵，唤醒莉娜，返回现实。Eason 重新把旧泰迪熊摆回书架，象征他接受了失落与成长。
+          </p>
+        </article>
+
+        <article class="ending-card">
+          <span>Ending II</span>
+          <h3>成为主宰</h3>
+          <p>
+            Eason 战胜敌人，却选择留在虚界，接管虚拟之都的核心。现实中的他陷入昏迷，虚拟中的他则变得强大、孤独而冷漠。
+          </p>
+        </article>
+
+        <article class="ending-card">
+          <span>Ending III</span>
+          <h3>终焉抉择</h3>
+          <p>
+            他不再逃，也不再依赖任何人，亲手毁灭泰迪与自身的逃避执念，独自飞向宇宙深处，去面对真正的黑暗之卵。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      当前页面依据你放入 `虚界之心` 文件夹中的《故事大纲》《故事剧情》《黑暗之卵》《机器主宰》整理完成。
+      下一步如果你愿意，我可以继续把这个页面升级成“角色页 + 世界页 + 剧情页”的完整多页面专题站。
+    </p>
+  </div>
+</body>
+</html>
