@@ -472,31 +472,31 @@
 
   <main>
     <section class="hero">
-      <div class="eyebrow">Eason Game Portal</div>
+      <div class="eyebrow">Eason Game</div>
       <div class="hero-grid">
         <div>
           <h1>EASON GAME</h1>
           <p class="lead">
-            个人游戏世界入口，集中展示世界观设定、交互地图与可玩原型。现在已经可以直接进入修仙地图和生存小游戏。
+            个人游戏世界入口，集中展示世界观设定、交互地图与可玩原型。
           </p>
           <div class="stats" aria-label="站点统计">
             <div class="stat">
               <strong>4</strong>
-              <span>当前项目卡片</span>
+              <span>正在陈列的项目</span>
             </div>
             <div class="stat">
               <strong>2</strong>
-              <span>可直接体验页面</span>
+              <span>可直接进入的页面</span>
             </div>
             <div class="stat">
               <strong>1</strong>
-              <span>自定义域名已启用</span>
+              <span>世界入口主站</span>
             </div>
           </div>
         </div>
 
         <aside class="hero-note">
-          <p>这个站点目前走的是“作品入口页”路线：轻量、直接、可快速上线新概念页。</p>
+          <p>从这里进入不同的项目世界，查看设定、探索地图，或直接开始一场小游戏挑战。</p>
           <div class="actions">
             <a class="button button-primary" href="/guichu-xiuxian-map.html">进入世界地图</a>
             <a class="button button-secondary" href="/game.html">开始小游戏</a>
@@ -512,7 +512,7 @@
       <div class="section-head">
         <div>
           <h2 id="projectsTitle">项目陈列</h2>
-          <p>已上线的页面会直接进入；开发中的项目保留视觉卡片，避免点开后落到空链接。</p>
+          <p>已经开放的项目可以直接进入，更多世界会在这里继续展开。</p>
         </div>
       </div>
       <div class="grid" id="projectGrid"></div>
@@ -534,7 +534,7 @@
     const projects = [
       {
         title: "虚界之心",
-        subtitle: "Story Portal",
+        subtitle: "剧情设定页",
         status: "进入世界",
         description: "查看主线大纲、城市试炼、核心角色与三种终局设定。",
         image: "/assets/projects/xujiezhixin/hero.png?v=20260523b",
@@ -543,7 +543,7 @@
       },
       {
         title: "鬼畜修仙传",
-        subtitle: "Cultivation RPG",
+        subtitle: "修仙世界地图",
         status: "立即进入",
         description: "浏览大世界地图，查看州域、势力与核心城市设定。",
         image: "/assets/projects/guichu-xiuxian-cover.png?v=20260519c",
@@ -552,7 +552,7 @@
       },
       {
         title: "躲避小游戏",
-        subtitle: "Arcade Survival",
+        subtitle: "生存挑战",
         status: "开始挑战",
         description: "30 秒生存挑战，支持鼠标、触摸和键盘操作。",
         image: "/easongame2.png",
@@ -561,7 +561,7 @@
       },
       {
         title: "巴比伦",
-        subtitle: "Cyber Myth",
+        subtitle: "赛博神话",
         status: "开发中",
         description: "赛博神话题材概念页，保留预告视觉，等待后续内容接入。",
         image: "/assets/projects/babylon-cover.png?v=20260519c"
@@ -595,7 +595,7 @@
           </div>
           <h3>${project.title}</h3>
           <p>${project.description}</p>
-          <small>${project.href ? "Click to enter" : "Coming soon"}</small>
+          <small>${project.href ? "进入项目" : "敬请期待"}</small>
         </div>
       `;
 

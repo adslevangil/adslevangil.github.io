@@ -283,7 +283,7 @@
 
       <div class="overlay" id="overlay">
         <div class="panel">
-          <span>Arcade Survival</span>
+          <span>生存挑战</span>
           <h1 id="panelTitle">躲避小游戏</h1>
           <p id="panelCopy">
             在弹幕中生存 30 秒。鼠标或手指可以直接引导方块移动，键盘也可微调走位。
@@ -520,7 +520,7 @@
 
       if (result === "win") {
         announce(`成功通关，生存 ${GAME_DURATION.toFixed(0)} 秒。`);
-        openOverlay("成功通关", "你撑满了 30 秒，下一步可以继续挑战更高的最佳成绩。", "再来一局");
+        openOverlay("成功通关", "你撑满了 30 秒，现在可以继续挑战更高的最佳成绩。", "再来一局");
       } else {
         announce(`挑战失败，生存 ${survived.toFixed(1)} 秒。`);
         openOverlay("游戏失败", `这次坚持了 ${survived.toFixed(1)} 秒。调整走位，再试一次。`, "重新开始");
