@@ -5,34 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="LaLaLaBuy 是一个面向海外用户的多语言怪商品代购电商平台概念展示页，演示从中文商品链接到多语言商品页面的产品方案。"
+    content="LaLaLaBuy 临时电商首页，展示新奇、诡异、不寻常商品，并提供搞怪度、稀有度、综合评分和卖家评分。"
   />
-  <title>LaLaLaBuy | Weird Goods, Translated for the World</title>
+  <title>LaLaLaBuy | 新奇怪商品电商平台</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
     :root {
-      --ink: #20110d;
-      --ink-soft: rgba(32, 17, 13, 0.72);
-      --paper: #fff8ea;
-      --paper-strong: #fffdf6;
-      --line: rgba(32, 17, 13, 0.16);
-      --coral: #ff6848;
-      --sun: #ffc84d;
-      --acid: #b6f25a;
-      --mint: #62d6a4;
-      --blue: #4aa7ff;
-      --lilac: #cab8ff;
-      --shadow: 0 24px 70px rgba(87, 46, 18, 0.18);
-      --hard-shadow: 8px 8px 0 rgba(32, 17, 13, 0.12);
+      --ink: #16120f;
+      --muted: #62574e;
+      --line: #e2d7c8;
+      --paper: #fffaf0;
+      --card: #ffffff;
+      --nav: #151f2e;
+      --nav-2: #223248;
+      --gold: #ffbf3f;
+      --orange: #ff7a3d;
+      --green: #16a36a;
+      --blue: #2476d8;
+      --red: #e84b3c;
+      --shadow: 0 16px 45px rgba(55, 38, 22, 0.12);
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -40,167 +36,185 @@
       color: var(--ink);
       font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
       background:
-        radial-gradient(circle at 10% 10%, rgba(255, 104, 72, 0.28), transparent 25%),
-        radial-gradient(circle at 90% 4%, rgba(74, 167, 255, 0.24), transparent 24%),
-        radial-gradient(circle at 80% 72%, rgba(182, 242, 90, 0.28), transparent 24%),
-        linear-gradient(135deg, #fff1bd 0%, #fff8ea 48%, #ffd9ca 100%);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(32, 17, 13, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(32, 17, 13, 0.05) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 78%);
-      pointer-events: none;
+        radial-gradient(circle at 8% 8%, rgba(255, 191, 63, 0.22), transparent 24%),
+        radial-gradient(circle at 92% 14%, rgba(36, 118, 216, 0.16), transparent 22%),
+        linear-gradient(180deg, #fff3d0 0, #f7efe4 330px, #f4efe8 100%);
     }
 
     a {
       color: inherit;
-    }
-
-    .page {
-      position: relative;
-      width: min(1220px, calc(100vw - 32px));
-      margin: 0 auto;
-      padding: 18px 0 56px;
+      text-decoration: none;
     }
 
     .topbar {
       position: sticky;
-      top: 14px;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 16px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: rgba(255, 248, 234, 0.82);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--hard-shadow);
+      top: 0;
+      z-index: 40;
+      background: var(--nav);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-      text-decoration: none;
-    }
-
-    .mark {
-      width: 46px;
-      height: 46px;
+    .topbar-main {
+      width: min(1420px, calc(100vw - 28px));
+      margin: 0 auto;
       display: grid;
-      place-items: center;
-      border: 2px solid var(--ink);
-      border-radius: 16px;
-      background: var(--sun);
-      font-family: "Archivo Black", sans-serif;
-      transform: rotate(-7deg);
-      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.1);
+      grid-template-columns: auto minmax(280px, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 13px 0;
     }
 
-    .brand strong,
-    .brand span {
-      display: block;
-    }
-
-    .brand strong {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 17px;
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      color: var(--ink-soft);
-      font-size: 12px;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-
-    .nav a,
-    .button {
+    .logo {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 10px 14px;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--paper-strong);
-      color: var(--ink);
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.11);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      gap: 10px;
+      min-width: max-content;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 25px;
+      letter-spacing: -0.05em;
     }
 
-    .nav a:hover,
-    .button:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0 rgba(32, 17, 13, 0.14);
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #fff;
+      border-radius: 12px;
+      background: var(--gold);
+      color: var(--ink);
+      transform: rotate(-7deg);
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr) 64px;
+      min-height: 44px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .search:focus-within {
+      border-color: var(--gold);
+    }
+
+    .search select,
+    .search input,
+    .search button {
+      border: 0;
+      font: inherit;
+    }
+
+    .search select {
+      padding: 0 12px;
+      color: #2c2722;
+      background: #eee4d8;
+    }
+
+    .search input {
+      min-width: 0;
+      padding: 0 14px;
+      outline: 0;
+    }
+
+    .search button {
+      cursor: pointer;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      min-width: max-content;
+      font-size: 13px;
+    }
+
+    .top-actions strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+    }
+
+    .subnav {
+      background: var(--nav-2);
+    }
+
+    .subnav-inner {
+      width: min(1420px, calc(100vw - 28px));
+      margin: 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      overflow-x: auto;
+      padding: 10px 0;
+      color: rgba(255, 255, 255, 0.92);
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .subnav b {
+      color: #fff;
+    }
+
+    main {
+      width: min(1420px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
-      gap: 26px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(310px, 0.75fr);
+      gap: 18px;
       align-items: stretch;
-      padding: 46px 0 28px;
     }
 
-    .hero-copy,
-    .monster-card,
-    .panel,
-    .flow,
-    .feature,
-    .roadmap,
-    .note {
-      border: 2px solid var(--ink);
-      border-radius: 34px;
-      background: rgba(255, 248, 234, 0.86);
-      box-shadow: var(--shadow), var(--hard-shadow);
-    }
-
-    .hero-copy {
+    .hero-banner {
       position: relative;
+      min-height: 360px;
       overflow: hidden;
-      padding: clamp(28px, 4.5vw, 54px);
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.45), transparent 20%),
+        linear-gradient(135deg, #ffcf52, #ff7a3d 52%, #293a57);
+      color: #fff;
+      box-shadow: var(--shadow);
     }
 
-    .hero-copy::after {
-      content: "怪";
+    .hero-banner::after {
+      content: "?";
       position: absolute;
-      right: -8px;
-      bottom: -60px;
-      color: rgba(255, 104, 72, 0.13);
-      font-size: clamp(140px, 23vw, 260px);
-      font-weight: 900;
+      right: 42px;
+      bottom: -62px;
+      color: rgba(255, 255, 255, 0.18);
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(180px, 24vw, 320px);
       line-height: 1;
-      pointer-events: none;
+      transform: rotate(8deg);
     }
 
     .eyebrow {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
       margin-bottom: 18px;
       padding: 8px 12px;
-      border: 2px solid var(--ink);
+      border: 2px solid rgba(255, 255, 255, 0.85);
       border-radius: 999px;
-      background: var(--acid);
+      background: rgba(0, 0, 0, 0.16);
       font-size: 12px;
       font-weight: 900;
       letter-spacing: 0.12em;
@@ -217,38 +231,24 @@
     h1 {
       position: relative;
       z-index: 1;
-      max-width: 860px;
-      margin-bottom: 18px;
+      max-width: 800px;
+      margin-bottom: 16px;
       font-family: "Archivo Black", "Noto Sans SC", sans-serif;
-      font-size: clamp(52px, 8.6vw, 112px);
-      line-height: 0.9;
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: 0.92;
       letter-spacing: -0.07em;
-    }
-
-    h2 {
-      font-family: "Archivo Black", "Noto Sans SC", sans-serif;
-      font-size: clamp(32px, 5vw, 60px);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
-      line-height: 1.15;
     }
 
     .lead {
       position: relative;
       z-index: 1;
-      max-width: 680px;
-      margin-bottom: 0;
-      color: var(--ink-soft);
-      font-size: clamp(18px, 2vw, 23px);
+      max-width: 660px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(17px, 2vw, 22px);
       line-height: 1.72;
     }
 
-    .actions {
+    .hero-actions {
       position: relative;
       z-index: 1;
       display: flex;
@@ -257,107 +257,81 @@
       margin-top: 28px;
     }
 
-    .button-primary {
-      background: var(--coral);
-      color: #fffdf7;
-    }
-
-    .button-secondary {
-      background: var(--sun);
-    }
-
-    .monster-card {
-      position: relative;
-      min-height: 540px;
-      overflow: hidden;
-      padding: 24px;
-      background:
-        radial-gradient(circle at 25% 18%, rgba(255, 200, 77, 0.62), transparent 22%),
-        radial-gradient(circle at 78% 24%, rgba(98, 214, 164, 0.42), transparent 20%),
-        linear-gradient(180deg, #fff7dc, #ffd5c8);
-    }
-
-    .product-ticket,
-    .score-board,
-    .floating-tag {
-      position: absolute;
-      border: 2px solid var(--ink);
-      box-shadow: 8px 8px 0 rgba(32, 17, 13, 0.12);
-    }
-
-    .product-ticket {
-      top: 34px;
-      left: 34px;
-      width: min(330px, calc(100% - 68px));
-      padding: 20px;
-      border-radius: 22px;
-      background: #fffdf5;
-      transform: rotate(-4deg);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .product-ticket h2 {
-      margin-bottom: 12px;
-      font-size: 30px;
-      letter-spacing: -0.04em;
-    }
-
-    .ticket-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 9px 0;
-      border-bottom: 1px dashed rgba(32, 17, 13, 0.24);
-      color: var(--ink-soft);
-      font-size: 14px;
-    }
-
-    .score-board {
-      right: 28px;
-      bottom: 38px;
-      width: min(340px, calc(100% - 56px));
-      padding: 24px;
-      border-radius: 30px;
-      background: var(--blue);
-      color: #fff;
-      transform: rotate(3deg);
-      animation: bob 4.8s ease-in-out infinite;
-    }
-
-    .score-board strong {
-      display: block;
-      margin-bottom: 12px;
-      font-family: "Archivo Black", sans-serif;
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 0.9;
-      text-shadow: 3px 3px 0 rgba(32, 17, 13, 0.22);
-    }
-
-    .meter {
-      height: 12px;
-      margin-top: 8px;
-      overflow: hidden;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
       border: 2px solid var(--ink);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.42);
-    }
-
-    .meter span {
-      display: block;
-      height: 100%;
-      border-right: 2px solid var(--ink);
-      background: var(--sun);
-    }
-
-    .floating-tag {
-      right: 30px;
-      top: 82px;
-      padding: 12px 16px;
-      border-radius: 18px;
-      background: var(--coral);
-      color: #fffdf7;
+      background: #fff;
+      color: var(--ink);
       font-weight: 900;
-      transform: rotate(10deg);
+      box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    .button.primary {
+      background: var(--gold);
+    }
+
+    .side-deal {
+      display: grid;
+      gap: 14px;
+    }
+
+    .deal-card,
+    .mini-card,
+    .section,
+    .filter-card,
+    .product-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .deal-card {
+      min-height: 210px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(255, 191, 63, 0.34), transparent 36%),
+        #fff;
+    }
+
+    .deal-card h2 {
+      margin-bottom: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 27px;
+      line-height: 1.1;
+    }
+
+    .deal-card p,
+    .mini-card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      min-height: 136px;
+      padding: 16px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 7px;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 20px;
     }
 
     .section-head {
@@ -365,654 +339,748 @@
       justify-content: space-between;
       align-items: end;
       gap: 18px;
-      margin: 24px 0 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      letter-spacing: -0.04em;
     }
 
     .section-head p {
-      max-width: 560px;
+      max-width: 600px;
       margin-bottom: 0;
-      color: var(--ink-soft);
-      line-height: 1.72;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
-    .stats {
+    .category-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .category {
+      min-height: 132px;
+      padding: 16px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 88% 16%, rgba(255, 191, 63, 0.48), transparent 28%),
+        #f7fbff;
+      border: 1px solid #dfebf8;
+    }
+
+    .category:nth-child(2n) {
+      background:
+        radial-gradient(circle at 88% 16%, rgba(255, 122, 61, 0.28), transparent 30%),
+        #fff8ee;
+    }
+
+    .category b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .category span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .filter-card {
+      position: sticky;
+      top: 118px;
+      padding: 18px;
+    }
+
+    .filter-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .filter-group {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .filter-group:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .filter-group b {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 14px;
+    }
+
+    .check {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fake-box {
+      width: 16px;
+      height: 16px;
+      display: inline-grid;
+      place-items: center;
+      border: 2px solid #938678;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .stat {
-      min-height: 170px;
-      padding: 20px;
-      border: 2px solid var(--ink);
-      border-radius: 28px;
-      background: var(--paper-strong);
-      box-shadow: 6px 6px 0 rgba(32, 17, 13, 0.1);
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: 10px;
-      font-family: "Archivo Black", sans-serif;
-      font-size: 34px;
-      letter-spacing: -0.05em;
-    }
-
-    .stat span {
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    .panel-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .panel {
-      position: relative;
-      min-height: 260px;
+    .product-card {
       overflow: hidden;
-      padding: 24px;
-      transition: transform 0.2s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .panel:hover {
-      transform: translateY(-6px) rotate(-1deg);
-    }
-
-    .panel:nth-child(2n) {
-      background: #eafff3;
-    }
-
-    .panel:nth-child(3n) {
-      background: #e9f4ff;
-    }
-
-    .number {
-      display: inline-grid;
-      place-items: center;
-      width: 46px;
-      height: 46px;
-      margin-bottom: 24px;
-      border: 2px solid var(--ink);
-      border-radius: 16px;
-      background: var(--sun);
-      font-family: "Archivo Black", sans-serif;
-      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.12);
-    }
-
-    .panel p,
-    .feature p,
-    .roadmap p,
-    .note p {
-      margin-bottom: 0;
-      color: var(--ink-soft);
-      line-height: 1.75;
-    }
-
-    .flow {
-      padding: 24px;
-    }
-
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .flow-step {
-      position: relative;
-      min-height: 190px;
-      padding: 18px;
-      border: 2px solid var(--ink);
-      border-radius: 24px;
-      background: var(--paper-strong);
-    }
-
-    .flow-step::after {
-      content: "->";
-      position: absolute;
-      right: -18px;
-      top: 50%;
-      z-index: 2;
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--acid);
-      font-family: "Archivo Black", sans-serif;
-      transform: translateY(-50%);
-    }
-
-    .flow-step:last-child::after {
-      display: none;
-    }
-
-    .flow-step b {
-      display: block;
-      margin-bottom: 12px;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product {
-      overflow: hidden;
-      border: 2px solid var(--ink);
-      border-radius: 28px;
-      background: var(--paper-strong);
-      box-shadow: 6px 6px 0 rgba(32, 17, 13, 0.1);
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(55, 38, 22, 0.18);
     }
 
     .product-art {
-      min-height: 170px;
+      position: relative;
+      min-height: 210px;
       display: grid;
       place-items: center;
-      border-bottom: 2px solid var(--ink);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 22%),
-        linear-gradient(135deg, var(--sun), var(--coral));
-      color: rgba(32, 17, 13, 0.74);
+        radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.68), transparent 20%),
+        linear-gradient(135deg, #ffe08a, #ff7a3d);
       font-family: "Archivo Black", sans-serif;
-      font-size: 58px;
+      font-size: 62px;
+      color: rgba(22, 18, 15, 0.72);
     }
 
-    .product:nth-child(2) .product-art {
-      background: linear-gradient(135deg, var(--mint), var(--blue));
+    .product-card:nth-child(2) .product-art,
+    .product-card:nth-child(6) .product-art {
+      background: linear-gradient(135deg, #c8f7ff, #2476d8);
+      color: rgba(255, 255, 255, 0.92);
     }
 
-    .product:nth-child(3) .product-art {
-      background: linear-gradient(135deg, var(--lilac), var(--acid));
+    .product-card:nth-child(3) .product-art,
+    .product-card:nth-child(7) .product-art {
+      background: linear-gradient(135deg, #d7ffc2, #16a36a);
+    }
+
+    .product-card:nth-child(4) .product-art,
+    .product-card:nth-child(8) .product-art {
+      background: linear-gradient(135deg, #f5d6ff, #ffbf3f);
+    }
+
+    .badge {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
     }
 
     .product-body {
-      padding: 20px;
+      padding: 16px;
     }
 
-    .chips {
+    .product-title {
+      min-height: 48px;
+      margin-bottom: 9px;
+      font-size: 16px;
+      line-height: 1.42;
+    }
+
+    .score-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0 0;
+      gap: 7px;
+      margin: 9px 0;
     }
 
-    .chip {
+    .score {
       display: inline-flex;
       align-items: center;
-      min-height: 30px;
-      padding: 6px 10px;
-      border: 2px solid var(--ink);
+      gap: 5px;
+      min-height: 28px;
+      padding: 5px 8px;
       border-radius: 999px;
-      background: #fff;
+      background: #fff5df;
+      color: #6d4312;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .feature-grid {
+    .score.rare {
+      background: #eaf3ff;
+      color: #174f95;
+    }
+
+    .score.total {
+      background: #eefbe9;
+      color: #13633f;
+    }
+
+    .stars {
+      color: #f3a800;
+      font-size: 14px;
+      letter-spacing: -0.08em;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .price strong {
+      font-size: 24px;
+      letter-spacing: -0.04em;
+    }
+
+    .price span {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .seller {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: #f8f5ef;
+      border: 1px solid #e8ded2;
+      font-size: 13px;
+    }
+
+    .seller strong {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .seller-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 6px;
+      color: var(--muted);
     }
 
-    .feature {
-      padding: 24px;
-    }
-
-    .feature ul {
-      display: grid;
-      gap: 10px;
-      margin: 16px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .feature li {
+    .seller-grid span {
       display: flex;
-      gap: 10px;
-      color: var(--ink-soft);
-      line-height: 1.55;
+      justify-content: space-between;
+      gap: 6px;
     }
 
-    .feature li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      flex: 0 0 auto;
-      margin-top: 8px;
-      border: 2px solid var(--ink);
+    .add {
+      width: 100%;
+      min-height: 38px;
+      margin-top: 13px;
+      border: 0;
       border-radius: 999px;
-      background: var(--coral);
+      background: var(--gold);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
     }
 
-    .roadmap {
-      padding: 24px;
-    }
-
-    .roadmap-grid {
+    .info-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .phase {
-      min-height: 210px;
-      padding: 18px;
-      border: 2px solid var(--ink);
-      border-radius: 24px;
-      background: #fffdf6;
+    .info-card {
+      min-height: 190px;
+      padding: 20px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
     }
 
-    .phase b {
+    .info-card b {
       display: inline-flex;
-      margin-bottom: 12px;
-      padding: 5px 9px;
-      border: 2px solid var(--ink);
+      margin-bottom: 14px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: var(--sun);
+      background: #eef4ff;
+      color: var(--blue);
       font-size: 12px;
     }
 
-    .note {
-      margin-top: 28px;
-      padding: 22px 24px;
-      background: var(--ink);
-      color: #fff8ea;
+    .info-card p {
+      color: var(--muted);
+      line-height: 1.65;
     }
 
-    .note p {
-      color: rgba(255, 248, 234, 0.76);
+    .temporary {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #1f2937;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.7;
     }
 
-    .marquee {
-      display: flex;
-      gap: 14px;
-      margin-top: 28px;
-      overflow: hidden;
-      border: 2px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: #fff8ea;
+    .temporary strong {
+      color: #fff;
     }
 
-    .marquee-track {
-      display: flex;
-      min-width: max-content;
-      gap: 14px;
-      padding: 12px 0;
-      animation: scroll 20s linear infinite;
-    }
+    @media (max-width: 1180px) {
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
-    .marquee span {
-      font-family: "Archivo Black", sans-serif;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-
-    @keyframes float {
-      50% {
-        transform: translateY(12px) rotate(-2deg);
+      .category-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
-    @keyframes bob {
-      50% {
-        transform: translateY(-12px) rotate(2deg);
-      }
-    }
-
-    @keyframes scroll {
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (max-width: 1060px) {
+    @media (max-width: 920px) {
+      .topbar-main,
       .hero,
-      .feature-grid {
+      .shop-layout,
+      .info-grid {
         grid-template-columns: 1fr;
       }
 
-      .stats,
-      .panel-grid,
-      .catalog {
+      .top-actions {
+        justify-content: space-between;
+      }
+
+      .filter-card {
+        position: static;
+      }
+
+      .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .flow-grid,
-      .roadmap-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flow-step::after {
-        right: auto;
-        top: auto;
-        left: 50%;
-        bottom: -22px;
-        transform: translateX(-50%) rotate(90deg);
-      }
     }
 
-    @media (max-width: 680px) {
-      .page {
-        width: min(100vw - 22px, 1220px);
-        padding-top: 10px;
+    @media (max-width: 620px) {
+      .search {
+        grid-template-columns: 1fr 52px;
       }
 
-      .topbar {
-        align-items: stretch;
-        border-radius: 26px;
-        flex-direction: column;
+      .search select {
+        display: none;
       }
 
-      .nav {
-        justify-content: stretch;
+      .top-actions {
+        display: none;
       }
 
-      .nav a {
-        flex: 1;
-      }
-
-      .hero {
-        padding-top: 24px;
-      }
-
-      .monster-card {
-        min-height: 560px;
-      }
-
-      .stats,
-      .panel-grid,
-      .catalog {
+      .category-strip,
+      .product-grid {
         grid-template-columns: 1fr;
       }
 
-      .section-head {
-        align-items: start;
-        flex-direction: column;
+      .hero-banner {
+        min-height: 420px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="返回 Eason Game 首页">
-        <span class="mark">L</span>
-        <span>
-          <strong>LaLaLaBuy</strong>
-          <span>多语言怪商品代购平台</span>
-        </span>
+  <header class="topbar">
+    <div class="topbar-main">
+      <a class="logo" href="/" aria-label="LaLaLaBuy 首页">
+        <span class="logo-mark">L</span>
+        <span>LaLaLaBuy</span>
       </a>
-      <nav class="nav" aria-label="页面导航">
-        <a href="#concept">定位</a>
-        <a href="#flow">流程</a>
-        <a href="#mvp">MVP</a>
-        <a href="#roadmap">路线图</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <span class="eyebrow">Temporary business demo</span>
-          <h1>Weird goods, translated for the world.</h1>
-          <p class="lead">
-            LaLaLaBuy 是一个面向海外用户的多语言怪商品代购电商平台。用户复制淘宝、天猫、京东等中文商品链接，系统自动生成英文、日文等本地化商品页，让海外买家看得懂、搜得到、买得起。
-          </p>
-          <div class="actions">
-            <a class="button button-primary" href="#flow">查看产品流程</a>
-            <a class="button button-secondary" href="#catalog">浏览临时栏目</a>
-          </div>
-        </div>
+      <form class="search" role="search">
+        <select aria-label="选择分类">
+          <option>全部怪商品</option>
+          <option>搞怪玩具</option>
+          <option>诡异家居</option>
+          <option>不明用途</option>
+        </select>
+        <input aria-label="搜索商品" placeholder="搜索尖叫鸡、怪灯、奇葩礼物、不明用途商品..." />
+        <button type="submit" aria-label="搜索">⌕</button>
+      </form>
 
-        <aside class="monster-card" aria-label="LaLaLaBuy 怪商品评分卡">
-          <div class="product-ticket">
-            <h2>Screaming Chicken Stress Toy</h2>
-            <div class="ticket-row"><span>Source</span><strong>Taobao Link</strong></div>
-            <div class="ticket-row"><span>Languages</span><strong>EN / JA / CN</strong></div>
-            <div class="ticket-row"><span>Seller</span><strong>Weird Supply Lab</strong></div>
-            <div class="ticket-row"><span>Demo price</span><strong>$14.99</strong></div>
-          </div>
-          <div class="floating-tag">怪物指数 89</div>
-          <div class="score-board">
-            <strong>Monster Index</strong>
-            <span>搞怪度 4.8 / 5</span>
-            <div class="meter" aria-hidden="true"><span style="width: 96%"></span></div>
-            <span>稀有度 4.2 / 5</span>
-            <div class="meter" aria-hidden="true"><span style="width: 84%"></span></div>
-          </div>
-        </aside>
-      </section>
+      <div class="top-actions" aria-label="账户入口">
+        <span>配送至<br /><strong>United States</strong></span>
+        <span>你好，请登录<br /><strong>账户与订单</strong></span>
+        <span class="cart">购物车 <strong>0</strong></span>
+      </div>
+    </div>
 
-      <section id="concept" aria-labelledby="conceptTitle">
-        <div class="section-head">
-          <h2 id="conceptTitle">不是普通导购，也不是传统自营电商。</h2>
-          <p>平台价值不是备货，而是把中文电商里的新奇、诡异、搞怪、稀有商品，转化成海外用户能理解和购买的本地语言商品页面。</p>
-        </div>
+    <nav class="subnav" aria-label="商品分类导航">
+      <div class="subnav-inner">
+        <b>全部分类</b>
+        <a href="#products">今日最怪</a>
+        <a href="#products">本周最稀有</a>
+        <a href="#products">最适合送礼</a>
+        <a href="#products">诡异家居</a>
+        <a href="#products">办公室整蛊</a>
+        <a href="#products">赛博小玩意</a>
+        <a href="#products">不明用途商品</a>
+      </div>
+    </nav>
+  </header>
 
-        <div class="stats">
-          <article class="stat">
-            <strong>8-15%</strong>
-            <span>临时展示佣金模型：每笔订单抽取平台交易佣金，支付手续费另算。</span>
-          </article>
-          <article class="stat">
-            <strong>EN/JA</strong>
-            <span>MVP 优先支持英语、日语和中文后台原文，后续扩展更多语言。</span>
-          </article>
-          <article class="stat">
-            <strong>300+</strong>
-            <span>初期建议人工挑选 300-1000 个种子怪商品，先建立平台调性。</span>
-          </article>
-          <article class="stat">
-            <strong>89/100</strong>
-            <span>怪物指数 = 搞怪度 60% + 稀有度 40%，形成平台特色排名依据。</span>
-          </article>
-        </div>
-      </section>
-
-      <section id="catalog" aria-labelledby="catalogTitle">
-        <div class="section-head">
-          <h2 id="catalogTitle">首页应该像一个怪商品内容频道。</h2>
-          <p>临时栏目围绕“怪、有趣、少见、能分享”展开，而不是普通商品列表。</p>
-        </div>
-
-        <div class="catalog">
-          <article class="product">
-            <div class="product-art" aria-hidden="true">!</div>
-            <div class="product-body">
-              <h3>今日最怪</h3>
-              <p>Screaming Chicken Stress Toy - A ridiculously funny prank gift for office chaos.</p>
-              <div class="chips">
-                <span class="chip">搞怪度 4.8</span>
-                <span class="chip">稀有度 3.9</span>
-                <span class="chip">$14.99</span>
-              </div>
-            </div>
-          </article>
-          <article class="product">
-            <div class="product-art" aria-hidden="true">?</div>
-            <div class="product-body">
-              <h3>不明用途商品</h3>
-              <p>A strange desk gadget that looks useless, but somehow everyone still wants it.</p>
-              <div class="chips">
-                <span class="chip">怪物指数 82</span>
-                <span class="chip">赛博小物</span>
-                <span class="chip">Ships in 7 days</span>
-              </div>
-            </div>
-          </article>
-          <article class="product">
-            <div class="product-art" aria-hidden="true">*</div>
-            <div class="product-body">
-              <h3>最适合送礼</h3>
-              <p>送朋友会被骂但会记住的礼物，适合 TikTok、Reels 和 Shorts 传播。</p>
-              <div class="chips">
-                <span class="chip">Giftable</span>
-                <span class="chip">Most watched</span>
-                <span class="chip">Seller 4.8</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="flow" aria-labelledby="flowTitle">
-        <div class="section-head">
-          <h2 id="flowTitle">从一个中文链接，到一个可售商品页。</h2>
-          <p>核心体验是发布者不用建站、不用写英文商品页，只要会找商品、会采购、会发货。</p>
-        </div>
-
-        <div class="flow">
-          <div class="flow-grid">
-            <article class="flow-step">
-              <b>01 Paste</b>
-              <h3>复制商品链接</h3>
-              <p>发布者粘贴淘宝、天猫或京东商品链接，系统识别来源平台和商品 ID。</p>
-            </article>
-            <article class="flow-step">
-              <b>02 Parse</b>
-              <h3>抓取商品信息</h3>
-              <p>自动提取标题、图片、价格、规格、详情和原始购买链接。</p>
-            </article>
-            <article class="flow-step">
-              <b>03 Localize</b>
-              <h3>AI 本地化改写</h3>
-              <p>生成英文、日文标题、卖点、描述、SEO 文案和商品标签。</p>
-            </article>
-            <article class="flow-step">
-              <b>04 Publish</b>
-              <h3>确认并发布</h3>
-              <p>发布者设置本站售价、库存、发货时间，确认生成多语言商品页。</p>
-            </article>
-            <article class="flow-step">
-              <b>05 Fulfill</b>
-              <h3>代购与发货</h3>
-              <p>买家下单后，发布者采购、发货或安排转运，并处理售后。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="mvp" aria-labelledby="mvpTitle">
-        <div class="section-head">
-          <h2 id="mvpTitle">MVP 先证明模式成立。</h2>
-          <p>第一版不追求完整电商平台，而是验证“复制链接 -> 自动生成商品页 -> 用户愿意点击/收藏/购买”。</p>
-        </div>
-
-        <div class="panel-grid">
-          <article class="panel">
-            <span class="number">01</span>
-            <h3>买家端</h3>
-            <p>首页、商品列表页、商品详情页、英文商品页、日文商品页、购物车、下单流程、支付流程和订单查看。</p>
-          </article>
-          <article class="panel">
-            <span class="number">02</span>
-            <h3>发布者端</h3>
-            <p>注册登录、粘贴商品链接、自动抓取标题价格图片、AI 生成英文/日文内容、设置售价库存、确认发布。</p>
-          </article>
-          <article class="panel">
-            <span class="number">03</span>
-            <h3>管理端</h3>
-            <p>商品审核、发布者审核、订单查看、退款管理、商品下架、多语言质量抽查和风险商品处理。</p>
-          </article>
-        </div>
-      </section>
-
-      <section aria-labelledby="featuresTitle">
-        <div class="section-head">
-          <h2 id="featuresTitle">平台特色来自内容包装能力。</h2>
-          <p>普通电商拼价格，LaLaLaBuy 拼发现能力、语言转换能力、内容包装能力和怪商品社区氛围。</p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature">
-            <h3>AI 商品发布系统</h3>
-            <p>把原始中文商品信息结构化，再生成多语言商品页，而不是简单机器翻译。</p>
-            <ul>
-              <li>商品信息抓取、图片抓取、原始价格识别和规格识别。</li>
-              <li>AI 标题、本地化卖点、SEO 标题、SEO 描述和标签生成。</li>
-              <li>搞怪度、稀有度和怪物指数初评，辅助首页推荐。</li>
-            </ul>
-          </article>
-          <article class="feature">
-            <h3>发布者信用系统</h3>
-            <p>发布者相当于平台里的代购卖家，评分体系需要适配采购和发货模式。</p>
-            <ul>
-              <li>发货速度、客户服务、产品质量、店铺信用和开店历史。</li>
-              <li>缺货率、纠纷率、退款率会影响店铺信用和商品曝光。</li>
-              <li>高纠纷发布者限制发布，管理员保留介入能力。</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="roadmap" aria-labelledby="roadmapTitle">
-        <div class="section-head">
-          <h2 id="roadmapTitle">开发阶段计划</h2>
-          <p>从原型验证开始，逐步走向电商闭环、多语言评分系统、运营工具和规模化卖家体系。</p>
-        </div>
-
-        <div class="roadmap">
-          <div class="roadmap-grid">
-            <article class="phase">
-              <b>Phase 1</b>
-              <h3>原型验证</h3>
-              <p>验证复制链接后抓取标题、价格、图片，并生成英文标题和描述。</p>
-            </article>
-            <article class="phase">
-              <b>Phase 2</b>
-              <h3>MVP 闭环</h3>
-              <p>商品发布、详情页、购物车、下单、支付和发布者订单管理。</p>
-            </article>
-            <article class="phase">
-              <b>Phase 3</b>
-              <h3>多语言评分</h3>
-              <p>英文/日文商品页、搞怪度、稀有度、怪物指数和商品评价。</p>
-            </article>
-            <article class="phase">
-              <b>Phase 4</b>
-              <h3>运营工具</h3>
-              <p>批量链接导入、榜单系统、推荐系统、专题页和 SEO 页面生成。</p>
-            </article>
-            <article class="phase">
-              <b>Phase 5</b>
-              <h3>规模化</h3>
-              <p>发布者邀请、店铺主页、高级数据分析、推广位购买和多货币显示。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>WEIRD GIFTS</span>
-          <span>MONSTER INDEX</span>
-          <span>AI LOCALIZED PRODUCT PAGES</span>
-          <span>TAOBAO TO THE WORLD</span>
-          <span>WEIRD GIFTS</span>
-          <span>MONSTER INDEX</span>
-          <span>AI LOCALIZED PRODUCT PAGES</span>
-          <span>TAOBAO TO THE WORLD</span>
+  <main>
+    <section class="hero">
+      <div class="hero-banner">
+        <span class="eyebrow">Simple demo storefront</span>
+        <h1>只卖新奇、诡异、不寻常的商品。</h1>
+        <p class="lead">
+          像亚马逊一样浏览、搜索和下单，但商品只聚焦于怪、有趣、少见、适合分享的东西。每件商品展示搞怪度、稀有度和自动综合评分，访客可以参与评价。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#products">立即逛怪商品</a>
+          <a class="button" href="#score-rules">查看评分规则</a>
         </div>
       </div>
 
-      <section class="note">
-        <h2>临时展示内容</h2>
-        <p>
-          本页内容根据《Lalalabuy Business Plan Solution.docx》整理，用于 lalalabuy.com 首页临时展示。当前页面是静态演示版，商品、评分、价格和功能说明均为概念展示内容。
-        </p>
-      </section>
-    </main>
-  </div>
+      <aside class="side-deal" aria-label="首页推荐模块">
+        <article class="deal-card">
+          <h2>今日怪物商品</h2>
+          <p>尖叫鸡减压玩具，搞怪度 4.8，稀有度 3.9，综合评分 89。临时演示商品，点击按钮暂不下单。</p>
+          <a class="button primary" href="#products">查看推荐</a>
+        </article>
+        <div class="mini-grid">
+          <article class="mini-card">
+            <strong>访客评分</strong>
+            <p>搞怪度和稀有度由访客投票累积。</p>
+          </article>
+          <article class="mini-card">
+            <strong>卖家信用</strong>
+            <p>参考淘宝店铺评分，展示五项卖家指标。</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="categoryTitle">
+      <div class="section-head">
+        <h2 id="categoryTitle">按怪的方式逛</h2>
+        <p>临时分类内容，用来展示真实电商首页的信息结构。</p>
+      </div>
+      <div class="category-strip">
+        <a class="category" href="#products"><b>今日最怪</b><span>离谱、搞笑、适合转发的商品。</span></a>
+        <a class="category" href="#products"><b>本周最稀有</b><span>少见、难买、看见就想收藏。</span></a>
+        <a class="category" href="#products"><b>最适合送礼</b><span>送朋友会被骂但会记住。</span></a>
+        <a class="category" href="#products"><b>诡异家居</b><span>让房间突然拥有故事感。</span></a>
+        <a class="category" href="#products"><b>办公室整蛊</b><span>让同事沉默三秒的道具。</span></a>
+        <a class="category" href="#products"><b>不明用途</b><span>不知道干嘛，但就是想买。</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="products" aria-labelledby="productsTitle">
+      <div class="section-head">
+        <div>
+          <h2 id="productsTitle">推荐怪商品</h2>
+          <p>所有商品、价格、评分、卖家信息均为 simple 临时展示内容。</p>
+        </div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filter-card" aria-label="筛选条件">
+          <h3>筛选</h3>
+          <div class="filter-group">
+            <b>商品类型</b>
+            <label class="check"><span class="fake-box">✓</span>搞怪玩具</label>
+            <label class="check"><span class="fake-box"></span>诡异家居</label>
+            <label class="check"><span class="fake-box"></span>奇葩礼物</label>
+            <label class="check"><span class="fake-box"></span>赛博小物</label>
+          </div>
+          <div class="filter-group">
+            <b>搞怪度</b>
+            <label class="check"><span class="fake-box">✓</span>4.5 分以上</label>
+            <label class="check"><span class="fake-box"></span>4.0 分以上</label>
+            <label class="check"><span class="fake-box"></span>3.5 分以上</label>
+          </div>
+          <div class="filter-group">
+            <b>稀有度</b>
+            <label class="check"><span class="fake-box"></span>非常少见</label>
+            <label class="check"><span class="fake-box">✓</span>小众难买</label>
+            <label class="check"><span class="fake-box"></span>常见但好玩</label>
+          </div>
+          <div class="filter-group">
+            <b>卖家评分</b>
+            <label class="check"><span class="fake-box">✓</span>店铺信用 4.7+</label>
+            <label class="check"><span class="fake-box"></span>开店 1 年以上</label>
+          </div>
+        </aside>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-art"><span class="badge">今日最怪</span>!</div>
+            <div class="product-body">
+              <h3 class="product-title">Screaming Chicken Stress Toy 尖叫鸡减压整蛊玩具</h3>
+              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">1,284 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.8</span>
+                <span class="score rare">稀有度 3.9</span>
+                <span class="score total">综合 89</span>
+              </div>
+              <div class="price"><strong>$14.99</strong><span>$19.99</span></div>
+              <div class="seller">
+                <strong>Weird Supply Lab <span>信用 4.9</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.7</b></span>
+                  <span>客户服务 <b>4.8</b></span>
+                  <span>产品质量 <b>4.6</b></span>
+                  <span>开店历史 <b>2年</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">稀有</span>?</div>
+            <div class="product-body">
+              <h3 class="product-title">Mystery Desk Button 不明用途桌面按钮</h3>
+              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">846 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.4</span>
+                <span class="score rare">稀有度 4.7</span>
+                <span class="score total">综合 88</span>
+              </div>
+              <div class="price"><strong>$22.50</strong><span>$29.00</span></div>
+              <div class="seller">
+                <strong>Odd Button Store <span>信用 4.8</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.5</b></span>
+                  <span>客户服务 <b>4.7</b></span>
+                  <span>产品质量 <b>4.8</b></span>
+                  <span>开店历史 <b>1年</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">礼物</span>*</div>
+            <div class="product-body">
+              <h3 class="product-title">Tiny Alien Mug 迷你外星人咖啡杯</h3>
+              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">522 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.1</span>
+                <span class="score rare">稀有度 4.3</span>
+                <span class="score total">综合 84</span>
+              </div>
+              <div class="price"><strong>$18.80</strong><span>$24.00</span></div>
+              <div class="seller">
+                <strong>Galaxy Junk Shop <span>信用 4.7</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.6</b></span>
+                  <span>客户服务 <b>4.6</b></span>
+                  <span>产品质量 <b>4.7</b></span>
+                  <span>开店历史 <b>9个月</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">家居</span>~</div>
+            <div class="product-body">
+              <h3 class="product-title">Creepy Night Lamp 诡异微笑夜灯</h3>
+              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">1,038 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.6</span>
+                <span class="score rare">稀有度 4.1</span>
+                <span class="score total">综合 86</span>
+              </div>
+              <div class="price"><strong>$31.99</strong><span>$39.99</span></div>
+              <div class="seller">
+                <strong>Strange Home Co. <span>信用 4.9</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.8</b></span>
+                  <span>客户服务 <b>4.9</b></span>
+                  <span>产品质量 <b>4.8</b></span>
+                  <span>开店历史 <b>3年</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">整蛊</span>#</div>
+            <div class="product-body">
+              <h3 class="product-title">Banana Phone Holder 香蕉电话支架</h3>
+              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">743 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.5</span>
+                <span class="score rare">稀有度 3.6</span>
+                <span class="score total">综合 82</span>
+              </div>
+              <div class="price"><strong>$11.90</strong><span>$16.50</span></div>
+              <div class="seller">
+                <strong>Banana Lab <span>信用 4.6</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.4</b></span>
+                  <span>客户服务 <b>4.5</b></span>
+                  <span>产品质量 <b>4.6</b></span>
+                  <span>开店历史 <b>8个月</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">赛博</span>&</div>
+            <div class="product-body">
+              <h3 class="product-title">Cyber Cat Collar 赛博发光猫咪项圈</h3>
+              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">918 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.2</span>
+                <span class="score rare">稀有度 4.6</span>
+                <span class="score total">综合 86</span>
+              </div>
+              <div class="price"><strong>$26.00</strong><span>$32.00</span></div>
+              <div class="seller">
+                <strong>Pet Future Shop <span>信用 4.8</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.7</b></span>
+                  <span>客户服务 <b>4.8</b></span>
+                  <span>产品质量 <b>4.7</b></span>
+                  <span>开店历史 <b>1年6个月</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">收藏</span>@</div>
+            <div class="product-body">
+              <h3 class="product-title">Pocket Ghost Plush 口袋幽灵毛绒挂件</h3>
+              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">389 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 3.9</span>
+                <span class="score rare">稀有度 4.8</span>
+                <span class="score total">综合 83</span>
+              </div>
+              <div class="price"><strong>$9.99</strong><span>$13.99</span></div>
+              <div class="seller">
+                <strong>Ghost Pocket <span>信用 4.7</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.5</b></span>
+                  <span>客户服务 <b>4.7</b></span>
+                  <span>产品质量 <b>4.8</b></span>
+                  <span>开店历史 <b>11个月</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><span class="badge">新品</span>%</div>
+            <div class="product-body">
+              <h3 class="product-title">Reverse Alarm Clock 反向闹钟，越按越响</h3>
+              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">612 votes</span></div>
+              <div class="score-row">
+                <span class="score">搞怪度 4.7</span>
+                <span class="score rare">稀有度 4.0</span>
+                <span class="score total">综合 87</span>
+              </div>
+              <div class="price"><strong>$21.20</strong><span>$28.00</span></div>
+              <div class="seller">
+                <strong>Morning Chaos <span>信用 4.6</span></strong>
+                <div class="seller-grid">
+                  <span>发货速度 <b>4.6</b></span>
+                  <span>客户服务 <b>4.4</b></span>
+                  <span>产品质量 <b>4.6</b></span>
+                  <span>开店历史 <b>1年</b></span>
+                </div>
+              </div>
+              <button class="add">加入购物车</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="score-rules" aria-labelledby="scoreTitle">
+      <div class="section-head">
+        <h2 id="scoreTitle">评分展示规则</h2>
+        <p>首页商品卡片直接展示用户最关心的“怪”和“可信度”。</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <b>访客评价</b>
+          <h3>搞怪度</h3>
+          <p>表示商品有多奇怪、多搞笑、多离谱、多值得分享。每个访客都可以评价，后续可结合购买用户评分提高权重。</p>
+        </article>
+        <article class="info-card">
+          <b>访客评价</b>
+          <h3>稀有度</h3>
+          <p>表示商品是否少见、难买、不常见。越稀有越适合进入“本周最稀有”和“不明用途商品”榜单。</p>
+        </article>
+        <article class="info-card">
+          <b>自动生成</b>
+          <h3>综合评分</h3>
+          <p>临时公式：综合评分 = 搞怪度 60% + 稀有度 40%，换算成 100 分制，作为首页排序和推荐依据。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sellerTitle">
+      <div class="section-head">
+        <h2 id="sellerTitle">卖家评分参考淘宝店铺评价</h2>
+        <p>每个商品展示卖家信用，让买家知道谁负责采购、发货和售后。</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <b>卖家指标</b>
+          <h3>发货速度 / 客户服务</h3>
+          <p>发货速度衡量下单后处理和发货效率；客户服务衡量回复速度、沟通质量和售后态度。</p>
+        </article>
+        <article class="info-card">
+          <b>卖家指标</b>
+          <h3>产品质量 / 店铺信用</h3>
+          <p>产品质量来自买家确认收货后的反馈；店铺信用综合完成率、纠纷率、退款率和投诉率。</p>
+        </article>
+        <article class="info-card">
+          <b>新增指标</b>
+          <h3>开店历史</h3>
+          <p>展示卖家入驻时间和经营稳定性。开店越久、订单越稳定，越容易获得买家信任。</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="temporary">
+      <strong>临时展示说明：</strong>
+      本首页为 simple 静态演示版，商品图片使用符号占位，商品名称、价格、评分、卖家信息、购物车按钮均为临时内容，后续可接入真实商品上传、访客评分、卖家后台和订单系统。
+    </div>
+  </main>
 </body>
 </html>
