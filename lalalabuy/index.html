@@ -5,21 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="LaLaLaBuy：一个轻快、明亮的购物灵感项目页，用来展示精选好物、愿望清单与消费灵感。"
+    content="LaLaLaBuy 是一个面向海外用户的多语言怪商品代购电商平台概念展示页，演示从中文商品链接到多语言商品页面的产品方案。"
   />
-  <title>LaLaLaBuy | Eason Game</title>
+  <title>LaLaLaBuy | Weird Goods, Translated for the World</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+SC:wght@400;500;700;800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
     :root {
-      --ink: #24140f;
-      --muted: rgba(36, 20, 15, 0.68);
-      --paper: #fff8e8;
-      --coral: #ff6f59;
-      --sun: #ffc857;
+      --ink: #20110d;
+      --ink-soft: rgba(32, 17, 13, 0.72);
+      --paper: #fff8ea;
+      --paper-strong: #fffdf6;
+      --line: rgba(32, 17, 13, 0.16);
+      --coral: #ff6848;
+      --sun: #ffc84d;
+      --acid: #b6f25a;
       --mint: #62d6a4;
-      --blue: #56b8ff;
-      --shadow: 0 24px 70px rgba(101, 58, 22, 0.22);
+      --blue: #4aa7ff;
+      --lilac: #cab8ff;
+      --shadow: 0 24px 70px rgba(87, 46, 18, 0.18);
+      --hard-shadow: 8px 8px 0 rgba(32, 17, 13, 0.12);
     }
 
     * {
@@ -35,9 +40,10 @@
       color: var(--ink);
       font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
       background:
-        radial-gradient(circle at 8% 12%, rgba(255, 111, 89, 0.2), transparent 24%),
-        radial-gradient(circle at 92% 8%, rgba(86, 184, 255, 0.2), transparent 22%),
-        linear-gradient(135deg, #fff2ca 0%, #fff8e8 48%, #ffe1d5 100%);
+        radial-gradient(circle at 10% 10%, rgba(255, 104, 72, 0.28), transparent 25%),
+        radial-gradient(circle at 90% 4%, rgba(74, 167, 255, 0.24), transparent 24%),
+        radial-gradient(circle at 80% 72%, rgba(182, 242, 90, 0.28), transparent 24%),
+        linear-gradient(135deg, #fff1bd 0%, #fff8ea 48%, #ffd9ca 100%);
       overflow-x: hidden;
     }
 
@@ -46,10 +52,10 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(36, 20, 15, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(36, 20, 15, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(32, 17, 13, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 17, 13, 0.05) 1px, transparent 1px);
       background-size: 34px 34px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 72%);
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 78%);
       pointer-events: none;
     }
 
@@ -59,25 +65,25 @@
 
     .page {
       position: relative;
-      width: min(1180px, calc(100vw - 32px));
+      width: min(1220px, calc(100vw - 32px));
       margin: 0 auto;
-      padding: 18px 0 52px;
+      padding: 18px 0 56px;
     }
 
     .topbar {
       position: sticky;
       top: 14px;
-      z-index: 10;
+      z-index: 20;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
+      justify-content: space-between;
+      gap: 16px;
       padding: 12px 16px;
       border: 2px solid var(--ink);
       border-radius: 999px;
-      background: rgba(255, 248, 232, 0.78);
+      background: rgba(255, 248, 234, 0.82);
       backdrop-filter: blur(14px);
-      box-shadow: 8px 8px 0 rgba(36, 20, 15, 0.1);
+      box-shadow: var(--hard-shadow);
     }
 
     .brand {
@@ -89,15 +95,16 @@
     }
 
     .mark {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       display: grid;
       place-items: center;
       border: 2px solid var(--ink);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--sun);
       font-family: "Archivo Black", sans-serif;
-      transform: rotate(-6deg);
+      transform: rotate(-7deg);
+      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.1);
     }
 
     .brand strong,
@@ -106,20 +113,21 @@
     }
 
     .brand strong {
-      font-size: 16px;
-      letter-spacing: 0.05em;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      letter-spacing: -0.02em;
     }
 
     .brand span {
-      color: var(--muted);
+      color: var(--ink-soft);
       font-size: 12px;
     }
 
     .nav {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      gap: 8px;
     }
 
     .nav a,
@@ -131,52 +139,56 @@
       padding: 10px 14px;
       border: 2px solid var(--ink);
       border-radius: 999px;
-      background: var(--paper);
+      background: var(--paper-strong);
       color: var(--ink);
       font-weight: 800;
       text-decoration: none;
-      box-shadow: 4px 4px 0 rgba(36, 20, 15, 0.12);
+      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.11);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .nav a:hover,
     .button:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0 rgba(36, 20, 15, 0.14);
+      box-shadow: 7px 7px 0 rgba(32, 17, 13, 0.14);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
       gap: 26px;
       align-items: stretch;
       padding: 46px 0 28px;
     }
 
     .hero-copy,
-    .showcase,
-    .panel {
+    .monster-card,
+    .panel,
+    .flow,
+    .feature,
+    .roadmap,
+    .note {
       border: 2px solid var(--ink);
-      border-radius: 32px;
-      background: rgba(255, 248, 232, 0.82);
-      box-shadow: var(--shadow), 10px 10px 0 rgba(36, 20, 15, 0.1);
+      border-radius: 34px;
+      background: rgba(255, 248, 234, 0.86);
+      box-shadow: var(--shadow), var(--hard-shadow);
     }
 
     .hero-copy {
       position: relative;
       overflow: hidden;
-      padding: clamp(26px, 4vw, 48px);
+      padding: clamp(28px, 4.5vw, 54px);
     }
 
     .hero-copy::after {
-      content: "BUY!";
+      content: "怪";
       position: absolute;
-      right: -14px;
-      bottom: -18px;
-      color: rgba(255, 111, 89, 0.12);
-      font-family: "Archivo Black", sans-serif;
-      font-size: clamp(86px, 15vw, 170px);
-      line-height: 0.8;
+      right: -8px;
+      bottom: -60px;
+      color: rgba(255, 104, 72, 0.13);
+      font-size: clamp(140px, 23vw, 260px);
+      font-weight: 900;
+      line-height: 1;
       pointer-events: none;
     }
 
@@ -188,9 +200,9 @@
       padding: 8px 12px;
       border: 2px solid var(--ink);
       border-radius: 999px;
-      background: var(--mint);
-      font-size: 13px;
-      font-weight: 800;
+      background: var(--acid);
+      font-size: 12px;
+      font-weight: 900;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
@@ -205,21 +217,35 @@
     h1 {
       position: relative;
       z-index: 1;
-      max-width: 760px;
-      margin-bottom: 16px;
+      max-width: 860px;
+      margin-bottom: 18px;
       font-family: "Archivo Black", "Noto Sans SC", sans-serif;
-      font-size: clamp(54px, 9vw, 112px);
-      line-height: 0.92;
+      font-size: clamp(52px, 8.6vw, 112px);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    h2 {
+      font-family: "Archivo Black", "Noto Sans SC", sans-serif;
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: 0.98;
       letter-spacing: -0.06em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.15;
     }
 
     .lead {
       position: relative;
       z-index: 1;
-      max-width: 620px;
-      color: var(--muted);
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.72;
     }
 
     .actions {
@@ -240,89 +266,92 @@
       background: var(--sun);
     }
 
-    .showcase {
+    .monster-card {
       position: relative;
-      min-height: 520px;
+      min-height: 540px;
       overflow: hidden;
+      padding: 24px;
       background:
-        radial-gradient(circle at 26% 24%, rgba(255, 200, 87, 0.58), transparent 22%),
-        radial-gradient(circle at 78% 18%, rgba(98, 214, 164, 0.44), transparent 20%),
-        linear-gradient(180deg, #fff7dc, #ffd6c8);
+        radial-gradient(circle at 25% 18%, rgba(255, 200, 77, 0.62), transparent 22%),
+        radial-gradient(circle at 78% 24%, rgba(98, 214, 164, 0.42), transparent 20%),
+        linear-gradient(180deg, #fff7dc, #ffd5c8);
     }
 
-    .receipt,
-    .bag,
-    .tag {
+    .product-ticket,
+    .score-board,
+    .floating-tag {
       position: absolute;
       border: 2px solid var(--ink);
-      box-shadow: 10px 10px 0 rgba(36, 20, 15, 0.12);
+      box-shadow: 8px 8px 0 rgba(32, 17, 13, 0.12);
     }
 
-    .receipt {
+    .product-ticket {
       top: 34px;
-      left: 36px;
-      width: min(280px, 70%);
-      padding: 22px;
-      border-radius: 20px;
+      left: 34px;
+      width: min(330px, calc(100% - 68px));
+      padding: 20px;
+      border-radius: 22px;
       background: #fffdf5;
-      transform: rotate(-5deg);
+      transform: rotate(-4deg);
       animation: float 4s ease-in-out infinite;
     }
 
-    .receipt h2 {
-      margin-bottom: 14px;
-      font-family: "Archivo Black", sans-serif;
-      font-size: 28px;
+    .product-ticket h2 {
+      margin-bottom: 12px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
     }
 
-    .receipt-row {
+    .ticket-row {
       display: flex;
       justify-content: space-between;
       gap: 18px;
-      padding: 10px 0;
-      border-bottom: 1px dashed rgba(36, 20, 15, 0.24);
-      color: var(--muted);
+      padding: 9px 0;
+      border-bottom: 1px dashed rgba(32, 17, 13, 0.24);
+      color: var(--ink-soft);
       font-size: 14px;
     }
 
-    .bag {
-      right: 44px;
-      bottom: 46px;
-      width: min(280px, 62%);
-      min-height: 280px;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      border-radius: 34px 34px 42px 42px;
+    .score-board {
+      right: 28px;
+      bottom: 38px;
+      width: min(340px, calc(100% - 56px));
+      padding: 24px;
+      border-radius: 30px;
       background: var(--blue);
       color: #fff;
-      text-align: center;
-      transform: rotate(4deg);
-      animation: bob 4.6s ease-in-out infinite;
+      transform: rotate(3deg);
+      animation: bob 4.8s ease-in-out infinite;
     }
 
-    .bag::before {
-      content: "";
-      position: absolute;
-      top: -34px;
-      width: 104px;
-      height: 70px;
-      border: 2px solid var(--ink);
-      border-bottom: 0;
-      border-radius: 999px 999px 0 0;
-      background: transparent;
-    }
-
-    .bag strong {
+    .score-board strong {
+      display: block;
+      margin-bottom: 12px;
       font-family: "Archivo Black", sans-serif;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 0.96;
-      text-shadow: 3px 3px 0 rgba(36, 20, 15, 0.22);
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 0.9;
+      text-shadow: 3px 3px 0 rgba(32, 17, 13, 0.22);
     }
 
-    .tag {
-      right: 34px;
-      top: 74px;
+    .meter {
+      height: 12px;
+      margin-top: 8px;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .meter span {
+      display: block;
+      height: 100%;
+      border-right: 2px solid var(--ink);
+      background: var(--sun);
+    }
+
+    .floating-tag {
+      right: 30px;
+      top: 82px;
       padding: 12px 16px;
       border-radius: 18px;
       background: var(--coral);
@@ -334,26 +363,47 @@
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 18px;
       align-items: end;
-      margin: 18px 0;
-    }
-
-    .section-head h2 {
-      margin-bottom: 0;
-      font-family: "Archivo Black", sans-serif;
-      font-size: clamp(30px, 5vw, 56px);
-      letter-spacing: -0.04em;
+      gap: 18px;
+      margin: 24px 0 18px;
     }
 
     .section-head p {
-      max-width: 500px;
+      max-width: 560px;
       margin-bottom: 0;
-      color: var(--muted);
-      line-height: 1.7;
+      color: var(--ink-soft);
+      line-height: 1.72;
     }
 
-    .grid {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat {
+      min-height: 170px;
+      padding: 20px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: var(--paper-strong);
+      box-shadow: 6px 6px 0 rgba(32, 17, 13, 0.1);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 34px;
+      letter-spacing: -0.05em;
+    }
+
+    .stat span {
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .panel-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
@@ -371,15 +421,15 @@
       transform: translateY(-6px) rotate(-1deg);
     }
 
-    .panel:nth-child(2) {
-      background: #e9fff3;
+    .panel:nth-child(2n) {
+      background: #eafff3;
     }
 
-    .panel:nth-child(3) {
-      background: #e9f5ff;
+    .panel:nth-child(3n) {
+      background: #e9f4ff;
     }
 
-    .panel .number {
+    .number {
       display: inline-grid;
       place-items: center;
       width: 46px;
@@ -389,18 +439,198 @@
       border-radius: 16px;
       background: var(--sun);
       font-family: "Archivo Black", sans-serif;
-      box-shadow: 4px 4px 0 rgba(36, 20, 15, 0.12);
+      box-shadow: 4px 4px 0 rgba(32, 17, 13, 0.12);
     }
 
-    .panel h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .panel p {
+    .panel p,
+    .feature p,
+    .roadmap p,
+    .note p {
       margin-bottom: 0;
-      color: var(--muted);
+      color: var(--ink-soft);
       line-height: 1.75;
+    }
+
+    .flow {
+      padding: 24px;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 190px;
+      padding: 18px;
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      background: var(--paper-strong);
+    }
+
+    .flow-step::after {
+      content: "->";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--acid);
+      font-family: "Archivo Black", sans-serif;
+      transform: translateY(-50%);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step b {
+      display: block;
+      margin-bottom: 12px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product {
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: var(--paper-strong);
+      box-shadow: 6px 6px 0 rgba(32, 17, 13, 0.1);
+    }
+
+    .product-art {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      border-bottom: 2px solid var(--ink);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 22%),
+        linear-gradient(135deg, var(--sun), var(--coral));
+      color: rgba(32, 17, 13, 0.74);
+      font-family: "Archivo Black", sans-serif;
+      font-size: 58px;
+    }
+
+    .product:nth-child(2) .product-art {
+      background: linear-gradient(135deg, var(--mint), var(--blue));
+    }
+
+    .product:nth-child(3) .product-art {
+      background: linear-gradient(135deg, var(--lilac), var(--acid));
+    }
+
+    .product-body {
+      padding: 20px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 24px;
+    }
+
+    .feature ul {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature li {
+      display: flex;
+      gap: 10px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .feature li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      margin-top: 8px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--coral);
+    }
+
+    .roadmap {
+      padding: 24px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .phase {
+      min-height: 210px;
+      padding: 18px;
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      background: #fffdf6;
+    }
+
+    .phase b {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 9px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--sun);
+      font-size: 12px;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 22px 24px;
+      background: var(--ink);
+      color: #fff8ea;
+    }
+
+    .note p {
+      color: rgba(255, 248, 234, 0.76);
     }
 
     .marquee {
@@ -411,7 +641,7 @@
       border: 2px solid var(--ink);
       border-radius: 999px;
       background: var(--ink);
-      color: #fff8e8;
+      color: #fff8ea;
     }
 
     .marquee-track {
@@ -419,7 +649,7 @@
       min-width: max-content;
       gap: 14px;
       padding: 12px 0;
-      animation: scroll 18s linear infinite;
+      animation: scroll 20s linear infinite;
     }
 
     .marquee span {
@@ -428,30 +658,15 @@
       white-space: nowrap;
     }
 
-    .footnote {
-      margin-top: 28px;
-      padding: 20px 24px;
-      border: 2px solid var(--ink);
-      border-radius: 28px;
-      background: rgba(255, 248, 232, 0.78);
-      color: var(--muted);
-      line-height: 1.8;
-      box-shadow: 8px 8px 0 rgba(36, 20, 15, 0.1);
-    }
-
-    .footnote strong {
-      color: var(--ink);
-    }
-
     @keyframes float {
       50% {
-        transform: translateY(12px) rotate(-3deg);
+        transform: translateY(12px) rotate(-2deg);
       }
     }
 
     @keyframes bob {
       50% {
-        transform: translateY(-12px) rotate(3deg);
+        transform: translateY(-12px) rotate(2deg);
       }
     }
 
@@ -461,31 +676,41 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1060px) {
       .hero,
-      .grid {
+      .feature-grid {
         grid-template-columns: 1fr;
       }
 
-      .showcase {
-        min-height: 460px;
+      .stats,
+      .panel-grid,
+      .catalog {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .section-head {
-        align-items: start;
-        flex-direction: column;
+      .flow-grid,
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step::after {
+        right: auto;
+        top: auto;
+        left: 50%;
+        bottom: -22px;
+        transform: translateX(-50%) rotate(90deg);
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .page {
-        width: min(100vw - 22px, 1180px);
+        width: min(100vw - 22px, 1220px);
         padding-top: 10px;
       }
 
       .topbar {
         align-items: stretch;
-        border-radius: 24px;
+        border-radius: 26px;
         flex-direction: column;
       }
 
@@ -501,20 +726,19 @@
         padding-top: 24px;
       }
 
-      .hero-copy,
-      .showcase,
-      .panel {
-        border-radius: 24px;
+      .monster-card {
+        min-height: 560px;
       }
 
-      .receipt {
-        left: 18px;
-        width: 76%;
+      .stats,
+      .panel-grid,
+      .catalog {
+        grid-template-columns: 1fr;
       }
 
-      .bag {
-        right: 20px;
-        width: 72%;
+      .section-head {
+        align-items: start;
+        flex-direction: column;
       }
     }
   </style>
@@ -526,84 +750,267 @@
         <span class="mark">L</span>
         <span>
           <strong>LaLaLaBuy</strong>
-          <span>购物灵感实验室</span>
+          <span>多语言怪商品代购平台</span>
         </span>
       </a>
       <nav class="nav" aria-label="页面导航">
-        <a href="#ideas">灵感模块</a>
-        <a href="/">返回首页</a>
+        <a href="#concept">定位</a>
+        <a href="#flow">流程</a>
+        <a href="#mvp">MVP</a>
+        <a href="#roadmap">路线图</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <span class="eyebrow">New Project</span>
-          <h1>LaLaLaBuy</h1>
+          <span class="eyebrow">Temporary business demo</span>
+          <h1>Weird goods, translated for the world.</h1>
           <p class="lead">
-            一个明亮、轻快、带一点漫画感的购物灵感项目。这里可以继续扩展成好物清单、愿望列表、活动页，或一个更完整的精选商品展示站。
+            LaLaLaBuy 是一个面向海外用户的多语言怪商品代购电商平台。用户复制淘宝、天猫、京东等中文商品链接，系统自动生成英文、日文等本地化商品页，让海外买家看得懂、搜得到、买得起。
           </p>
           <div class="actions">
-            <a class="button button-primary" href="#ideas">查看项目方向</a>
-            <a class="button button-secondary" href="/">回到项目陈列</a>
+            <a class="button button-primary" href="#flow">查看产品流程</a>
+            <a class="button button-secondary" href="#catalog">浏览临时栏目</a>
           </div>
         </div>
 
-        <aside class="showcase" aria-label="LaLaLaBuy 视觉展示">
-          <div class="receipt">
-            <h2>Today's Cart</h2>
-            <div class="receipt-row"><span>灵感</span><strong>100%</strong></div>
-            <div class="receipt-row"><span>快乐预算</span><strong>满格</strong></div>
-            <div class="receipt-row"><span>冲动消费</span><strong>已冷静</strong></div>
+        <aside class="monster-card" aria-label="LaLaLaBuy 怪商品评分卡">
+          <div class="product-ticket">
+            <h2>Screaming Chicken Stress Toy</h2>
+            <div class="ticket-row"><span>Source</span><strong>Taobao Link</strong></div>
+            <div class="ticket-row"><span>Languages</span><strong>EN / JA / CN</strong></div>
+            <div class="ticket-row"><span>Seller</span><strong>Weird Supply Lab</strong></div>
+            <div class="ticket-row"><span>Demo price</span><strong>$14.99</strong></div>
           </div>
-          <div class="tag">上新中</div>
-          <div class="bag">
-            <strong>LALA<br />BUY</strong>
+          <div class="floating-tag">怪物指数 89</div>
+          <div class="score-board">
+            <strong>Monster Index</strong>
+            <span>搞怪度 4.8 / 5</span>
+            <div class="meter" aria-hidden="true"><span style="width: 96%"></span></div>
+            <span>稀有度 4.2 / 5</span>
+            <div class="meter" aria-hidden="true"><span style="width: 84%"></span></div>
           </div>
         </aside>
       </section>
 
-      <section id="ideas" aria-labelledby="ideasTitle">
+      <section id="concept" aria-labelledby="conceptTitle">
         <div class="section-head">
-          <h2 id="ideasTitle">可以长成什么？</h2>
-          <p>先把项目入口搭起来，后续可以按你的想法替换成真实内容、图片、链接或交互。</p>
+          <h2 id="conceptTitle">不是普通导购，也不是传统自营电商。</h2>
+          <p>平台价值不是备货，而是把中文电商里的新奇、诡异、搞怪、稀有商品，转化成海外用户能理解和购买的本地语言商品页面。</p>
         </div>
 
-        <div class="grid">
+        <div class="stats">
+          <article class="stat">
+            <strong>8-15%</strong>
+            <span>临时展示佣金模型：每笔订单抽取平台交易佣金，支付手续费另算。</span>
+          </article>
+          <article class="stat">
+            <strong>EN/JA</strong>
+            <span>MVP 优先支持英语、日语和中文后台原文，后续扩展更多语言。</span>
+          </article>
+          <article class="stat">
+            <strong>300+</strong>
+            <span>初期建议人工挑选 300-1000 个种子怪商品，先建立平台调性。</span>
+          </article>
+          <article class="stat">
+            <strong>89/100</strong>
+            <span>怪物指数 = 搞怪度 60% + 稀有度 40%，形成平台特色排名依据。</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalog" aria-labelledby="catalogTitle">
+        <div class="section-head">
+          <h2 id="catalogTitle">首页应该像一个怪商品内容频道。</h2>
+          <p>临时栏目围绕“怪、有趣、少见、能分享”展开，而不是普通商品列表。</p>
+        </div>
+
+        <div class="catalog">
+          <article class="product">
+            <div class="product-art" aria-hidden="true">!</div>
+            <div class="product-body">
+              <h3>今日最怪</h3>
+              <p>Screaming Chicken Stress Toy - A ridiculously funny prank gift for office chaos.</p>
+              <div class="chips">
+                <span class="chip">搞怪度 4.8</span>
+                <span class="chip">稀有度 3.9</span>
+                <span class="chip">$14.99</span>
+              </div>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-art" aria-hidden="true">?</div>
+            <div class="product-body">
+              <h3>不明用途商品</h3>
+              <p>A strange desk gadget that looks useless, but somehow everyone still wants it.</p>
+              <div class="chips">
+                <span class="chip">怪物指数 82</span>
+                <span class="chip">赛博小物</span>
+                <span class="chip">Ships in 7 days</span>
+              </div>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-art" aria-hidden="true">*</div>
+            <div class="product-body">
+              <h3>最适合送礼</h3>
+              <p>送朋友会被骂但会记住的礼物，适合 TikTok、Reels 和 Shorts 传播。</p>
+              <div class="chips">
+                <span class="chip">Giftable</span>
+                <span class="chip">Most watched</span>
+                <span class="chip">Seller 4.8</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="flow" aria-labelledby="flowTitle">
+        <div class="section-head">
+          <h2 id="flowTitle">从一个中文链接，到一个可售商品页。</h2>
+          <p>核心体验是发布者不用建站、不用写英文商品页，只要会找商品、会采购、会发货。</p>
+        </div>
+
+        <div class="flow">
+          <div class="flow-grid">
+            <article class="flow-step">
+              <b>01 Paste</b>
+              <h3>复制商品链接</h3>
+              <p>发布者粘贴淘宝、天猫或京东商品链接，系统识别来源平台和商品 ID。</p>
+            </article>
+            <article class="flow-step">
+              <b>02 Parse</b>
+              <h3>抓取商品信息</h3>
+              <p>自动提取标题、图片、价格、规格、详情和原始购买链接。</p>
+            </article>
+            <article class="flow-step">
+              <b>03 Localize</b>
+              <h3>AI 本地化改写</h3>
+              <p>生成英文、日文标题、卖点、描述、SEO 文案和商品标签。</p>
+            </article>
+            <article class="flow-step">
+              <b>04 Publish</b>
+              <h3>确认并发布</h3>
+              <p>发布者设置本站售价、库存、发货时间，确认生成多语言商品页。</p>
+            </article>
+            <article class="flow-step">
+              <b>05 Fulfill</b>
+              <h3>代购与发货</h3>
+              <p>买家下单后，发布者采购、发货或安排转运，并处理售后。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="mvp" aria-labelledby="mvpTitle">
+        <div class="section-head">
+          <h2 id="mvpTitle">MVP 先证明模式成立。</h2>
+          <p>第一版不追求完整电商平台，而是验证“复制链接 -> 自动生成商品页 -> 用户愿意点击/收藏/购买”。</p>
+        </div>
+
+        <div class="panel-grid">
           <article class="panel">
             <span class="number">01</span>
-            <h3>精选好物</h3>
-            <p>做成按主题分类的推荐页，比如数码、生活、潮玩、礼物灵感，每张卡片都能接入图片和购买链接。</p>
+            <h3>买家端</h3>
+            <p>首页、商品列表页、商品详情页、英文商品页、日文商品页、购物车、下单流程、支付流程和订单查看。</p>
           </article>
           <article class="panel">
             <span class="number">02</span>
-            <h3>愿望清单</h3>
-            <p>展示想买、已买、正在观望的物品，用状态标签记录优先级，变成一个有审美的个人购物看板。</p>
+            <h3>发布者端</h3>
+            <p>注册登录、粘贴商品链接、自动抓取标题价格图片、AI 生成英文/日文内容、设置售价库存、确认发布。</p>
           </article>
           <article class="panel">
             <span class="number">03</span>
-            <h3>活动专题</h3>
-            <p>扩展成节日促销、品牌上新、折扣情报或小店橱窗，一页一个主题，轻巧上线。</p>
+            <h3>管理端</h3>
+            <p>商品审核、发布者审核、订单查看、退款管理、商品下架、多语言质量抽查和风险商品处理。</p>
           </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="featuresTitle">
+        <div class="section-head">
+          <h2 id="featuresTitle">平台特色来自内容包装能力。</h2>
+          <p>普通电商拼价格，LaLaLaBuy 拼发现能力、语言转换能力、内容包装能力和怪商品社区氛围。</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>AI 商品发布系统</h3>
+            <p>把原始中文商品信息结构化，再生成多语言商品页，而不是简单机器翻译。</p>
+            <ul>
+              <li>商品信息抓取、图片抓取、原始价格识别和规格识别。</li>
+              <li>AI 标题、本地化卖点、SEO 标题、SEO 描述和标签生成。</li>
+              <li>搞怪度、稀有度和怪物指数初评，辅助首页推荐。</li>
+            </ul>
+          </article>
+          <article class="feature">
+            <h3>发布者信用系统</h3>
+            <p>发布者相当于平台里的代购卖家，评分体系需要适配采购和发货模式。</p>
+            <ul>
+              <li>发货速度、客户服务、产品质量、店铺信用和开店历史。</li>
+              <li>缺货率、纠纷率、退款率会影响店铺信用和商品曝光。</li>
+              <li>高纠纷发布者限制发布，管理员保留介入能力。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" aria-labelledby="roadmapTitle">
+        <div class="section-head">
+          <h2 id="roadmapTitle">开发阶段计划</h2>
+          <p>从原型验证开始，逐步走向电商闭环、多语言评分系统、运营工具和规模化卖家体系。</p>
+        </div>
+
+        <div class="roadmap">
+          <div class="roadmap-grid">
+            <article class="phase">
+              <b>Phase 1</b>
+              <h3>原型验证</h3>
+              <p>验证复制链接后抓取标题、价格、图片，并生成英文标题和描述。</p>
+            </article>
+            <article class="phase">
+              <b>Phase 2</b>
+              <h3>MVP 闭环</h3>
+              <p>商品发布、详情页、购物车、下单、支付和发布者订单管理。</p>
+            </article>
+            <article class="phase">
+              <b>Phase 3</b>
+              <h3>多语言评分</h3>
+              <p>英文/日文商品页、搞怪度、稀有度、怪物指数和商品评价。</p>
+            </article>
+            <article class="phase">
+              <b>Phase 4</b>
+              <h3>运营工具</h3>
+              <p>批量链接导入、榜单系统、推荐系统、专题页和 SEO 页面生成。</p>
+            </article>
+            <article class="phase">
+              <b>Phase 5</b>
+              <h3>规模化</h3>
+              <p>发布者邀请、店铺主页、高级数据分析、推广位购买和多货币显示。</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span>SMART CART</span>
-          <span>HAPPY LIST</span>
-          <span>LALALABUY</span>
-          <span>GOOD FINDS</span>
-          <span>SMART CART</span>
-          <span>HAPPY LIST</span>
-          <span>LALALABUY</span>
-          <span>GOOD FINDS</span>
+          <span>WEIRD GIFTS</span>
+          <span>MONSTER INDEX</span>
+          <span>AI LOCALIZED PRODUCT PAGES</span>
+          <span>TAOBAO TO THE WORLD</span>
+          <span>WEIRD GIFTS</span>
+          <span>MONSTER INDEX</span>
+          <span>AI LOCALIZED PRODUCT PAGES</span>
+          <span>TAOBAO TO THE WORLD</span>
         </div>
       </div>
 
-      <section class="footnote">
-        <strong>LaLaLaBuy</strong>
-        已经作为 Eason Game 站点里的独立项目建立。后续如果你给我商品、图片、栏目或功能想法，我们可以继续把它从入口页升级成完整项目。
+      <section class="note">
+        <h2>临时展示内容</h2>
+        <p>
+          本页内容根据《Lalalabuy Business Plan Solution.docx》整理，用于 lalalabuy.com 首页临时展示。当前页面是静态演示版，商品、评分、价格和功能说明均为概念展示内容。
+        </p>
       </section>
     </main>
   </div>
