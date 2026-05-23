@@ -8,6 +8,7 @@
 - 虚界之心独立设定页：`xujiezhixin.html`
 - 鬼畜修仙传大世界地图：`guichu-xiuxian-map.html`
 - 躲避小游戏：`game.html`
+- LaLaLaBuy 购物灵感项目：`lalalabuy/`
 - 项目素材资源：`assets/projects/`
 
 ## 技术栈

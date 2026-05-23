@@ -481,11 +481,11 @@
           </p>
           <div class="stats" aria-label="站点统计">
             <div class="stat">
-              <strong>4</strong>
+              <strong>5</strong>
               <span>正在陈列的项目</span>
             </div>
             <div class="stat">
-              <strong>2</strong>
+              <strong>4</strong>
               <span>可直接进入的页面</span>
             </div>
             <div class="stat">
@@ -560,6 +560,15 @@
         live: true
       },
       {
+        title: "LaLaLaBuy",
+        subtitle: "购物灵感实验室",
+        status: "查看项目",
+        description: "明亮轻快的好物清单项目入口，可继续扩展成精选商品、愿望清单或活动专题。",
+        image: "",
+        href: "/lalalabuy/",
+        live: true
+      },
+      {
         title: "巴比伦",
         subtitle: "赛博神话",
         status: "开发中",
@@ -574,19 +583,21 @@
 
     function createCard(project) {
       const element = document.createElement(project.href ? "a" : "article");
-      element.className = `card${project.href ? "" : " is-disabled"}`;
+      element.className = `card${project.href ? "" : " is-disabled"}${project.image ? "" : " has-fallback"}`;
       if (project.href) {
         element.href = project.href;
         element.setAttribute("aria-label", `${project.title}，${project.status}`);
       }
 
       element.innerHTML = `
-        <img
-          class="cover-img"
-          src="${project.image}"
-          alt="${project.title}封面"
-          loading="lazy"
-        />
+        ${project.image ? `
+          <img
+            class="cover-img"
+            src="${project.image}"
+            alt="${project.title}封面"
+            loading="lazy"
+          />
+        ` : ""}
         <div class="cover-fallback">封面加载失败<br />${project.title}</div>
         <div class="card-body">
           <div class="chip-row">
@@ -600,9 +611,11 @@
       `;
 
       const image = element.querySelector(".cover-img");
-      image.addEventListener("error", () => {
-        element.classList.add("has-fallback");
-      });
+      if (image) {
+        image.addEventListener("error", () => {
+          element.classList.add("has-fallback");
+        });
+      }
 
       return element;
     }
