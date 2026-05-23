@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -12,19 +12,20 @@
     @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
     :root {
-      --ink: #16120f;
-      --muted: #62574e;
-      --line: #e2d7c8;
-      --paper: #fffaf0;
-      --card: #ffffff;
-      --nav: #151f2e;
-      --nav-2: #223248;
-      --gold: #ffbf3f;
-      --orange: #ff7a3d;
-      --green: #16a36a;
-      --blue: #2476d8;
-      --red: #e84b3c;
-      --shadow: 0 16px 45px rgba(55, 38, 22, 0.12);
+      --ink: #161a20;
+      --muted: #6e7480;
+      --line: #d5d9df;
+      --paper: #eef1f4;
+      --card: #f9fafb;
+      --nav: #121821;
+      --nav-2: #202a36;
+      --gold: #aeb9c7;
+      --orange: #9b8f8a;
+      --green: #879b94;
+      --blue: #758aa3;
+      --red: #9a7f82;
+      --lavender: #8d8fa4;
+      --shadow: 0 16px 45px rgba(23, 30, 40, 0.13);
     }
 
     * {
@@ -36,9 +37,9 @@
       color: var(--ink);
       font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
       background:
-        radial-gradient(circle at 8% 8%, rgba(255, 191, 63, 0.22), transparent 24%),
-        radial-gradient(circle at 92% 14%, rgba(36, 118, 216, 0.16), transparent 22%),
-        linear-gradient(180deg, #fff3d0 0, #f7efe4 330px, #f4efe8 100%);
+        radial-gradient(circle at 8% 8%, rgba(117, 138, 163, 0.2), transparent 24%),
+        radial-gradient(circle at 92% 14%, rgba(142, 148, 164, 0.22), transparent 22%),
+        linear-gradient(180deg, #dde4eb 0, #edf0f3 330px, #e7eaee 100%);
     }
 
     a {
@@ -83,7 +84,7 @@
       border: 2px solid #fff;
       border-radius: 12px;
       background: var(--gold);
-      color: var(--ink);
+      color: #111821;
       transform: rotate(-7deg);
     }
 
@@ -94,7 +95,7 @@
       overflow: hidden;
       border: 2px solid transparent;
       border-radius: 12px;
-      background: #fff;
+      background: #f9fafb;
     }
 
     .search:focus-within {
@@ -111,7 +112,7 @@
     .search select {
       padding: 0 12px;
       color: #2c2722;
-      background: #eee4d8;
+      background: #e5e8ec;
     }
 
     .search input {
@@ -190,8 +191,8 @@
       padding: clamp(24px, 4vw, 48px);
       border-radius: 26px;
       background:
-        radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.45), transparent 20%),
-        linear-gradient(135deg, #ffcf52, #ff7a3d 52%, #293a57);
+        radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.22), transparent 20%),
+        linear-gradient(135deg, #59687a, #2b3442 56%, #111821);
       color: #fff;
       box-shadow: var(--shadow);
     }
@@ -265,7 +266,7 @@
       padding: 11px 18px;
       border: 2px solid var(--ink);
       border-radius: 999px;
-      background: #fff;
+      background: #f9fafb;
       color: var(--ink);
       font-weight: 900;
       box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.16);
@@ -295,8 +296,8 @@
       min-height: 210px;
       padding: 22px;
       background:
-        radial-gradient(circle at 100% 0, rgba(255, 191, 63, 0.34), transparent 36%),
-        #fff;
+        radial-gradient(circle at 100% 0, rgba(117, 138, 163, 0.26), transparent 36%),
+        #f9fafb;
     }
 
     .deal-card h2 {
@@ -374,11 +375,11 @@
       gap: 10px;
       align-items: center;
       padding: 12px 14px 12px 12px;
-      border: 1px solid #dfd2c4;
+      border: 1px solid #d4d9df;
       border-left: 6px solid var(--gold);
       border-radius: 10px 18px 18px 10px;
-      background: linear-gradient(180deg, #fffdf7, #fff4df);
-      box-shadow: 0 10px 24px rgba(55, 38, 22, 0.1);
+      background: linear-gradient(180deg, #fbfcfd, #edf1f5);
+      box-shadow: 0 10px 24px rgba(23, 30, 40, 0.1);
       scroll-snap-align: start;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
@@ -397,7 +398,7 @@
 
     .category:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 32px rgba(55, 38, 22, 0.16);
+      box-shadow: 0 16px 32px rgba(23, 30, 40, 0.16);
     }
 
     .category:nth-child(2) {
@@ -417,11 +418,11 @@
     }
 
     .category:nth-child(4) {
-      border-left-color: #8b5cf6;
+      border-left-color: var(--lavender);
     }
 
     .category:nth-child(4)::after {
-      background: #8b5cf6;
+      background: var(--lavender);
     }
 
     .category:nth-child(5) {
@@ -446,8 +447,8 @@
       display: grid;
       place-items: center;
       border-radius: 14px;
-      background: #fff;
-      border: 1px solid #eadfce;
+      background: #f8fafc;
+      border: 1px solid #d7dde4;
     }
 
     .category-icon svg {
@@ -526,9 +527,9 @@
       height: 16px;
       display: inline-grid;
       place-items: center;
-      border: 2px solid #938678;
+      border: 2px solid #8b929c;
       border-radius: 4px;
-      background: #fff;
+      background: #f9fafb;
       color: var(--green);
       font-size: 12px;
       font-weight: 900;
@@ -547,7 +548,7 @@
 
     .product-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(55, 38, 22, 0.18);
+      box-shadow: 0 20px 50px rgba(23, 30, 40, 0.18);
     }
 
     .product-art {
@@ -558,8 +559,8 @@
       overflow: hidden;
       border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.68), transparent 20%),
-        linear-gradient(135deg, #ffe08a, #ff7a3d);
+        radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.34), transparent 20%),
+        linear-gradient(135deg, #c2cad3, #758aa3);
       font-family: "Archivo Black", sans-serif;
       font-size: 62px;
       color: rgba(22, 18, 15, 0.72);
@@ -567,18 +568,18 @@
 
     .product-card:nth-child(2) .product-art,
     .product-card:nth-child(6) .product-art {
-      background: linear-gradient(135deg, #c8f7ff, #2476d8);
+      background: linear-gradient(135deg, #aeb9c7, #4f6278);
       color: rgba(255, 255, 255, 0.92);
     }
 
     .product-card:nth-child(3) .product-art,
     .product-card:nth-child(7) .product-art {
-      background: linear-gradient(135deg, #d7ffc2, #16a36a);
+      background: linear-gradient(135deg, #bac8c3, #6f8780);
     }
 
     .product-card:nth-child(4) .product-art,
     .product-card:nth-child(8) .product-art {
-      background: linear-gradient(135deg, #f5d6ff, #ffbf3f);
+      background: linear-gradient(135deg, #c8c3cf, #9b8f8a);
     }
 
     .badge {
@@ -618,24 +619,24 @@
       min-height: 28px;
       padding: 5px 8px;
       border-radius: 999px;
-      background: #fff5df;
-      color: #6d4312;
+      background: #eef1f5;
+      color: #3e4a59;
       font-size: 12px;
       font-weight: 900;
     }
 
     .score.rare {
-      background: #eaf3ff;
-      color: #174f95;
+      background: #e7edf4;
+      color: #314f70;
     }
 
     .score.total {
-      background: #eefbe9;
-      color: #13633f;
+      background: #e6eeeb;
+      color: #3d6259;
     }
 
     .stars {
-      color: #f3a800;
+      color: #9b8f65;
       font-size: 14px;
       letter-spacing: -0.08em;
     }
@@ -661,8 +662,8 @@
       margin-top: 12px;
       padding: 12px;
       border-radius: 14px;
-      background: #f8f5ef;
-      border: 1px solid #e8ded2;
+      background: #eef1f4;
+      border: 1px solid #d9dde3;
       font-size: 13px;
     }
 
@@ -709,7 +710,7 @@
       min-height: 190px;
       padding: 20px;
       border-radius: 20px;
-      background: #fff;
+      background: #f9fafb;
       border: 1px solid var(--line);
     }
 
@@ -718,7 +719,7 @@
       margin-bottom: 14px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: #eef4ff;
+      background: #e8edf4;
       color: var(--blue);
       font-size: 12px;
     }
@@ -732,7 +733,7 @@
       margin-top: 22px;
       padding: 16px 18px;
       border-radius: 18px;
-      background: #1f2937;
+      background: #141a22;
       color: rgba(255, 255, 255, 0.82);
       line-height: 1.7;
     }
@@ -955,7 +956,7 @@
             <div class="product-art"><span class="badge">今日最怪</span>!</div>
             <div class="product-body">
               <h3 class="product-title">Screaming Chicken Stress Toy 尖叫鸡减压整蛊玩具</h3>
-              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">1,284 votes</span></div>
+              <div class="stars">★★★★★ <span style="color:#6e7480;letter-spacing:0">1,284 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.8</span>
                 <span class="score rare">稀有度 3.9</span>
@@ -979,7 +980,7 @@
             <div class="product-art"><span class="badge">稀有</span>?</div>
             <div class="product-body">
               <h3 class="product-title">Mystery Desk Button 不明用途桌面按钮</h3>
-              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">846 votes</span></div>
+              <div class="stars">★★★★☆ <span style="color:#6e7480;letter-spacing:0">846 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.4</span>
                 <span class="score rare">稀有度 4.7</span>
@@ -1003,7 +1004,7 @@
             <div class="product-art"><span class="badge">礼物</span>*</div>
             <div class="product-body">
               <h3 class="product-title">Tiny Alien Mug 迷你外星人咖啡杯</h3>
-              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">522 votes</span></div>
+              <div class="stars">★★★★☆ <span style="color:#6e7480;letter-spacing:0">522 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.1</span>
                 <span class="score rare">稀有度 4.3</span>
@@ -1027,7 +1028,7 @@
             <div class="product-art"><span class="badge">家居</span>~</div>
             <div class="product-body">
               <h3 class="product-title">Creepy Night Lamp 诡异微笑夜灯</h3>
-              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">1,038 votes</span></div>
+              <div class="stars">★★★★★ <span style="color:#6e7480;letter-spacing:0">1,038 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.6</span>
                 <span class="score rare">稀有度 4.1</span>
@@ -1051,7 +1052,7 @@
             <div class="product-art"><span class="badge">整蛊</span>#</div>
             <div class="product-body">
               <h3 class="product-title">Banana Phone Holder 香蕉电话支架</h3>
-              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">743 votes</span></div>
+              <div class="stars">★★★★☆ <span style="color:#6e7480;letter-spacing:0">743 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.5</span>
                 <span class="score rare">稀有度 3.6</span>
@@ -1075,7 +1076,7 @@
             <div class="product-art"><span class="badge">赛博</span>&</div>
             <div class="product-body">
               <h3 class="product-title">Cyber Cat Collar 赛博发光猫咪项圈</h3>
-              <div class="stars">★★★★★ <span style="color:#62574e;letter-spacing:0">918 votes</span></div>
+              <div class="stars">★★★★★ <span style="color:#6e7480;letter-spacing:0">918 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.2</span>
                 <span class="score rare">稀有度 4.6</span>
@@ -1099,7 +1100,7 @@
             <div class="product-art"><span class="badge">收藏</span>@</div>
             <div class="product-body">
               <h3 class="product-title">Pocket Ghost Plush 口袋幽灵毛绒挂件</h3>
-              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">389 votes</span></div>
+              <div class="stars">★★★★☆ <span style="color:#6e7480;letter-spacing:0">389 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 3.9</span>
                 <span class="score rare">稀有度 4.8</span>
@@ -1123,7 +1124,7 @@
             <div class="product-art"><span class="badge">新品</span>%</div>
             <div class="product-body">
               <h3 class="product-title">Reverse Alarm Clock 反向闹钟，越按越响</h3>
-              <div class="stars">★★★★☆ <span style="color:#62574e;letter-spacing:0">612 votes</span></div>
+              <div class="stars">★★★★☆ <span style="color:#6e7480;letter-spacing:0">612 votes</span></div>
               <div class="score-row">
                 <span class="score">搞怪度 4.7</span>
                 <span class="score rare">稀有度 4.0</span>
