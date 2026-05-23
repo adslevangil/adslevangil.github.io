@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="LaLaLaBuy：一个轻快、明亮的购物灵感项目页，用来展示精选好物、愿望清单与消费灵感。"
+  />
+  <title>LaLaLaBuy | Eason Game</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+SC:wght@400;500;700;800&display=swap");
+
+    :root {
+      --ink: #24140f;
+      --muted: rgba(36, 20, 15, 0.68);
+      --paper: #fff8e8;
+      --coral: #ff6f59;
+      --sun: #ffc857;
+      --mint: #62d6a4;
+      --blue: #56b8ff;
+      --shadow: 0 24px 70px rgba(101, 58, 22, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 111, 89, 0.2), transparent 24%),
+        radial-gradient(circle at 92% 8%, rgba(86, 184, 255, 0.2), transparent 22%),
+        linear-gradient(135deg, #fff2ca 0%, #fff8e8 48%, #ffe1d5 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(36, 20, 15, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 20, 15, 0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 72%);
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      position: relative;
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 18px 0 52px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: rgba(255, 248, 232, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 8px 8px 0 rgba(36, 20, 15, 0.1);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: var(--sun);
+      font-family: "Archivo Black", sans-serif;
+      transform: rotate(-6deg);
+    }
+
+    .brand strong,
+    .brand span {
+      display: block;
+    }
+
+    .brand strong {
+      font-size: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 rgba(36, 20, 15, 0.12);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .nav a:hover,
+    .button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 rgba(36, 20, 15, 0.14);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 26px;
+      align-items: stretch;
+      padding: 46px 0 28px;
+    }
+
+    .hero-copy,
+    .showcase,
+    .panel {
+      border: 2px solid var(--ink);
+      border-radius: 32px;
+      background: rgba(255, 248, 232, 0.82);
+      box-shadow: var(--shadow), 10px 10px 0 rgba(36, 20, 15, 0.1);
+    }
+
+    .hero-copy {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+    }
+
+    .hero-copy::after {
+      content: "BUY!";
+      position: absolute;
+      right: -14px;
+      bottom: -18px;
+      color: rgba(255, 111, 89, 0.12);
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(86px, 15vw, 170px);
+      line-height: 0.8;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--mint);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin-bottom: 16px;
+      font-family: "Archivo Black", "Noto Sans SC", sans-serif;
+      font-size: clamp(54px, 9vw, 112px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+    }
+
+    .lead {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.8;
+    }
+
+    .actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary {
+      background: var(--coral);
+      color: #fffdf7;
+    }
+
+    .button-secondary {
+      background: var(--sun);
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 26% 24%, rgba(255, 200, 87, 0.58), transparent 22%),
+        radial-gradient(circle at 78% 18%, rgba(98, 214, 164, 0.44), transparent 20%),
+        linear-gradient(180deg, #fff7dc, #ffd6c8);
+    }
+
+    .receipt,
+    .bag,
+    .tag {
+      position: absolute;
+      border: 2px solid var(--ink);
+      box-shadow: 10px 10px 0 rgba(36, 20, 15, 0.12);
+    }
+
+    .receipt {
+      top: 34px;
+      left: 36px;
+      width: min(280px, 70%);
+      padding: 22px;
+      border-radius: 20px;
+      background: #fffdf5;
+      transform: rotate(-5deg);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .receipt h2 {
+      margin-bottom: 14px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 28px;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(36, 20, 15, 0.24);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bag {
+      right: 44px;
+      bottom: 46px;
+      width: min(280px, 62%);
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border-radius: 34px 34px 42px 42px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      transform: rotate(4deg);
+      animation: bob 4.6s ease-in-out infinite;
+    }
+
+    .bag::before {
+      content: "";
+      position: absolute;
+      top: -34px;
+      width: 104px;
+      height: 70px;
+      border: 2px solid var(--ink);
+      border-bottom: 0;
+      border-radius: 999px 999px 0 0;
+      background: transparent;
+    }
+
+    .bag strong {
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 0.96;
+      text-shadow: 3px 3px 0 rgba(36, 20, 15, 0.22);
+    }
+
+    .tag {
+      right: 34px;
+      top: 74px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: var(--coral);
+      color: #fffdf7;
+      font-weight: 900;
+      transform: rotate(10deg);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin: 18px 0;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(30px, 5vw, 56px);
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      max-width: 500px;
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      padding: 24px;
+      transition: transform 0.2s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+
+    .panel:nth-child(2) {
+      background: #e9fff3;
+    }
+
+    .panel:nth-child(3) {
+      background: #e9f5ff;
+    }
+
+    .panel .number {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 24px;
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      background: var(--sun);
+      font-family: "Archivo Black", sans-serif;
+      box-shadow: 4px 4px 0 rgba(36, 20, 15, 0.12);
+    }
+
+    .panel h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .panel p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff8e8;
+    }
+
+    .marquee-track {
+      display: flex;
+      min-width: max-content;
+      gap: 14px;
+      padding: 12px 0;
+      animation: scroll 18s linear infinite;
+    }
+
+    .marquee span {
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .footnote {
+      margin-top: 28px;
+      padding: 20px 24px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255, 248, 232, 0.78);
+      color: var(--muted);
+      line-height: 1.8;
+      box-shadow: 8px 8px 0 rgba(36, 20, 15, 0.1);
+    }
+
+    .footnote strong {
+      color: var(--ink);
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(12px) rotate(-3deg);
+      }
+    }
+
+    @keyframes bob {
+      50% {
+        transform: translateY(-12px) rotate(3deg);
+      }
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        min-height: 460px;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100vw - 22px, 1180px);
+        padding-top: 10px;
+      }
+
+      .topbar {
+        align-items: stretch;
+        border-radius: 24px;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: stretch;
+      }
+
+      .nav a {
+        flex: 1;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-copy,
+      .showcase,
+      .panel {
+        border-radius: 24px;
+      }
+
+      .receipt {
+        left: 18px;
+        width: 76%;
+      }
+
+      .bag {
+        right: 20px;
+        width: 72%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="返回 Eason Game 首页">
+        <span class="mark">L</span>
+        <span>
+          <strong>LaLaLaBuy</strong>
+          <span>购物灵感实验室</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#ideas">灵感模块</a>
+        <a href="/">返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">New Project</span>
+          <h1>LaLaLaBuy</h1>
+          <p class="lead">
+            一个明亮、轻快、带一点漫画感的购物灵感项目。这里可以继续扩展成好物清单、愿望列表、活动页，或一个更完整的精选商品展示站。
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#ideas">查看项目方向</a>
+            <a class="button button-secondary" href="/">回到项目陈列</a>
+          </div>
+        </div>
+
+        <aside class="showcase" aria-label="LaLaLaBuy 视觉展示">
+          <div class="receipt">
+            <h2>Today's Cart</h2>
+            <div class="receipt-row"><span>灵感</span><strong>100%</strong></div>
+            <div class="receipt-row"><span>快乐预算</span><strong>满格</strong></div>
+            <div class="receipt-row"><span>冲动消费</span><strong>已冷静</strong></div>
+          </div>
+          <div class="tag">上新中</div>
+          <div class="bag">
+            <strong>LALA<br />BUY</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section id="ideas" aria-labelledby="ideasTitle">
+        <div class="section-head">
+          <h2 id="ideasTitle">可以长成什么？</h2>
+          <p>先把项目入口搭起来，后续可以按你的想法替换成真实内容、图片、链接或交互。</p>
+        </div>
+
+        <div class="grid">
+          <article class="panel">
+            <span class="number">01</span>
+            <h3>精选好物</h3>
+            <p>做成按主题分类的推荐页，比如数码、生活、潮玩、礼物灵感，每张卡片都能接入图片和购买链接。</p>
+          </article>
+          <article class="panel">
+            <span class="number">02</span>
+            <h3>愿望清单</h3>
+            <p>展示想买、已买、正在观望的物品，用状态标签记录优先级，变成一个有审美的个人购物看板。</p>
+          </article>
+          <article class="panel">
+            <span class="number">03</span>
+            <h3>活动专题</h3>
+            <p>扩展成节日促销、品牌上新、折扣情报或小店橱窗，一页一个主题，轻巧上线。</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>SMART CART</span>
+          <span>HAPPY LIST</span>
+          <span>LALALABUY</span>
+          <span>GOOD FINDS</span>
+          <span>SMART CART</span>
+          <span>HAPPY LIST</span>
+          <span>LALALABUY</span>
+          <span>GOOD FINDS</span>
+        </div>
+      </div>
+
+      <section class="footnote">
+        <strong>LaLaLaBuy</strong>
+        已经作为 Eason Game 站点里的独立项目建立。后续如果你给我商品、图片、栏目或功能想法，我们可以继续把它从入口页升级成完整项目。
+      </section>
+    </main>
+  </div>
+</body>
+</html>
