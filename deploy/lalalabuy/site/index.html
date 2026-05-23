@@ -42,6 +42,129 @@
         linear-gradient(180deg, #dde4eb 0, #edf0f3 330px, #e7eaee 100%);
     }
 
+    .sky-oddities {
+      position: fixed;
+      inset: 0;
+      z-index: 35;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .flyer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 82px;
+      height: 82px;
+      color: rgba(236, 241, 246, 0.92);
+      filter: drop-shadow(0 10px 18px rgba(18, 24, 33, 0.28));
+      opacity: 0;
+      transform: translate3d(var(--x0), var(--y0), 0) scale(var(--scale));
+      animation: eerie-flight var(--duration) cubic-bezier(0.42, 0, 0.18, 1) forwards;
+    }
+
+    .flyer svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .flyer.ufo {
+      color: rgba(216, 224, 232, 0.96);
+    }
+
+    .flyer.ufo svg {
+      animation: hover-wobble 1.8s ease-in-out infinite;
+    }
+
+    .flyer.meteor {
+      width: 118px;
+      height: 42px;
+      color: rgba(226, 232, 238, 0.9);
+      filter: drop-shadow(0 0 16px rgba(151, 169, 188, 0.44));
+    }
+
+    .flyer.butterfly {
+      width: 58px;
+      height: 58px;
+      color: rgba(151, 169, 188, 0.92);
+      filter: drop-shadow(0 8px 14px rgba(18, 24, 33, 0.22));
+    }
+
+    .flyer.butterfly svg {
+      animation: wing-flutter 0.36s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    .flyer.fairy {
+      width: 62px;
+      height: 62px;
+      color: rgba(226, 232, 238, 0.94);
+      filter: drop-shadow(0 0 18px rgba(174, 185, 199, 0.5));
+    }
+
+    .flyer.fairy::after {
+      content: "";
+      position: absolute;
+      inset: 24px auto auto 8px;
+      width: 48px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.74), transparent);
+      transform: rotate(-18deg);
+    }
+
+    @keyframes eerie-flight {
+      0% {
+        opacity: 0;
+        transform: translate3d(var(--x0), var(--y0), 0) rotate(var(--r0)) scale(var(--scale));
+      }
+
+      12% {
+        opacity: var(--alpha);
+      }
+
+      34% {
+        transform: translate3d(var(--x1), var(--y1), 0) rotate(var(--r1)) scale(var(--scale));
+      }
+
+      68% {
+        transform: translate3d(var(--x2), var(--y2), 0) rotate(var(--r2)) scale(var(--scale));
+      }
+
+      88% {
+        opacity: var(--alpha);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--x3), var(--y3), 0) rotate(var(--r3)) scale(var(--scale));
+      }
+    }
+
+    @keyframes hover-wobble {
+      50% {
+        transform: translateY(-5px) rotate(2deg);
+      }
+    }
+
+    @keyframes wing-flutter {
+      from {
+        transform: scaleX(0.82) rotate(-5deg);
+      }
+
+      to {
+        transform: scaleX(1.08) rotate(5deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sky-oddities {
+        display: none;
+      }
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -797,6 +920,8 @@
   </style>
 </head>
 <body>
+  <div class="sky-oddities" id="skyOddities" aria-hidden="true"></div>
+
   <header class="topbar">
     <div class="topbar-main">
       <a class="logo" href="/" aria-label="LaLaLaBuy 首页">
@@ -1200,5 +1325,113 @@
       本首页为 simple 静态演示版，商品图片使用符号占位，商品名称、价格、评分、卖家信息、购物车按钮均为临时内容，后续可接入真实商品上传、访客评分、卖家后台和订单系统。
     </div>
   </main>
+
+  <script>
+    const sky = document.getElementById("skyOddities");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const flyerSvgs = {
+      ufo: `
+        <svg viewBox="0 0 96 64" aria-hidden="true">
+          <ellipse cx="48" cy="34" rx="34" ry="11" fill="currentColor" opacity="0.88" />
+          <path d="M30 32c4-15 32-15 36 0" fill="none" stroke="#5f6f82" stroke-width="4" />
+          <ellipse cx="48" cy="35" rx="45" ry="9" fill="none" stroke="#2f3b49" stroke-width="3" />
+          <circle cx="34" cy="37" r="3" fill="#758aa3" />
+          <circle cx="48" cy="39" r="3" fill="#aeb9c7" />
+          <circle cx="62" cy="37" r="3" fill="#758aa3" />
+          <path d="M36 47l-8 12M48 49v13M60 47l8 12" stroke="#aeb9c7" stroke-width="3" stroke-linecap="round" opacity="0.65" />
+        </svg>
+      `,
+      meteor: `
+        <svg viewBox="0 0 128 48" aria-hidden="true">
+          <path d="M8 24c30-16 56-18 84-12" stroke="currentColor" stroke-width="10" stroke-linecap="round" opacity="0.18" />
+          <path d="M12 30c34-12 64-12 94-2" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity="0.38" />
+          <circle cx="108" cy="25" r="11" fill="currentColor" />
+          <circle cx="112" cy="21" r="3" fill="#758aa3" opacity="0.7" />
+        </svg>
+      `,
+      butterfly: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M31 30C20 8 4 12 7 29c2 12 14 11 24 1z" fill="currentColor" opacity="0.74" />
+          <path d="M33 30c11-22 27-18 24-1-2 12-14 11-24 1z" fill="currentColor" opacity="0.74" />
+          <path d="M31 36C17 50 6 44 10 34c3-8 13-7 21 2z" fill="currentColor" opacity="0.54" />
+          <path d="M33 36c14 14 25 8 21-2-3-8-13-7-21 2z" fill="currentColor" opacity="0.54" />
+          <path d="M32 25v22M26 18l-5-6M38 18l5-6" stroke="#2f3b49" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      `,
+      fairy: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="34" cy="20" r="5" fill="currentColor" />
+          <path d="M34 26l-5 15h10l-5-15z" fill="currentColor" opacity="0.88" />
+          <path d="M29 28C12 16 8 32 24 36M39 28c17-12 21 4 5 8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity="0.45" />
+          <path d="M28 43l-6 10M40 43l6 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          <path d="M15 16h.1M50 13h.1M52 42h.1M12 46h.1" stroke="#fff" stroke-width="4" stroke-linecap="round" />
+        </svg>
+      `
+    };
+
+    function randomBetween(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function point(side) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      if (side === "left") return { x: -140, y: randomBetween(70, vh * 0.78) };
+      if (side === "right") return { x: vw + 140, y: randomBetween(70, vh * 0.78) };
+      if (side === "top") return { x: randomBetween(40, vw - 40), y: -120 };
+      return { x: randomBetween(40, vw - 40), y: vh + 120 };
+    }
+
+    function spawnFlyer() {
+      if (!sky || reducedMotion || document.hidden) return;
+
+      const types = ["ufo", "meteor", "butterfly", "fairy"];
+      const type = types[Math.floor(Math.random() * types.length)];
+      const sides = ["left", "right", "top", "bottom"];
+      const startSide = sides[Math.floor(Math.random() * sides.length)];
+      const endSide = sides.filter((side) => side !== startSide)[Math.floor(Math.random() * 3)];
+      const start = point(startSide);
+      const end = point(endSide);
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const midA = { x: randomBetween(vw * 0.12, vw * 0.88), y: randomBetween(40, vh * 0.55) };
+      const midB = { x: randomBetween(vw * 0.12, vw * 0.88), y: randomBetween(vh * 0.28, vh * 0.88) };
+
+      const flyer = document.createElement("span");
+      flyer.className = `flyer ${type}`;
+      flyer.innerHTML = flyerSvgs[type];
+      flyer.style.setProperty("--x0", `${start.x}px`);
+      flyer.style.setProperty("--y0", `${start.y}px`);
+      flyer.style.setProperty("--x1", `${midA.x}px`);
+      flyer.style.setProperty("--y1", `${midA.y}px`);
+      flyer.style.setProperty("--x2", `${midB.x}px`);
+      flyer.style.setProperty("--y2", `${midB.y}px`);
+      flyer.style.setProperty("--x3", `${end.x}px`);
+      flyer.style.setProperty("--y3", `${end.y}px`);
+      flyer.style.setProperty("--r0", `${randomBetween(-18, 18)}deg`);
+      flyer.style.setProperty("--r1", `${randomBetween(-28, 28)}deg`);
+      flyer.style.setProperty("--r2", `${randomBetween(-28, 28)}deg`);
+      flyer.style.setProperty("--r3", `${randomBetween(-18, 18)}deg`);
+      flyer.style.setProperty("--scale", randomBetween(0.72, 1.18).toFixed(2));
+      flyer.style.setProperty("--alpha", randomBetween(0.55, 0.9).toFixed(2));
+      flyer.style.setProperty("--duration", `${randomBetween(7.5, 13.5).toFixed(2)}s`);
+      flyer.addEventListener("animationend", () => flyer.remove(), { once: true });
+      sky.appendChild(flyer);
+    }
+
+    function scheduleOddity() {
+      const delay = randomBetween(6500, 18000);
+      window.setTimeout(() => {
+        spawnFlyer();
+        scheduleOddity();
+      }, delay);
+    }
+
+    if (!reducedMotion) {
+      window.setTimeout(spawnFlyer, 1800);
+      scheduleOddity();
+    }
+  </script>
 </body>
 </html>
