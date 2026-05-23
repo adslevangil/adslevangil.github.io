@@ -357,37 +357,125 @@
     }
 
     .category-strip {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 3px 2px 8px;
+      scroll-snap-type: x proximity;
     }
 
     .category {
-      min-height: 132px;
-      padding: 16px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 88% 16%, rgba(255, 191, 63, 0.48), transparent 28%),
-        #f7fbff;
-      border: 1px solid #dfebf8;
+      position: relative;
+      flex: 0 0 auto;
+      width: 184px;
+      min-height: 78px;
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px 12px 12px;
+      border: 1px solid #dfd2c4;
+      border-left: 6px solid var(--gold);
+      border-radius: 10px 18px 18px 10px;
+      background: linear-gradient(180deg, #fffdf7, #fff4df);
+      box-shadow: 0 10px 24px rgba(55, 38, 22, 0.1);
+      scroll-snap-align: start;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .category:nth-child(2n) {
-      background:
-        radial-gradient(circle at 88% 16%, rgba(255, 122, 61, 0.28), transparent 30%),
-        #fff8ee;
+    .category::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 16px;
+      width: 18px;
+      height: 24px;
+      background: var(--gold);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 74%, 0 100%);
+      opacity: 0.9;
+    }
+
+    .category:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(55, 38, 22, 0.16);
+    }
+
+    .category:nth-child(2) {
+      border-left-color: var(--blue);
+    }
+
+    .category:nth-child(2)::after {
+      background: var(--blue);
+    }
+
+    .category:nth-child(3) {
+      border-left-color: var(--orange);
+    }
+
+    .category:nth-child(3)::after {
+      background: var(--orange);
+    }
+
+    .category:nth-child(4) {
+      border-left-color: #8b5cf6;
+    }
+
+    .category:nth-child(4)::after {
+      background: #8b5cf6;
+    }
+
+    .category:nth-child(5) {
+      border-left-color: var(--green);
+    }
+
+    .category:nth-child(5)::after {
+      background: var(--green);
+    }
+
+    .category:nth-child(6) {
+      border-left-color: var(--red);
+    }
+
+    .category:nth-child(6)::after {
+      background: var(--red);
+    }
+
+    .category-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #eadfce;
+    }
+
+    .category-icon svg {
+      width: 25px;
+      height: 25px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.4;
     }
 
     .category b {
       display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
+      margin-bottom: 3px;
+      font-size: 14px;
+      line-height: 1.2;
     }
 
     .category span {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+      display: block;
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .shop-layout {
@@ -658,8 +746,8 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .category-strip {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .category {
+        width: 172px;
       }
     }
 
@@ -697,7 +785,6 @@
         display: none;
       }
 
-      .category-strip,
       .product-grid {
         grid-template-columns: 1fr;
       }
@@ -787,12 +874,42 @@
         <p>临时分类内容，用来展示真实电商首页的信息结构。</p>
       </div>
       <div class="category-strip">
-        <a class="category" href="#products"><b>今日最怪</b><span>离谱、搞笑、适合转发的商品。</span></a>
-        <a class="category" href="#products"><b>本周最稀有</b><span>少见、难买、看见就想收藏。</span></a>
-        <a class="category" href="#products"><b>最适合送礼</b><span>送朋友会被骂但会记住。</span></a>
-        <a class="category" href="#products"><b>诡异家居</b><span>让房间突然拥有故事感。</span></a>
-        <a class="category" href="#products"><b>办公室整蛊</b><span>让同事沉默三秒的道具。</span></a>
-        <a class="category" href="#products"><b>不明用途</b><span>不知道干嘛，但就是想买。</span></a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="M8.5 10h.1M15.4 10h.1M8.5 15c2.2 1.4 4.8 1.4 7 0" /><path d="M5 6l-2-2M19 6l2-2" /></svg>
+          </span>
+          <span><b>今日最怪</b><span>离谱搞笑，适合转发</span></span>
+        </a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 6-7 12L5 9l7-6z" /><path d="M5 9h14M9 9l3 12 3-12M9 9l3-6 3 6" /></svg>
+          </span>
+          <span><b>本周最稀有</b><span>少见难买，值得收藏</span></span>
+        </a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 10h16v10H4z" /><path d="M4 10h16M12 10v10M7 10c-2-2-1-5 2-4 2 .7 3 4 3 4M17 10c2-2 1-5-2-4-2 .7-3 4-3 4" /></svg>
+          </span>
+          <span><b>最适合送礼</b><span>会被记住的奇葩礼物</span></span>
+        </a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7" /><path d="M6 10v10h12V10" /><path d="M9 20v-5h6v5" /><path d="M9 12h.1M15 12h.1" /></svg>
+          </span>
+          <span><b>诡异家居</b><span>让房间突然有故事</span></span>
+        </a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13 2L5 13h6l-1 9 9-13h-6l1-7z" /></svg>
+          </span>
+          <span><b>办公室整蛊</b><span>让同事沉默三秒</span></span>
+        </a>
+        <a class="category" href="#products">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7z" /><path d="M12 8v1.2" /><path d="M12 15h.1" /><path d="M9 8.5c.8-1.2 3.8-1.6 5 0 1.2 1.7-.8 2.7-2 3.6" /></svg>
+          </span>
+          <span><b>不明用途</b><span>不知道干嘛但想买</span></span>
+        </a>
       </div>
     </section>
 
