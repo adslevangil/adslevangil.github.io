@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:09:16.057093+00:00",
+  "updated_at": "2026-06-06T23:09:31.119960+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606230931-03f7380e-01",
+      "created_at": "2026-06-06T23:09:31.119960+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-230931-animagine_retro_fantasy-03f7380e-01.png",
+      "image_path": "gallery/images/2026/06/20260606-230931-animagine_retro_fantasy-03f7380e-01.png",
+      "filename": "08_volcanic_smith_00001_.png",
+      "prompt_id": "03f7380e-811f-4cda-9aca-b5e316aa2df5",
+      "prompt": "full-body female anime character illustration, muscular volcanic forge smith woman, sleeveless work apron over black armor skirt, ember gauntlets, hammer resting on shoulder, lava forge background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/08_volcanic_smith",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606230916-69da6988-01",
       "created_at": "2026-06-06T23:09:16.057093+00:00",
