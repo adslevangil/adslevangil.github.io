@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:18:23.769550+00:00",
+  "updated_at": "2026-06-06T23:18:38.760635+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231838-84f13961-01",
+      "created_at": "2026-06-06T23:18:38.760635+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231838-illustrious_naraken-84f13961-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231838-illustrious_naraken-84f13961-01.png",
+      "filename": "42_classic_vampire_00001_.png",
+      "prompt_id": "84f13961-674f-4ffb-b134-6fcec1f5fecc",
+      "prompt": "full-body female anime character illustration, aristocratic vampire woman, wine red velvet gown, lace gloves, parasol accessory, elegant nocturnal pose, gothic balcony background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/42_classic_vampire",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231823-ce59b9d2-01",
       "created_at": "2026-06-06T23:18:23.769550+00:00",
