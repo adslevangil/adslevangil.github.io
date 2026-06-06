@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:51:04.999148+00:00",
+  "updated_at": "2026-06-06T23:51:19.704905+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606235119-f5a8fee6-01",
+      "created_at": "2026-06-06T23:51:19.704905+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-235119-illustrious_naraken_v2-f5a8fee6-01.png",
+      "image_path": "gallery/images/2026/06/20260606-235119-illustrious_naraken_v2-f5a8fee6-01.png",
+      "filename": "48_classic_bounty_hunter_00001_.png",
+      "prompt_id": "f5a8fee6-a6d1-4665-95f9-b2369fd7887b",
+      "prompt": "full-body female anime character illustration, bounty hunter woman, rugged travel vest and holsters, wanted poster accessory, sharp overcoat pose, frontier saloon background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_v2_only_50/48_classic_bounty_hunter",
+      "source_subfolder": "web/diverse_female_batch_v2_only_50"
+    },
     {
       "id": "20260606235104-48bee770-01",
       "created_at": "2026-06-06T23:51:04.999148+00:00",
