@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:09:01.115829+00:00",
+  "updated_at": "2026-06-06T23:09:16.057093+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606230916-69da6988-01",
+      "created_at": "2026-06-06T23:09:16.057093+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-230916-animagine_retro_fantasy-69da6988-01.png",
+      "image_path": "gallery/images/2026/06/20260606-230916-animagine_retro_fantasy-69da6988-01.png",
+      "filename": "07_mermaid_envoy_00001_.png",
+      "prompt_id": "69da6988-60ad-46e0-9847-b81fb462101b",
+      "prompt": "full-body female anime character illustration, mermaid envoy woman presented as fantasy court portrait, pearl jewelry and sea silk mantle, elegant greeting pose, coral palace background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/07_mermaid_envoy",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606230901-5a18799c-01",
       "created_at": "2026-06-06T23:09:01.115829+00:00",
