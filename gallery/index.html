@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Eason Game 生成图库，集中浏览每次通过本地或远端 ComfyUI 生成的角色图片与工作流信息。"
+  />
+  <title>Eason Game | 生成图库</title>
+  <link rel="stylesheet" href="/gallery/styles.css" />
+</head>
+<body>
+  <div class="pageGlow"></div>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">Generated Gallery</div>
+      <div class="heroRow">
+        <div>
+          <h1>生成图库</h1>
+          <p class="lead">
+            这里会自动收录每次通过 Eason Game 生成器成功出图的结果。点击任意卡片，可以查看大图、提示词、风格、模型、
+            LoRA 或插件、时间，以及它来自本地还是算力服务器。
+          </p>
+        </div>
+        <div class="heroActions">
+          <a class="button buttonPrimary" href="/">返回主页</a>
+          <a class="button buttonSecondary" href="http://127.0.0.1:8787" target="_blank" rel="noreferrer">打开生成器</a>
+        </div>
+      </div>
+      <div class="heroStats">
+        <div class="stat">
+          <span>总图片</span>
+          <strong id="totalCount">0</strong>
+        </div>
+        <div class="stat">
+          <span>每页显示</span>
+          <strong id="perPageCount">40</strong>
+        </div>
+        <div class="stat">
+          <span>最近更新</span>
+          <strong id="updatedAt">--</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="toolbarLeft">
+        <strong id="pageTitle">第 1 页</strong>
+        <span id="pageSummary">暂无图片</span>
+      </div>
+      <div class="toolbarRight">
+        <a class="pagerButton" id="prevPage" href="#">上一页</a>
+        <div class="pagerNumbers" id="pagerNumbers"></div>
+        <a class="pagerButton" id="nextPage" href="#">下一页</a>
+      </div>
+    </section>
+
+    <section class="galleryGrid" id="galleryGrid" aria-live="polite"></section>
+  </main>
+
+  <dialog class="lightbox" id="lightbox">
+    <form method="dialog" class="lightboxShell">
+      <button class="closeButton" value="cancel" aria-label="关闭">×</button>
+      <div class="lightboxMedia">
+        <img id="lightboxImage" alt="" />
+      </div>
+      <div class="lightboxMeta">
+        <div class="tagRow">
+          <span class="tag" id="lightboxStyle"></span>
+          <span class="tag" id="lightboxTarget"></span>
+        </div>
+        <h2 id="lightboxTitle">生成详情</h2>
+        <dl class="metaList" id="lightboxList"></dl>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="cardTemplate">
+    <article class="card">
+      <button class="cardButton" type="button">
+        <img class="cardImage" alt="" loading="lazy" />
+        <div class="cardBody">
+          <div class="cardTop">
+            <span class="cardStyle"></span>
+            <span class="cardTime"></span>
+          </div>
+          <strong class="cardTitle"></strong>
+          <p class="cardPrompt"></p>
+          <dl class="cardMeta">
+            <div><dt>模型</dt><dd class="cardModel"></dd></div>
+            <div><dt>插件</dt><dd class="cardPlugin"></dd></div>
+            <div><dt>服务器</dt><dd class="cardServer"></dd></div>
+          </dl>
+        </div>
+      </button>
+    </article>
+  </template>
+
+  <script src="/gallery/app.js"></script>
+</body>
+</html>

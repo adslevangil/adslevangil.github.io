@@ -1,0 +1,38 @@
+{
+  "updated_at": "2026-06-06T22:31:52.964990+00:00",
+  "per_page": 40,
+  "entries": [
+    {
+      "id": "20260606223152-a016268d-01",
+      "created_at": "2026-06-06T22:31:52.964990+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-223152-remote_sd15_base-a016268d-01.png",
+      "image_path": "gallery/images/2026/06/20260606-223152-remote_sd15_base-a016268d-01.png",
+      "filename": "20260606-153150_00001_.png",
+      "prompt_id": "a016268d-e2f6-44ba-87ab-a7a6a46d189f",
+      "prompt": "beautiful Asian woman, elegant fantasy heroine, long flowing hair, blue gem accessories, retro japanese game illustration, upper body portrait, moonlit observatory background",
+      "negative_prompt": "",
+      "style": "SD 1.5 / Soft Classic Portrait",
+      "preset_key": "remote_sd15_base",
+      "workflow": "Remote checkpoint only",
+      "model": "v1-5-pruned-emaonly.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler",
+      "scheduler": "normal",
+      "steps": 26,
+      "cfg": 7.0,
+      "width": 512,
+      "height": 768,
+      "count": 1,
+      "target_id": "server",
+      "target_name": "算力服务器 ComfyUI",
+      "server": {
+        "id": "server",
+        "name": "算力服务器 ComfyUI",
+        "base_url": "http://100.102.131.111:8188"
+      },
+      "filename_prefix": "web/remote_sd15_base/20260606-153150",
+      "source_subfolder": "web/remote_sd15_base"
+    }
+  ]
+}
