@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:06:39.554979+00:00",
+  "updated_at": "2026-06-06T23:07:45.999374+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606230745-db4f5286-01",
+      "created_at": "2026-06-06T23:07:45.999374+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-230745-animagine_retro_fantasy-db4f5286-01.png",
+      "image_path": "gallery/images/2026/06/20260606-230745-animagine_retro_fantasy-db4f5286-01.png",
+      "filename": "01_star_navigator_00001_.png",
+      "prompt_id": "db4f5286-91ba-421a-ae60-135cb110c125",
+      "prompt": "full-body female anime character illustration, human star navigator woman, sleek navy and silver flight coat, crystal astrolabe pendant, calm confident pose with one hand on hip, orbital shrine observatory background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/01_star_navigator",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606230639-03c7849c-01",
       "created_at": "2026-06-06T23:06:39.554979+00:00",
