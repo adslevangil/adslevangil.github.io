@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:19:38.543895+00:00",
+  "updated_at": "2026-06-06T23:19:53.547329+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231953-89ee171f-01",
+      "created_at": "2026-06-06T23:19:53.547329+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231953-illustrious_naraken-89ee171f-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231953-illustrious_naraken-89ee171f-01.png",
+      "filename": "47_classic_fisher_00001_.png",
+      "prompt_id": "89ee171f-083f-4067-bb8b-ac9736625599",
+      "prompt": "full-body female anime character illustration, coastal fisherwoman, practical blue workwear and apron skirt, shell necklace, relaxed dockside pose, dawn harbor background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/47_classic_fisher",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231938-1a5a14df-01",
       "created_at": "2026-06-06T23:19:38.543895+00:00",
