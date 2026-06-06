@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:19:23.602574+00:00",
+  "updated_at": "2026-06-06T23:19:38.543895+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231938-1a5a14df-01",
+      "created_at": "2026-06-06T23:19:38.543895+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231938-illustrious_naraken-1a5a14df-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231938-illustrious_naraken-1a5a14df-01.png",
+      "filename": "46_classic_baroness_00001_.png",
+      "prompt_id": "1a5a14df-8006-4b0e-bd1b-cb304af0cc58",
+      "prompt": "full-body female anime character illustration, refined baroness woman, emerald riding dress, cameo brooch, gloved hand on fan pose, aristocratic manor garden background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/46_classic_baroness",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231923-72348ad8-01",
       "created_at": "2026-06-06T23:19:23.602574+00:00",
