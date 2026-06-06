@@ -43,7 +43,7 @@ body {
   position: relative;
   width: min(1360px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 32px 0 64px;
+  padding: 24px 0 52px;
 }
 
 .hero,
@@ -54,7 +54,7 @@ body {
 }
 
 .hero {
-  padding: 30px;
+  padding: 28px;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: linear-gradient(180deg, rgba(10, 19, 34, 0.58), rgba(10, 19, 34, 0.84));
@@ -86,7 +86,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(48px, 8vw, 92px);
+  font-size: clamp(42px, 8vw, 92px);
   line-height: 0.92;
 }
 
@@ -169,7 +169,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin: 26px 0 16px;
+  margin: 22px 0 14px;
 }
 
 .toolbarLeft {
@@ -216,25 +216,29 @@ h1 {
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .card {
   min-width: 0;
 }
 
-.cardButton {
+.cardButton,
+.cardEmpty {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
+  border-radius: 18px;
   background: linear-gradient(180deg, rgba(10, 19, 34, 0.74), rgba(10, 19, 34, 0.92));
   color: inherit;
   padding: 0;
   overflow: hidden;
-  cursor: pointer;
   text-align: left;
   box-shadow: var(--shadow);
+}
+
+.cardButton {
+  cursor: pointer;
 }
 
 .cardImage {
@@ -246,60 +250,36 @@ h1 {
 }
 
 .cardBody {
-  padding: 14px;
+  padding: 10px;
 }
 
 .cardTop {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .cardTitle {
   display: block;
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-.cardPrompt {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-  min-height: 66px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.cardMeta {
-  display: grid;
-  gap: 8px;
-  margin: 12px 0 0;
-}
-
-.cardMeta div {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  margin-top: 8px;
   font-size: 12px;
+  line-height: 1.45;
+  color: var(--text);
+  overflow-wrap: anywhere;
 }
 
-.cardMeta dt {
+.cardSubline {
+  display: block;
+  margin-top: 6px;
   color: var(--muted);
-}
-
-.cardMeta dd {
-  margin: 0;
-  text-align: right;
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 .lightbox {
-  width: min(1180px, calc(100vw - 32px));
+  width: min(1180px, calc(100vw - 24px));
   max-width: 1180px;
   border: none;
   padding: 0;
@@ -307,7 +287,7 @@ h1 {
 }
 
 .lightbox::backdrop {
-  background: rgba(1, 4, 10, 0.76);
+  background: rgba(1, 4, 10, 0.84);
 }
 
 .lightboxShell {
@@ -317,8 +297,9 @@ h1 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 28px;
-  background: linear-gradient(180deg, rgba(10, 19, 34, 0.88), rgba(10, 19, 34, 0.98));
+  background: linear-gradient(180deg, rgba(10, 19, 34, 0.94), rgba(10, 19, 34, 0.99));
   box-shadow: var(--shadow);
+  color: var(--text);
 }
 
 .closeButton {
@@ -327,17 +308,17 @@ h1 {
   right: 16px;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
   cursor: pointer;
   font-size: 26px;
 }
 
 .lightboxMedia {
-  padding: 28px;
-  background: rgba(0, 0, 0, 0.18);
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.24);
 }
 
 .lightboxMedia img {
@@ -348,7 +329,16 @@ h1 {
 }
 
 .lightboxMeta {
-  padding: 28px;
+  padding: 24px;
+  color: var(--text);
+}
+
+.lightboxHeading {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .tagRow {
@@ -361,7 +351,7 @@ h1 {
   display: inline-flex;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--muted);
   font-size: 12px;
 }
@@ -369,7 +359,7 @@ h1 {
 .metaList {
   display: grid;
   gap: 12px;
-  margin: 22px 0 0;
+  margin: 20px 0 0;
 }
 
 .metaList div {
@@ -388,11 +378,12 @@ h1 {
   margin: 0;
   line-height: 1.7;
   word-break: break-word;
+  color: var(--text);
 }
 
 @media (max-width: 1080px) {
   .galleryGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lightboxShell {
@@ -402,7 +393,7 @@ h1 {
 
 @media (max-width: 780px) {
   .page {
-    width: min(100vw - 24px, 100%);
+    width: min(100vw - 18px, 100%);
   }
 
   .heroRow,
@@ -411,9 +402,23 @@ h1 {
     align-items: stretch;
   }
 
-  .heroStats,
+  .heroStats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .galleryGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .cardBody {
+    padding: 8px;
+  }
+
+  .cardTop,
+  .cardTitle,
+  .cardSubline {
+    font-size: 10px;
   }
 }
 
@@ -421,11 +426,26 @@ h1 {
   .hero,
   .lightboxMeta,
   .lightboxMedia {
-    padding: 18px;
+    padding: 16px;
   }
 
-  .heroStats,
+  .heroStats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .galleryGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .cardTop,
+  .cardTitle,
+  .cardSubline {
+    font-size: 9px;
+  }
+
+  .lightboxHeading {
+    font-size: 22px;
   }
 }

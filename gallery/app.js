@@ -37,6 +37,14 @@ function pageHref(page) {
   return `/gallery/${query ? `?${query}` : ""}`;
 }
 
+function formatDate(value) {
+  return value ? new Date(value).toLocaleString("zh-CN") : "--";
+}
+
+function resolveImageUrl(entry) {
+  return entry.image_path ? `/${entry.image_path}` : entry.image_url;
+}
+
 async function loadGallery() {
   const response = await fetch(`/gallery/data/gallery.json?v=${Date.now()}`);
   if (!response.ok) throw new Error("加载图库数据失败");
@@ -59,23 +67,22 @@ function renderPagination(page, pageCount) {
 }
 
 function openLightbox(entry) {
-  const resolvedImageUrl = entry.image_path ? `/${entry.image_path}` : entry.image_url;
-  lightboxImage.src = resolvedImageUrl;
-  lightboxImage.alt = entry.prompt;
+  lightboxImage.src = resolveImageUrl(entry);
+  lightboxImage.alt = entry.prompt || entry.filename || "generated image";
   lightboxStyle.textContent = entry.style || "未命名风格";
   lightboxTarget.textContent = entry.target_name || entry.target_id || "未知服务器";
-  lightboxTitle.textContent = entry.prompt || "生成详情";
+  lightboxTitle.textContent = entry.filename || "生成详情";
   lightboxList.innerHTML = [
-    ["提示词", entry.prompt],
+    ["提示词", entry.prompt || "无"],
     ["负面词", entry.negative_prompt || "无"],
-    ["风格", entry.style],
-    ["模型", entry.model],
+    ["风格", entry.style || "无"],
+    ["模型", entry.model || "无"],
     ["LoRA / 插件", entry.plugin || entry.lora || "无"],
-    ["工作流", entry.workflow],
-    ["采样", `${entry.sampler} / ${entry.scheduler} / ${entry.steps} steps / cfg ${entry.cfg}`],
-    ["尺寸", `${entry.width} x ${entry.height}`],
-    ["时间", new Date(entry.created_at).toLocaleString("zh-CN")],
-    ["服务器", `${entry.target_name} (${entry.server?.base_url || "-"})`],
+    ["工作流", entry.workflow || "无"],
+    ["采样", `${entry.sampler || "-"} / ${entry.scheduler || "-"} / ${entry.steps || "-"} steps / cfg ${entry.cfg || "-"}`],
+    ["尺寸", `${entry.width || "-"} x ${entry.height || "-"}`],
+    ["时间", formatDate(entry.created_at)],
+    ["服务器", entry.target_name || entry.target_id || "未知服务器"],
     ["文件名前缀", entry.filename_prefix || "-"],
     ["Prompt ID", entry.prompt_id || "-"],
   ]
@@ -94,7 +101,14 @@ function openLightbox(entry) {
 function renderCards(entries) {
   grid.innerHTML = "";
   if (!entries.length) {
-    grid.innerHTML = `<article class="card"><div class="cardButton"><div class="cardBody"><strong>还没有图片</strong><p class="cardPrompt">等你从本地生成器成功出图后，这里会自动出现。</p></div></div></article>`;
+    grid.innerHTML = `
+      <article class="card cardEmpty">
+        <div class="cardBody">
+          <strong>还没有图片</strong>
+          <span class="cardSubline">等你从生成器成功出图后，这里会自动出现。</span>
+        </div>
+      </article>
+    `;
     return;
   }
 
@@ -102,15 +116,12 @@ function renderCards(entries) {
     const node = template.content.firstElementChild.cloneNode(true);
     const button = node.querySelector(".cardButton");
     const image = node.querySelector(".cardImage");
-    image.src = entry.image_path ? `/${entry.image_path}` : entry.image_url;
-    image.alt = entry.prompt || entry.filename || "generated image";
+    image.src = resolveImageUrl(entry);
+    image.alt = entry.filename || "generated image";
     node.querySelector(".cardStyle").textContent = entry.style || "未命名风格";
-    node.querySelector(".cardTime").textContent = new Date(entry.created_at).toLocaleString("zh-CN");
-    node.querySelector(".cardTitle").textContent = entry.prompt || entry.filename || "未命名图片";
-    node.querySelector(".cardPrompt").textContent = entry.negative_prompt ? `负面词: ${entry.negative_prompt}` : "点击查看完整提示词与工作流信息";
-    node.querySelector(".cardModel").textContent = entry.model || "-";
-    node.querySelector(".cardPlugin").textContent = entry.plugin || entry.lora || "无";
-    node.querySelector(".cardServer").textContent = entry.target_name || entry.target_id || "-";
+    node.querySelector(".cardTime").textContent = formatDate(entry.created_at);
+    node.querySelector(".cardTitle").textContent = entry.model || entry.filename || "未命名图片";
+    node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | 点击查看详情`;
     button.addEventListener("click", () => openLightbox(entry));
     grid.appendChild(node);
   });
@@ -129,7 +140,7 @@ async function init() {
 
     totalCount.textContent = String(entries.length);
     perPageCount.textContent = String(pageSize);
-    updatedAt.textContent = data.updated_at ? new Date(data.updated_at).toLocaleString("zh-CN") : "--";
+    updatedAt.textContent = formatDate(data.updated_at);
     pageTitle.textContent = `第 ${safePage} 页`;
     pageSummary.textContent = entries.length
       ? `显示第 ${start + 1} - ${Math.min(start + pageEntries.length, entries.length)} 张，共 ${entries.length} 张`
@@ -138,18 +149,21 @@ async function init() {
     renderPagination(safePage, pageCount);
     renderCards(pageEntries);
   } catch (error) {
-    grid.innerHTML = `<article class="card"><div class="cardButton"><div class="cardBody"><strong>加载失败</strong><p class="cardPrompt">${escapeHtml(error.message)}</p></div></div></article>`;
+    grid.innerHTML = `
+      <article class="card cardEmpty">
+        <div class="cardBody">
+          <strong>加载失败</strong>
+          <span class="cardSubline">${escapeHtml(error.message)}</span>
+        </div>
+      </article>
+    `;
   }
 }
 
 lightbox?.addEventListener("click", (event) => {
-  const rect = lightbox.getBoundingClientRect();
-  const inside =
-    event.clientX >= rect.left &&
-    event.clientX <= rect.right &&
-    event.clientY >= rect.top &&
-    event.clientY <= rect.bottom;
-  if (!inside) lightbox.close();
+  if (event.target === lightbox) {
+    lightbox.close();
+  }
 });
 
 init();

@@ -19,8 +19,8 @@
         <div>
           <h1>生成图库</h1>
           <p class="lead">
-            这里会自动收录每次通过 Eason Game 生成器成功出图的结果。点击任意卡片，可以查看大图、提示词、风格、模型、
-            LoRA 或插件、时间，以及它来自本地还是算力服务器。
+            这里会自动收录每次通过 Eason Game 生成器成功出图的结果。展示页只保留简要信息，
+            点击图片后再查看提示词、风格、模型、LoRA 或插件、时间和服务器等完整细节。
           </p>
         </div>
         <div class="heroActions">
@@ -70,7 +70,7 @@
           <span class="tag" id="lightboxStyle"></span>
           <span class="tag" id="lightboxTarget"></span>
         </div>
-        <h2 id="lightboxTitle">生成详情</h2>
+        <h2 class="lightboxHeading" id="lightboxTitle">生成详情</h2>
         <dl class="metaList" id="lightboxList"></dl>
       </div>
     </form>
@@ -86,12 +86,7 @@
             <span class="cardTime"></span>
           </div>
           <strong class="cardTitle"></strong>
-          <p class="cardPrompt"></p>
-          <dl class="cardMeta">
-            <div><dt>模型</dt><dd class="cardModel"></dd></div>
-            <div><dt>插件</dt><dd class="cardPlugin"></dd></div>
-            <div><dt>服务器</dt><dd class="cardServer"></dd></div>
-          </dl>
+          <span class="cardSubline"></span>
         </div>
       </button>
     </article>
