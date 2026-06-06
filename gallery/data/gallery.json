@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:43:51.522198+00:00",
+  "updated_at": "2026-06-06T23:44:06.276135+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606234406-a08eab4e-01",
+      "created_at": "2026-06-06T23:44:06.276135+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-234406-illustrious_naraken_v2-a08eab4e-01.png",
+      "image_path": "gallery/images/2026/06/20260606-234406-illustrious_naraken_v2-a08eab4e-01.png",
+      "filename": "20_retro_knight_00001_.png",
+      "prompt_id": "a08eab4e-01c2-41f1-be45-31a4bed93053",
+      "prompt": "full-body female anime character illustration, retro fantasy knight woman, white tabard over blue armor, ruby brooch, hand on sword hilt pose, old-school castle corridor background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_v2_only_50/20_retro_knight",
+      "source_subfolder": "web/diverse_female_batch_v2_only_50"
+    },
     {
       "id": "20260606234351-f92deac4-01",
       "created_at": "2026-06-06T23:43:51.522198+00:00",
