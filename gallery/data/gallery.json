@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:41:38.701384+00:00",
+  "updated_at": "2026-06-06T23:41:53.592805+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606234153-e8ab8871-01",
+      "created_at": "2026-06-06T23:41:53.592805+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-234153-illustrious_naraken_v2-e8ab8871-01.png",
+      "image_path": "gallery/images/2026/06/20260606-234153-illustrious_naraken_v2-e8ab8871-01.png",
+      "filename": "11_nomad_archaeologist_00001_.png",
+      "prompt_id": "e8ab8871-9d0d-448d-b9c2-291166630205",
+      "prompt": "full-body female anime character illustration, tan nomad archaeologist woman, sand-colored expedition coat, relic compass necklace, kneeling to inspect artifact pose, buried ruins background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_v2_only_50/11_nomad_archaeologist",
+      "source_subfolder": "web/diverse_female_batch_v2_only_50"
+    },
     {
       "id": "20260606234138-357af0ba-01",
       "created_at": "2026-06-06T23:41:38.701384+00:00",
