@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:12:52.142910+00:00",
+  "updated_at": "2026-06-06T23:13:06.984874+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231306-863899d2-01",
+      "created_at": "2026-06-06T23:13:06.984874+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231306-illustrious_naraken_v2-863899d2-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231306-illustrious_naraken_v2-863899d2-01.png",
+      "filename": "22_retro_gunslinger_00001_.png",
+      "prompt_id": "863899d2-1022-4d4a-a9df-2519e5727c5a",
+      "prompt": "full-body female anime character illustration, frontier revolver woman, fitted tan coat, red scarf, holster belt, relaxed duelist pose, dusty border town background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/22_retro_gunslinger",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231252-8226f2e6-01",
       "created_at": "2026-06-06T23:12:52.142910+00:00",
