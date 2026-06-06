@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:10:01.156350+00:00",
+  "updated_at": "2026-06-06T23:10:16.015906+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231016-8c5714b5-01",
+      "created_at": "2026-06-06T23:10:16.015906+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231016-animagine_retro_fantasy-8c5714b5-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231016-animagine_retro_fantasy-8c5714b5-01.png",
+      "filename": "11_nomad_archaeologist_00001_.png",
+      "prompt_id": "8c5714b5-6aab-48d2-9cf8-c5cb160e1ea6",
+      "prompt": "full-body female anime character illustration, tan nomad archaeologist woman, sand-colored expedition coat, relic compass necklace, kneeling to inspect artifact pose, buried ruins background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/11_nomad_archaeologist",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231001-a59a73ae-01",
       "created_at": "2026-06-06T23:10:01.156350+00:00",
