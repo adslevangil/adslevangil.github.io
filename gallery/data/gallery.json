@@ -57,10 +57,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "web/remote_sdxl_base/20260606-151036",
@@ -89,10 +89,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "web/remote_qwen_rapid/20260606-150841",
@@ -121,10 +121,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken/20260606-150753",
@@ -153,10 +153,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken/20260606-150717",
@@ -185,10 +185,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken/20260606-150644",
@@ -217,10 +217,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken/20260606-150612",
@@ -249,10 +249,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken_v2/20260606-150547",
@@ -281,10 +281,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/illustrious_naraken_v2/20260606-150448",
@@ -313,10 +313,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "web/animagine_retro_fantasy/20260606-150358",
@@ -345,10 +345,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "web/remote_qwen_rapid/20260606-130717",
@@ -377,10 +377,10 @@
       "height": 768,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "remote_validation/remote_sd15_base",
@@ -409,10 +409,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "remote_validation/remote_sdxl_base",
@@ -441,10 +441,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "server",
-      "target_name": "????? ComfyUI",
+      "target_name": "算力服务器 ComfyUI",
       "server": {
         "id": "server",
-        "name": "????? ComfyUI",
+        "name": "算力服务器 ComfyUI",
         "base_url": "http://100.102.131.111:8188"
       },
       "filename_prefix": "remote_validation/remote_qwen_rapid",
@@ -473,10 +473,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "naraken_v2_test_3",
@@ -505,10 +505,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "naraken_v2_test_2",
@@ -537,10 +537,10 @@
       "height": 1216,
       "count": 1,
       "target_id": "local",
-      "target_name": "?? ComfyUI",
+      "target_name": "本地 ComfyUI",
       "server": {
         "id": "local",
-        "name": "?? ComfyUI",
+        "name": "本地 ComfyUI",
         "base_url": "http://127.0.0.1:8188"
       },
       "filename_prefix": "naraken_v2_test_1",
