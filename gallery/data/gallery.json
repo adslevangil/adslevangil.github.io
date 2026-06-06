@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:40:54.038990+00:00",
+  "updated_at": "2026-06-06T23:41:09.077420+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606234109-cf1151dd-01",
+      "created_at": "2026-06-06T23:41:09.077420+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-234109-illustrious_naraken_v2-cf1151dd-01.png",
+      "image_path": "gallery/images/2026/06/20260606-234109-illustrious_naraken_v2-cf1151dd-01.png",
+      "filename": "08_volcanic_smith_00001_.png",
+      "prompt_id": "cf1151dd-c083-4859-8db4-c9175bbab1f6",
+      "prompt": "full-body female anime character illustration, muscular volcanic forge smith woman, sleeveless work apron over black armor skirt, ember gauntlets, hammer resting on shoulder, lava forge background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_v2_only_50/08_volcanic_smith",
+      "source_subfolder": "web/diverse_female_batch_v2_only_50"
+    },
     {
       "id": "20260606234054-37529979-01",
       "created_at": "2026-06-06T23:40:54.038990+00:00",
