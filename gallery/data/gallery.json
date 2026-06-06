@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:13:36.530244+00:00",
+  "updated_at": "2026-06-06T23:13:51.281249+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231351-151f1ca1-01",
+      "created_at": "2026-06-06T23:13:51.281249+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231351-illustrious_naraken_v2-151f1ca1-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231351-illustrious_naraken_v2-151f1ca1-01.png",
+      "filename": "25_retro_samurai_00001_.png",
+      "prompt_id": "151f1ca1-7cff-4ff2-99a6-f1920e90f41a",
+      "prompt": "full-body female anime character illustration, stoic samurai woman, dark indigo armor kimono, family crest ribbon, poised iaido stance, maple courtyard background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/25_retro_samurai",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231336-9e6065ee-01",
       "created_at": "2026-06-06T23:13:36.530244+00:00",
