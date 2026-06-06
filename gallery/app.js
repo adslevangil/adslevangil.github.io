@@ -59,7 +59,8 @@ function renderPagination(page, pageCount) {
 }
 
 function openLightbox(entry) {
-  lightboxImage.src = entry.image_url;
+  const resolvedImageUrl = entry.image_path ? `/${entry.image_path}` : entry.image_url;
+  lightboxImage.src = resolvedImageUrl;
   lightboxImage.alt = entry.prompt;
   lightboxStyle.textContent = entry.style || "未命名风格";
   lightboxTarget.textContent = entry.target_name || entry.target_id || "未知服务器";
@@ -101,7 +102,7 @@ function renderCards(entries) {
     const node = template.content.firstElementChild.cloneNode(true);
     const button = node.querySelector(".cardButton");
     const image = node.querySelector(".cardImage");
-    image.src = entry.image_url;
+    image.src = entry.image_path ? `/${entry.image_path}` : entry.image_url;
     image.alt = entry.prompt || entry.filename || "generated image";
     node.querySelector(".cardStyle").textContent = entry.style || "未命名风格";
     node.querySelector(".cardTime").textContent = new Date(entry.created_at).toLocaleString("zh-CN");
