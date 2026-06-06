@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:18:08.824164+00:00",
+  "updated_at": "2026-06-06T23:18:23.769550+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231823-ce59b9d2-01",
+      "created_at": "2026-06-06T23:18:23.769550+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231823-illustrious_naraken-ce59b9d2-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231823-illustrious_naraken-ce59b9d2-01.png",
+      "filename": "41_classic_engineer_00001_.png",
+      "prompt_id": "ce59b9d2-d2c5-436a-824c-8d0525efc702",
+      "prompt": "full-body female anime character illustration, cheerful engineer woman, orange utility overalls and cropped jacket, wrench key charm, confident wave pose, rail engine shed background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/41_classic_engineer",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231808-fbf24b36-01",
       "created_at": "2026-06-06T23:18:08.824164+00:00",
