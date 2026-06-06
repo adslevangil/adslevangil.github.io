@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:20:08.329010+00:00",
+  "updated_at": "2026-06-06T23:20:23.315693+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606232023-3bd7a407-01",
+      "created_at": "2026-06-06T23:20:23.315693+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-232023-illustrious_naraken-3bd7a407-01.png",
+      "image_path": "gallery/images/2026/06/20260606-232023-illustrious_naraken-3bd7a407-01.png",
+      "filename": "49_classic_singer_00001_.png",
+      "prompt_id": "3bd7a407-933a-4dda-80c8-4b744cdc667c",
+      "prompt": "full-body female anime character illustration, celestial singer woman, flowing white performance gown, moonstone earrings, one-hand microphone pose, starry stage background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/49_classic_singer",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606232008-164d15a2-01",
       "created_at": "2026-06-06T23:20:08.329010+00:00",
