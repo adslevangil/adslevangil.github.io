@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:10:30.913170+00:00",
+  "updated_at": "2026-06-06T23:10:45.702437+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231045-516f1fd4-01",
+      "created_at": "2026-06-06T23:10:45.702437+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231045-animagine_retro_fantasy-516f1fd4-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231045-animagine_retro_fantasy-516f1fd4-01.png",
+      "filename": "13_moon_oracle_00001_.png",
+      "prompt_id": "516f1fd4-ce11-46b1-bafa-4a65e482b739",
+      "prompt": "full-body female anime character illustration, silver-haired moon oracle woman, midnight blue split dress with star embroidery, crescent crown, serene hands-clasped pose, moon temple balcony background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/13_moon_oracle",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231030-04039539-01",
       "created_at": "2026-06-06T23:10:30.913170+00:00",
