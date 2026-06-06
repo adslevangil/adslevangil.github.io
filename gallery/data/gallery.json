@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-06T23:19:08.695849+00:00",
+  "updated_at": "2026-06-06T23:19:23.602574+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260606231923-72348ad8-01",
+      "created_at": "2026-06-06T23:19:23.602574+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260606-231923-illustrious_naraken-72348ad8-01.png",
+      "image_path": "gallery/images/2026/06/20260606-231923-illustrious_naraken-72348ad8-01.png",
+      "filename": "45_classic_cyborg_00001_.png",
+      "prompt_id": "72348ad8-de6b-4f2f-8836-410e1250905c",
+      "prompt": "full-body female anime character illustration, retro cyborg woman, sleek bodysuit with visible mechanical arm, visor accessory, composed profile pose, retro future lab background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_50/45_classic_cyborg",
+      "source_subfolder": "web/diverse_female_batch_50"
+    },
     {
       "id": "20260606231908-6a0a46e7-01",
       "created_at": "2026-06-06T23:19:08.695849+00:00",
