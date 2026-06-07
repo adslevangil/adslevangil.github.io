@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:12:49.156488+00:00",
+  "updated_at": "2026-06-07T04:13:07.291999+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041307-b7f05d88-01",
+      "created_at": "2026-06-07T04:13:07.291999+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041307-animagine_retro_fantasy-b7f05d88-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041307-animagine_retro_fantasy-b7f05d88-01.png",
+      "filename": "10_midnight_mage_00001_.png",
+      "prompt_id": "b7f05d88-cf98-4e5a-877a-b2c56199201b",
+      "prompt": "full-body adult anime woman illustration, seductive sorceress heroine, dark violet dress with sheer sleeves, long boots, jeweled choker, spell-casting pose, starry observatory background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/10_midnight_mage",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041249-de29a36f-01",
       "created_at": "2026-06-07T04:12:49.156488+00:00",
