@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:35:01.133719+00:00",
+  "updated_at": "2026-06-07T11:35:47.948909+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607113547-7256c523-01",
+      "created_at": "2026-06-07T11:35:47.948909+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-113547-raena_xl_v2_hires-7256c523-01.png",
+      "image_path": "gallery/images/2026/06/20260607-113547-raena_xl_v2_hires-7256c523-01.png",
+      "filename": "20260607-043521_00001_.png",
+      "prompt_id": "7256c523-1167-4680-9a25-8a1cf37be4e9",
+      "prompt": "beautiful Asian woman, elf royal diplomat, late 1980s japanese RPG original art, emerald and gold formal gown, star embassy hall background",
+      "negative_prompt": "",
+      "style": "Raena XL V2 / Hires Character",
+      "preset_key": "raena_xl_v2_hires",
+      "workflow": "Raena XL V2 checkpoint + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_xl_v2_hires/20260607-043521",
+      "source_subfolder": "web/raena_xl_v2_hires"
+    },
     {
       "id": "20260607113501-6c4310ad-01",
       "created_at": "2026-06-07T11:35:01.133719+00:00",
