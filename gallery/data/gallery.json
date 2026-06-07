@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:05:12.764644+00:00",
+  "updated_at": "2026-06-07T12:05:38.237072+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120538-96bef7e2-01",
+      "created_at": "2026-06-07T12:05:38.237072+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120538-diamondforge_xl_v3_character-96bef7e2-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120538-diamondforge_xl_v3_character-96bef7e2-01.png",
+      "filename": "diamondforge_xl_v3_test_10_00006_.png",
+      "prompt_id": "96bef7e2-c95c-43db-bea7-ed60f9e8f759",
+      "prompt": "beautiful elf woman, full-body forest healer, layered green and cream dress, herb satchel, luminous woodland ruins background",
+      "negative_prompt": "",
+      "style": "DiamondForge XL V3 / Cinematic Character",
+      "preset_key": "diamondforge_xl_v3_character",
+      "workflow": "DiamondForge XL V3 checkpoint + latent hires refine",
+      "model": "DiamondForge_XL_V3.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "dpmpp_2m",
+      "scheduler": "karras",
+      "steps": 34,
+      "cfg": 7.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diamondforge_xl_v3_character/diamondforge_xl_v3_test_10",
+      "source_subfolder": "web/diamondforge_xl_v3_character"
+    },
     {
       "id": "20260607120512-95ad3339-01",
       "created_at": "2026-06-07T12:05:12.764644+00:00",
