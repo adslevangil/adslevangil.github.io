@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:15:04.175718+00:00",
+  "updated_at": "2026-06-07T00:15:18.980754+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001518-a452a765-01",
+      "created_at": "2026-06-07T00:15:18.980754+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001518-animagine_retro_fantasy-a452a765-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001518-animagine_retro_fantasy-a452a765-01.png",
+      "filename": "44_classic_monk_00001_.png",
+      "prompt_id": "a452a765-312b-4abb-bc48-a0cf8cd229e4",
+      "prompt": "full-body female anime character illustration, martial arts monk woman, sleeveless temple tunic and prayer beads, wrapped hands, balanced crane stance, mountain dojo background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/44_classic_monk",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001504-76f1d1a3-01",
       "created_at": "2026-06-07T00:15:04.175718+00:00",
