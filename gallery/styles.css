@@ -107,7 +107,8 @@ h1 {
 .pagerButton,
 .cardButton,
 .favoriteButton,
-.favoriteBadge {
+.favoriteBadge,
+.navButton {
   font: inherit;
 }
 
@@ -123,7 +124,8 @@ h1 {
 
 .button:hover,
 .pagerButton:hover,
-.cardButton:hover {
+.cardButton:hover,
+.navButton:hover {
   transform: translateY(-2px);
 }
 
@@ -133,7 +135,8 @@ h1 {
 }
 
 .buttonSecondary,
-.pagerButton {
+.pagerButton,
+.navButton {
   color: var(--text);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -375,6 +378,24 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.lightboxNav {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.navButton {
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.navButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
 .tagRow {
   display: flex;
   gap: 8px;
@@ -490,6 +511,10 @@ h1 {
     width: 28px;
     height: 28px;
     font-size: 16px;
+  }
+
+  .lightboxNav {
+    flex-wrap: wrap;
   }
 
   .cardTop,

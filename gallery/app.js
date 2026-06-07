@@ -18,11 +18,14 @@ const lightboxTarget = document.querySelector("#lightboxTarget");
 const lightboxTitle = document.querySelector("#lightboxTitle");
 const lightboxList = document.querySelector("#lightboxList");
 const lightboxFavorite = document.querySelector("#lightboxFavorite");
+const lightboxPrev = document.querySelector("#lightboxPrev");
+const lightboxNext = document.querySelector("#lightboxNext");
 const allTab = document.querySelector("#allTab");
 const favoritesTab = document.querySelector("#favoritesTab");
 
 let favoriteIds = new Set();
 let activeEntry = null;
+let currentRenderedEntries = [];
 
 function escapeHtml(value) {
   return String(value || "")
@@ -85,10 +88,10 @@ function toggleFavorite(entry) {
   saveFavorites();
 }
 
-function syncFavoriteButton(button, entry) {
+function syncFavoriteButton(button, entry, activeText, inactiveText) {
   const favored = isFavorite(entry);
   button.classList.toggle("active", favored);
-  button.textContent = favored ? "★" : "☆";
+  button.textContent = favored ? activeText : inactiveText;
   button.setAttribute("aria-label", favored ? "取消收藏" : "加入收藏");
 }
 
@@ -116,7 +119,19 @@ function renderPagination(page, pageCount, view) {
 function updateTabs(view, favoriteCount) {
   allTab.classList.toggle("active", view === "all");
   favoritesTab.classList.toggle("active", view === "favorites");
-  favoritesTab.textContent = `收藏 ${favoriteCount ? `(${favoriteCount})` : ""}`.trim();
+  favoritesTab.textContent = `收藏${favoriteCount ? ` (${favoriteCount})` : ""}`;
+}
+
+function getActiveIndex() {
+  return currentRenderedEntries.findIndex((entry) => entry.id === activeEntry?.id);
+}
+
+function syncLightboxNav() {
+  const index = getActiveIndex();
+  const hasPrev = index > 0;
+  const hasNext = index >= 0 && index < currentRenderedEntries.length - 1;
+  lightboxPrev.disabled = !hasPrev;
+  lightboxNext.disabled = !hasNext;
 }
 
 function openLightbox(entry) {
@@ -126,8 +141,7 @@ function openLightbox(entry) {
   lightboxStyle.textContent = entry.style || "未命名风格";
   lightboxTarget.textContent = entry.target_name || entry.target_id || "未知服务器";
   lightboxTitle.textContent = entry.filename || "生成详情";
-  syncFavoriteButton(lightboxFavorite, entry);
-  lightboxFavorite.textContent = isFavorite(entry) ? "★ 已收藏" : "☆ 收藏";
+  syncFavoriteButton(lightboxFavorite, entry, "★ 已收藏", "☆ 收藏");
   lightboxList.innerHTML = [
     ["提示词", entry.prompt || "无"],
     ["负面词", entry.negative_prompt || "无"],
@@ -151,16 +165,25 @@ function openLightbox(entry) {
       `,
     )
     .join("");
+  syncLightboxNav();
   lightbox.showModal();
 }
 
+function openRelativeEntry(offset) {
+  const index = getActiveIndex();
+  if (index < 0) return;
+  const nextEntry = currentRenderedEntries[index + offset];
+  if (nextEntry) openLightbox(nextEntry);
+}
+
 function renderCards(entries) {
+  currentRenderedEntries = entries;
   grid.innerHTML = "";
   if (!entries.length) {
     const emptyTitle = currentView() === "favorites" ? "还没有收藏图片" : "还没有图片";
     const emptyText =
       currentView() === "favorites"
-        ? "点亮右上角五角星后，图片会自动进入收藏标签。"
+        ? "点亮右上角五角星后，图片会自动进入收藏标签，并按最新收藏时间优先显示。"
         : "等你从生成器成功出图后，这里会自动出现。";
     grid.innerHTML = `
       <article class="card cardEmpty">
@@ -184,7 +207,7 @@ function renderCards(entries) {
     node.querySelector(".cardTime").textContent = formatDate(entry.created_at);
     node.querySelector(".cardTitle").textContent = entry.model || entry.filename || "未命名图片";
     node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | 点击查看详情`;
-    syncFavoriteButton(favoriteButton, entry);
+    syncFavoriteButton(favoriteButton, entry, "★", "☆");
 
     favoriteButton.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -195,15 +218,29 @@ function renderCards(entries) {
         openLightbox(entry);
       }
     });
+
     button.addEventListener("click", () => openLightbox(entry));
     grid.appendChild(node);
   });
 }
 
+function sortEntriesForView(entries, view) {
+  const list = [...entries];
+  if (view === "favorites") {
+    list.sort((a, b) => {
+      const aTime = new Date(a.created_at || 0).getTime();
+      const bTime = new Date(b.created_at || 0).getTime();
+      return bTime - aTime;
+    });
+  }
+  return list;
+}
+
 function renderFromState(data) {
   const view = currentView();
   const allEntries = Array.isArray(data.entries) ? data.entries : [];
-  const filteredEntries = view === "favorites" ? allEntries.filter((entry) => isFavorite(entry)) : allEntries;
+  const baseEntries = view === "favorites" ? allEntries.filter((entry) => isFavorite(entry)) : allEntries;
+  const filteredEntries = sortEntriesForView(baseEntries, view);
   const page = currentPage();
   const pageSize = Number(data.per_page || PAGE_SIZE) || PAGE_SIZE;
   const pageCount = Math.max(1, Math.ceil(filteredEntries.length / pageSize));
@@ -249,6 +286,15 @@ lightboxFavorite?.addEventListener("click", () => {
   toggleFavorite(activeEntry);
   openLightbox(activeEntry);
   renderFromState(window.__galleryData || { entries: [] });
+});
+
+lightboxPrev?.addEventListener("click", () => openRelativeEntry(-1));
+lightboxNext?.addEventListener("click", () => openRelativeEntry(1));
+
+window.addEventListener("keydown", (event) => {
+  if (!lightbox.open) return;
+  if (event.key === "ArrowLeft") openRelativeEntry(-1);
+  if (event.key === "ArrowRight") openRelativeEntry(1);
 });
 
 lightbox?.addEventListener("click", (event) => {
