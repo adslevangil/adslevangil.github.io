@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:41:10.130853+00:00",
+  "updated_at": "2026-06-07T11:41:13.048173+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607114113-b355de27-01",
+      "created_at": "2026-06-07T11:41:13.048173+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-114113-raena_xl_v2_hires-b355de27-01.png",
+      "image_path": "gallery/images/2026/06/20260607-114113-raena_xl_v2_hires-b355de27-01.png",
+      "filename": "19_taiga_huntress_00001_.png",
+      "prompt_id": "b355de27-8728-4310-8ccd-fe50613a8ced",
+      "prompt": "beautiful anime woman, full-body rugged heroine, taiga huntress, fur mantle and quilted travel gear, bone charms, steady archer stance, snowy pine pass background",
+      "negative_prompt": "lowres, low score, bad score, worst quality, bad anatomy, bad hands, extra fingers, missing fingers, cropped face, asymmetrical eyes, skewed face, deformed face, text, logo, watermark, signature, jpeg artifacts, blurry",
+      "style": "Raena XL V2 / Hires Character",
+      "preset_key": "raena_xl_v2_hires",
+      "workflow": "Raena XL V2 checkpoint + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_xl_v2_hires_test_20",
+      "source_subfolder": "web/raena_xl_v2_hires_test_20"
+    },
     {
       "id": "20260607114110-b57d3823-01",
       "created_at": "2026-06-07T11:41:10.130853+00:00",
