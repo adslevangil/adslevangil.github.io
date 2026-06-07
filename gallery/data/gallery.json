@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:41:15.933574+00:00",
+  "updated_at": "2026-06-07T11:57:10.727846+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607115710-482d810c-01",
+      "created_at": "2026-06-07T11:57:10.727846+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-115710-aidxl_hires_character-482d810c-01.png",
+      "image_path": "gallery/images/2026/06/20260607-115710-aidxl_hires_character-482d810c-01.png",
+      "filename": "20260607-045644_00001_.png",
+      "prompt_id": "482d810c-3e75-4f48-a762-8536dcccf1ed",
+      "prompt": "beautiful asian woman, full-body royal guardian, white and gold armor, confident standing pose, marble palace courtyard background",
+      "negative_prompt": "",
+      "style": "Anime Illust Diffusion XL / Hires Character",
+      "preset_key": "aidxl_hires_character",
+      "workflow": "AIDXL checkpoint + latent hires refine",
+      "model": "anime-illust-diffusion-v08.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 26,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/aidxl_hires_character/20260607-045644",
+      "source_subfolder": "web/aidxl_hires_character"
+    },
     {
       "id": "20260607114115-c73db9d5-01",
       "created_at": "2026-06-07T11:41:15.933574+00:00",
