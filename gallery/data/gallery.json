@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:23:06.228690+00:00",
+  "updated_at": "2026-06-07T04:33:52.370894+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607043352-88053314-01",
+      "created_at": "2026-06-07T04:33:52.370894+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-043352-illustrious_naraken-88053314-01.png",
+      "image_path": "gallery/images/2026/06/20260607-043352-illustrious_naraken-88053314-01.png",
+      "filename": "01_moonlit_songstress_00001_.png",
+      "prompt_id": "88053314-7583-43aa-910f-acfb8c5e29b5",
+      "prompt": "full-body adult anime woman illustration, seductive japanese bishoujo songstress, elegant black slit dress, long legs, confident smile, gemstone earrings, graceful pose with one hand near lips, moonlit theater balcony background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v1_50/01_moonlit_songstress",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v1_50"
+    },
     {
       "id": "20260607042306-dabca3a9-01",
       "created_at": "2026-06-07T04:23:06.228690+00:00",
