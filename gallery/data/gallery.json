@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:01:32.260540+00:00",
+  "updated_at": "2026-06-07T12:01:53.674188+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120153-0091c418-01",
+      "created_at": "2026-06-07T12:01:53.674188+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120153-aidxl_hires_character-0091c418-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120153-aidxl_hires_character-0091c418-01.png",
+      "filename": "aidxl_hires_test_10_00007_.png",
+      "prompt_id": "0091c418-f729-4640-88bf-f1ed6102894b",
+      "prompt": "beautiful fox-eared woman, full-body frontier scout, practical leather and cloth ranger outfit, canyon watchpost background",
+      "negative_prompt": "",
+      "style": "Anime Illust Diffusion XL / Hires Character",
+      "preset_key": "aidxl_hires_character",
+      "workflow": "AIDXL checkpoint + latent hires refine",
+      "model": "anime-illust-diffusion-v08.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 26,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/aidxl_hires_character/aidxl_hires_test_10",
+      "source_subfolder": "web/aidxl_hires_character"
+    },
     {
       "id": "20260607120132-355c12b8-01",
       "created_at": "2026-06-07T12:01:32.260540+00:00",
