@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:15:18.980754+00:00",
+  "updated_at": "2026-06-07T00:15:34.093364+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001534-d3eb09b1-01",
+      "created_at": "2026-06-07T00:15:34.093364+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001534-animagine_retro_fantasy-d3eb09b1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001534-animagine_retro_fantasy-d3eb09b1-01.png",
+      "filename": "45_classic_cyborg_00001_.png",
+      "prompt_id": "d3eb09b1-59c7-4e5e-9b46-e37038fa548e",
+      "prompt": "full-body female anime character illustration, retro cyborg woman, sleek bodysuit with visible mechanical arm, visor accessory, composed profile pose, retro future lab background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/45_classic_cyborg",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001518-a452a765-01",
       "created_at": "2026-06-07T00:15:18.980754+00:00",
