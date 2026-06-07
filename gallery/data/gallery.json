@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:01:10.845328+00:00",
+  "updated_at": "2026-06-07T12:01:32.260540+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120132-355c12b8-01",
+      "created_at": "2026-06-07T12:01:32.260540+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120132-aidxl_hires_character-355c12b8-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120132-aidxl_hires_character-355c12b8-01.png",
+      "filename": "aidxl_hires_test_10_00006_.png",
+      "prompt_id": "355c12b8-08ca-40ed-98bd-acf372eb849e",
+      "prompt": "beautiful elf woman, full-body forest healer, layered green and cream dress, herb satchel, luminous woodland ruins background",
+      "negative_prompt": "",
+      "style": "Anime Illust Diffusion XL / Hires Character",
+      "preset_key": "aidxl_hires_character",
+      "workflow": "AIDXL checkpoint + latent hires refine",
+      "model": "anime-illust-diffusion-v08.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 26,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/aidxl_hires_character/aidxl_hires_test_10",
+      "source_subfolder": "web/aidxl_hires_character"
+    },
     {
       "id": "20260607120110-837895f9-01",
       "created_at": "2026-06-07T12:01:10.845328+00:00",
