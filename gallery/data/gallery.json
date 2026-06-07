@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:07:00.782015+00:00",
+  "updated_at": "2026-06-07T05:07:15.666003+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607050715-80059dd7-01",
+      "created_at": "2026-06-07T05:07:15.666003+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-050715-illustrious_naraken_v2-80059dd7-01.png",
+      "image_path": "gallery/images/2026/06/20260607-050715-illustrious_naraken_v2-80059dd7-01.png",
+      "filename": "22_desert_lancer_00001_.png",
+      "prompt_id": "80059dd7-21d6-401d-976c-7d6205301754",
+      "prompt": "full-body adult anime woman illustration, glamorous desert lancer, fitted bronze armor with silk sash, long earrings, spear planted pose, red canyon fortress background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v2_50/22_desert_lancer",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v2_50"
+    },
     {
       "id": "20260607050700-02d3e628-01",
       "created_at": "2026-06-07T05:07:00.782015+00:00",
