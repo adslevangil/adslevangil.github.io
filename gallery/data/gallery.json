@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:02:14.660790+00:00",
+  "updated_at": "2026-06-07T12:02:35.122345+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120235-6d7abc9a-01",
+      "created_at": "2026-06-07T12:02:35.122345+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120235-aidxl_hires_character-6d7abc9a-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120235-aidxl_hires_character-6d7abc9a-01.png",
+      "filename": "aidxl_hires_test_10_00009_.png",
+      "prompt_id": "6d7abc9a-ed4d-48dc-aa41-97f660291adc",
+      "prompt": "beautiful mermaid-inspired woman, full-body coral priestess, pearl accessories, sea temple walkway background",
+      "negative_prompt": "",
+      "style": "Anime Illust Diffusion XL / Hires Character",
+      "preset_key": "aidxl_hires_character",
+      "workflow": "AIDXL checkpoint + latent hires refine",
+      "model": "anime-illust-diffusion-v08.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 26,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/aidxl_hires_character/aidxl_hires_test_10",
+      "source_subfolder": "web/aidxl_hires_character"
+    },
     {
       "id": "20260607120214-000a3f6b-01",
       "created_at": "2026-06-07T12:02:14.660790+00:00",
