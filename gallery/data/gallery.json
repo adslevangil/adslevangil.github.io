@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:14:07.321415+00:00",
+  "updated_at": "2026-06-07T04:14:22.288079+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041422-0588e7da-01",
+      "created_at": "2026-06-07T04:14:22.288079+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041422-animagine_retro_fantasy-0588e7da-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041422-animagine_retro_fantasy-0588e7da-01.png",
+      "filename": "15_angelic_diva_00001_.png",
+      "prompt_id": "0588e7da-92c1-4f44-ab51-d2bef18da726",
+      "prompt": "full-body adult anime woman illustration, glamorous angelic diva, white performance gown with golden trim, delicate wings, sparkling heels, open-arm stage pose, cloud cathedral background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/15_angelic_diva",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041407-be2f8f72-01",
       "created_at": "2026-06-07T04:14:07.321415+00:00",
