@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:13:49.214449+00:00",
+  "updated_at": "2026-06-07T00:14:04.425074+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001404-92fac017-01",
+      "created_at": "2026-06-07T00:14:04.425074+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001404-animagine_retro_fantasy-92fac017-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001404-animagine_retro_fantasy-92fac017-01.png",
+      "filename": "39_classic_assassin_00001_.png",
+      "prompt_id": "92fac017-2b12-414c-af26-7d35e17938fe",
+      "prompt": "full-body female anime character illustration, shadow assassin woman, fitted charcoal outfit with red sash, hidden daggers, low ready stance, tiled rooftop night background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/39_classic_assassin",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001349-f61e79f6-01",
       "created_at": "2026-06-07T00:13:49.214449+00:00",
