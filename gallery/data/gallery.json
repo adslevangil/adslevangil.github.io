@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:14:04.425074+00:00",
+  "updated_at": "2026-06-07T00:14:19.379333+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001419-663b2b91-01",
+      "created_at": "2026-06-07T00:14:19.379333+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001419-animagine_retro_fantasy-663b2b91-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001419-animagine_retro_fantasy-663b2b91-01.png",
+      "filename": "40_classic_priest_00001_.png",
+      "prompt_id": "663b2b91-af9c-4790-9479-d8798bb0abbb",
+      "prompt": "full-body female anime character illustration, serene shrine priest woman, white ceremonial robe and blue sash, bead bracelet, prayer seal pose, misty shrine steps background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/40_classic_priest",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001404-92fac017-01",
       "created_at": "2026-06-07T00:14:04.425074+00:00",
