@@ -105,7 +105,9 @@ h1 {
 
 .button,
 .pagerButton,
-.cardButton {
+.cardButton,
+.favoriteButton,
+.favoriteBadge {
   font: inherit;
 }
 
@@ -192,12 +194,13 @@ h1 {
   flex-wrap: wrap;
 }
 
-.pagerNumbers {
+.filterTabs {
   display: flex;
+  align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
 }
 
+.filterTab,
 .pagerNumber {
   min-width: 42px;
   padding: 10px 12px;
@@ -209,9 +212,16 @@ h1 {
   text-align: center;
 }
 
+.filterTab.active,
 .pagerNumber.active {
   background: linear-gradient(135deg, rgba(255, 203, 122, 0.18), rgba(255, 153, 102, 0.18));
   border-color: rgba(255, 203, 122, 0.4);
+}
+
+.pagerNumbers {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .galleryGrid {
@@ -221,6 +231,7 @@ h1 {
 }
 
 .card {
+  position: relative;
   min-width: 0;
 }
 
@@ -239,6 +250,29 @@ h1 {
 
 .cardButton {
   cursor: pointer;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(5, 9, 17, 0.72);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.favoriteButton.active,
+.favoriteBadge.active {
+  background: linear-gradient(135deg, #ffcb7a, #ff9966);
+  border-color: rgba(255, 203, 122, 0.7);
+  color: #23150d;
 }
 
 .cardImage {
@@ -345,15 +379,22 @@ h1 {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.tag {
+.tag,
+.favoriteBadge {
   display: inline-flex;
   padding: 7px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--muted);
   font-size: 12px;
+}
+
+.favoriteBadge {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
 }
 
 .metaList {
@@ -406,6 +447,10 @@ h1 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .toolbarRight {
+    justify-content: space-between;
+  }
+
   .galleryGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
@@ -437,6 +482,14 @@ h1 {
   .galleryGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
+  }
+
+  .favoriteButton {
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
   }
 
   .cardTop,
