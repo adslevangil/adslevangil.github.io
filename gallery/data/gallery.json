@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:12:12.460807+00:00",
+  "updated_at": "2026-06-07T04:12:27.324150+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041227-ba658947-01",
+      "created_at": "2026-06-07T04:12:27.324150+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041227-animagine_retro_fantasy-ba658947-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041227-animagine_retro_fantasy-ba658947-01.png",
+      "filename": "08_emerald_elf_00001_.png",
+      "prompt_id": "ba658947-56ee-4460-827c-887e7145c1fc",
+      "prompt": "full-body adult anime woman illustration, sensual elf woman, green fantasy dress with leaf motifs and deep neckline, long flowing hair, confident hand-on-hip pose, enchanted forest gate background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/08_emerald_elf",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041212-a8392aee-01",
       "created_at": "2026-06-07T04:12:12.460807+00:00",
