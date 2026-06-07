@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:14:16.985745+00:00",
+  "updated_at": "2026-06-07T09:33:20.298746+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607093320-2903f1b1-01",
+      "created_at": "2026-06-07T09:33:20.298746+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-093320-animagine_retro_fantasy-2903f1b1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-093320-animagine_retro_fantasy-2903f1b1-01.png",
+      "filename": "prompt_assist_smoke_00001_.png",
+      "prompt_id": "2903f1b1-a42d-41b5-9e6d-35c27da59422",
+      "prompt": "masterpiece, best quality, highres, 1girl, mature, glamorous, full body, black evening dress, elegant standing pose, moonlit terrace, night, moonlight, soft lighting, detailed face, detailed eyes, detailed hair, retro fantasy style, Animagine XL 4.0",
+      "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, bad feet, missing limbs, floating limbs, disconnected limbs, mutation, mutated, ugly, disgusting, poorly drawn hands, poorly drawn face, deformed, disfigured",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/prompt_assist_smoke",
+      "source_subfolder": "web"
+    },
     {
       "id": "20260607051416-f66951fa-01",
       "created_at": "2026-06-07T05:14:16.985745+00:00",
