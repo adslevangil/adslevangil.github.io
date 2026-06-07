@@ -1,5 +1,6 @@
 const PAGE_SIZE = 40;
 const FAVORITES_KEY = "eason_game_gallery_favorites_v1";
+const FAVORITES_API_URL = "https://ailogo-system-product-name.taile51706.ts.net/gallery-favorites/favorites";
 
 const grid = document.querySelector("#galleryGrid");
 const totalCount = document.querySelector("#totalCount");
@@ -26,6 +27,7 @@ const favoritesTab = document.querySelector("#favoritesTab");
 let favoriteIds = new Set();
 let activeEntry = null;
 let currentRenderedEntries = [];
+let favoritesMode = "shared";
 
 function escapeHtml(value) {
   return String(value || "")
@@ -62,7 +64,7 @@ function resolveImageUrl(entry) {
   return entry.image_path ? `/${entry.image_path}` : entry.image_url;
 }
 
-function loadFavorites() {
+function loadLocalFavorites() {
   try {
     const raw = localStorage.getItem(FAVORITES_KEY);
     if (!raw) return new Set();
@@ -73,19 +75,42 @@ function loadFavorites() {
   }
 }
 
-function saveFavorites() {
+function saveLocalFavorites() {
   localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favoriteIds]));
+}
+
+async function loadSharedFavorites() {
+  const response = await fetch(`${FAVORITES_API_URL}?v=${Date.now()}`, { cache: "no-store" });
+  if (!response.ok) throw new Error("共享收藏接口不可用");
+  const payload = await response.json();
+  return Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set();
+}
+
+async function persistSharedFavorite(entryId, favorite) {
+  const response = await fetch(FAVORITES_API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id: entryId, favorite }),
+  });
+  if (!response.ok) throw new Error("保存共享收藏失败");
+  const payload = await response.json();
+  return Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set();
 }
 
 function isFavorite(entry) {
   return favoriteIds.has(entry.id);
 }
 
-function toggleFavorite(entry) {
+async function toggleFavorite(entry) {
   if (!entry?.id) return;
-  if (favoriteIds.has(entry.id)) favoriteIds.delete(entry.id);
-  else favoriteIds.add(entry.id);
-  saveFavorites();
+  const shouldFavorite = !favoriteIds.has(entry.id);
+  if (favoritesMode === "shared") {
+    favoriteIds = await persistSharedFavorite(entry.id, shouldFavorite);
+    return;
+  }
+  if (shouldFavorite) favoriteIds.add(entry.id);
+  else favoriteIds.delete(entry.id);
+  saveLocalFavorites();
 }
 
 function syncFavoriteButton(button, entry, activeText, inactiveText) {
@@ -155,6 +180,7 @@ function openLightbox(entry) {
     ["服务器", entry.target_name || entry.target_id || "未知服务器"],
     ["文件名前缀", entry.filename_prefix || "-"],
     ["Prompt ID", entry.prompt_id || "-"],
+    ["收藏同步", favoritesMode === "shared" ? "共享收藏" : "本地收藏"],
   ]
     .map(
       ([label, value]) => `
@@ -209,13 +235,20 @@ function renderCards(entries) {
     node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | 点击查看详情`;
     syncFavoriteButton(favoriteButton, entry, "★", "☆");
 
-    favoriteButton.addEventListener("click", (event) => {
+    favoriteButton.addEventListener("click", async (event) => {
       event.stopPropagation();
       event.preventDefault();
-      toggleFavorite(entry);
-      renderFromState(window.__galleryData || { entries: [] });
-      if (lightbox.open && activeEntry?.id === entry.id) {
-        openLightbox(entry);
+      favoriteButton.disabled = true;
+      try {
+        await toggleFavorite(entry);
+        renderFromState(window.__galleryData || { entries: [] });
+        if (lightbox.open && activeEntry?.id === entry.id) {
+          openLightbox(entry);
+        }
+      } catch (error) {
+        window.alert(error.message || "收藏保存失败");
+      } finally {
+        favoriteButton.disabled = false;
       }
     });
 
@@ -263,9 +296,19 @@ function renderFromState(data) {
   renderCards(pageEntries);
 }
 
+async function initFavorites() {
+  try {
+    favoriteIds = await loadSharedFavorites();
+    favoritesMode = "shared";
+  } catch {
+    favoriteIds = loadLocalFavorites();
+    favoritesMode = "local";
+  }
+}
+
 async function init() {
   try {
-    favoriteIds = loadFavorites();
+    await initFavorites();
     const data = await loadGallery();
     window.__galleryData = data;
     renderFromState(data);
@@ -281,11 +324,18 @@ async function init() {
   }
 }
 
-lightboxFavorite?.addEventListener("click", () => {
+lightboxFavorite?.addEventListener("click", async () => {
   if (!activeEntry) return;
-  toggleFavorite(activeEntry);
-  openLightbox(activeEntry);
-  renderFromState(window.__galleryData || { entries: [] });
+  lightboxFavorite.disabled = true;
+  try {
+    await toggleFavorite(activeEntry);
+    openLightbox(activeEntry);
+    renderFromState(window.__galleryData || { entries: [] });
+  } catch (error) {
+    window.alert(error.message || "收藏保存失败");
+  } finally {
+    lightboxFavorite.disabled = false;
+  }
 });
 
 lightboxPrev?.addEventListener("click", () => openRelativeEntry(-1));
