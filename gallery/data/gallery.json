@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:10:59.670750+00:00",
+  "updated_at": "2026-06-07T20:59:07.009565+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607205907-c4b967a1-01",
+      "created_at": "2026-06-07T20:59:07.009565+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-205907-raena_envy_digital-c4b967a1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-205907-raena_envy_digital-c4b967a1-01.png",
+      "filename": "20260607-135844_00001_.png",
+      "prompt_id": "c4b967a1-71c8-44e6-9d1c-05c62003c075",
+      "prompt": "masterpiece, best quality, highres, 1girl, mature, glamorous, full body, nude, bare skin, genitals, vagina, crotch, nipples, navel, elegant standing pose, moonlit terrace, night, moonlight, soft lighting, detailed face, detailed eyes, detailed hair, retro fantasy style,",
+      "negative_prompt": "",
+      "style": "Raena XL V2 / Envy Digital Painting",
+      "preset_key": "raena_envy_digital",
+      "workflow": "Raena XL V2 checkpoint + Envy digital painting LoRA + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "lora": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.8,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_envy_digital/20260607-135844",
+      "source_subfolder": "web/raena_envy_digital"
+    },
     {
       "id": "20260607121059-51e96eb0-01",
       "created_at": "2026-06-07T12:10:59.670750+00:00",
