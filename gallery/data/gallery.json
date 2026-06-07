@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:08:48.880965+00:00",
+  "updated_at": "2026-06-07T00:09:03.841320+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607000903-4101d25b-01",
+      "created_at": "2026-06-07T00:09:03.841320+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-000903-animagine_retro_fantasy-4101d25b-01.png",
+      "image_path": "gallery/images/2026/06/20260607-000903-animagine_retro_fantasy-4101d25b-01.png",
+      "filename": "19_swamp_ranger_00001_.png",
+      "prompt_id": "4101d25b-5e3e-4e44-a28a-f2e29efe1dd3",
+      "prompt": "full-body female anime character illustration, amphibian-featured marsh ranger woman, layered reed-green travel leathers, glowing insect charm necklace, cautious low bow pose, misty swamp boardwalk background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/19_swamp_ranger",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607000848-a6382ff9-01",
       "created_at": "2026-06-07T00:08:48.880965+00:00",
