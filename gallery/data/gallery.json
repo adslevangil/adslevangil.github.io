@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:02:18.384479+00:00",
+  "updated_at": "2026-06-07T05:02:33.307607+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607050233-43c2c5cf-01",
+      "created_at": "2026-06-07T05:02:33.307607+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-050233-illustrious_naraken_v2-43c2c5cf-01.png",
+      "image_path": "gallery/images/2026/06/20260607-050233-illustrious_naraken_v2-43c2c5cf-01.png",
+      "filename": "03_fox_spirit_courtesan_00001_.png",
+      "prompt_id": "43c2c5cf-39f6-4075-bb27-24a154790924",
+      "prompt": "full-body adult anime woman illustration, mature fox spirit beauty, red and white kimono with open shoulder design, luxurious hair ornaments, teasing side glance, lantern night street background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v2_50/03_fox_spirit_courtesan",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v2_50"
+    },
     {
       "id": "20260607050218-6c259524-01",
       "created_at": "2026-06-07T05:02:18.384479+00:00",
