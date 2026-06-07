@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:10:48.670840+00:00",
+  "updated_at": "2026-06-07T00:11:03.922186+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001103-2a9f7ab4-01",
+      "created_at": "2026-06-07T00:11:03.922186+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001103-animagine_retro_fantasy-2a9f7ab4-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001103-animagine_retro_fantasy-2a9f7ab4-01.png",
+      "filename": "27_retro_scholar_00001_.png",
+      "prompt_id": "2a9f7ab4-b984-4f7d-a3c5-c04b2a626a4a",
+      "prompt": "full-body female anime character illustration, serious academy scholar woman, high-collar navy uniform coat, stack of books, reserved standing pose, wood-paneled study background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/27_retro_scholar",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001048-88ed9470-01",
       "created_at": "2026-06-07T00:10:48.670840+00:00",
