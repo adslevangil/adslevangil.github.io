@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:04:32.363155+00:00",
+  "updated_at": "2026-06-07T05:04:47.095128+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607050447-e7e67d6a-01",
+      "created_at": "2026-06-07T05:04:47.095128+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-050447-illustrious_naraken_v2-e7e67d6a-01.png",
+      "image_path": "gallery/images/2026/06/20260607-050447-illustrious_naraken_v2-e7e67d6a-01.png",
+      "filename": "12_snow_queen_knight_00001_.png",
+      "prompt_id": "e7e67d6a-31f1-407f-9590-a6dba4f5586e",
+      "prompt": "full-body adult anime woman illustration, elegant sexy ice knight, white fitted armor dress, fur collar, silver heels, cool dominant pose, frozen throne room background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v2_50/12_snow_queen_knight",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v2_50"
+    },
     {
       "id": "20260607050432-7e9b7c00-01",
       "created_at": "2026-06-07T05:04:32.363155+00:00",
