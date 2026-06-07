@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:10:47.538152+00:00",
+  "updated_at": "2026-06-07T05:11:02.263629+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607051102-8c5b09f2-01",
+      "created_at": "2026-06-07T05:11:02.263629+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-051102-illustrious_naraken_v2-8c5b09f2-01.png",
+      "image_path": "gallery/images/2026/06/20260607-051102-illustrious_naraken_v2-8c5b09f2-01.png",
+      "filename": "37_sunset_archer_00001_.png",
+      "prompt_id": "8c5b09f2-4839-4f2e-979d-8a6640d351e7",
+      "prompt": "full-body adult anime woman illustration, beautiful archer heroine, asymmetrical fantasy dress, toned legs, arm wraps, confident bow-at-side pose, sunset battlement background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v2_50/37_sunset_archer",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v2_50"
+    },
     {
       "id": "20260607051047-fad60fc8-01",
       "created_at": "2026-06-07T05:10:47.538152+00:00",
