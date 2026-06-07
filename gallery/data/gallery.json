@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:40:54.136057+00:00",
+  "updated_at": "2026-06-07T11:40:57.367890+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607114057-67cd60e2-01",
+      "created_at": "2026-06-07T11:40:57.367890+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-114057-raena_xl_v2_hires-67cd60e2-01.png",
+      "image_path": "gallery/images/2026/06/20260607-114057-raena_xl_v2_hires-67cd60e2-01.png",
+      "filename": "14_android_archivist_00001_.png",
+      "prompt_id": "67cd60e2-f0c7-4a15-a136-d7db2310df57",
+      "prompt": "beautiful anime woman, full-body elegant android heroine, ivory data robes with luminous seams, memory halo, calm book-holding pose, endless light library background",
+      "negative_prompt": "lowres, low score, bad score, worst quality, bad anatomy, bad hands, extra fingers, missing fingers, cropped face, asymmetrical eyes, skewed face, deformed face, text, logo, watermark, signature, jpeg artifacts, blurry",
+      "style": "Raena XL V2 / Hires Character",
+      "preset_key": "raena_xl_v2_hires",
+      "workflow": "Raena XL V2 checkpoint + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_xl_v2_hires_test_20",
+      "source_subfolder": "web/raena_xl_v2_hires_test_20"
+    },
     {
       "id": "20260607114054-2f3977a5-01",
       "created_at": "2026-06-07T11:40:54.136057+00:00",
