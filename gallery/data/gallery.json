@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:10:03.601591+00:00",
+  "updated_at": "2026-06-07T00:10:18.648488+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001018-3ab714d0-01",
+      "created_at": "2026-06-07T00:10:18.648488+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001018-animagine_retro_fantasy-3ab714d0-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001018-animagine_retro_fantasy-3ab714d0-01.png",
+      "filename": "24_retro_mechanic_00001_.png",
+      "prompt_id": "3ab714d0-69c9-4ca5-aa8b-c80302196303",
+      "prompt": "full-body female anime character illustration, dwarf mechanic woman, rolled sleeves and heavy tool belt, brass goggles, crouched maintenance pose, steam workshop background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/24_retro_mechanic",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001003-766d188f-01",
       "created_at": "2026-06-07T00:10:03.601591+00:00",
