@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:14:19.379333+00:00",
+  "updated_at": "2026-06-07T00:14:34.277351+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001434-c64ea63c-01",
+      "created_at": "2026-06-07T00:14:34.277351+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001434-animagine_retro_fantasy-c64ea63c-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001434-animagine_retro_fantasy-c64ea63c-01.png",
+      "filename": "41_classic_engineer_00001_.png",
+      "prompt_id": "c64ea63c-3063-4c5f-a0d2-a19a68ee285a",
+      "prompt": "full-body female anime character illustration, cheerful engineer woman, orange utility overalls and cropped jacket, wrench key charm, confident wave pose, rail engine shed background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/41_classic_engineer",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001419-663b2b91-01",
       "created_at": "2026-06-07T00:14:19.379333+00:00",
