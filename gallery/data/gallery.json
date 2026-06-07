@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T21:04:42.187821+00:00",
+  "updated_at": "2026-06-07T21:05:03.768376+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607210503-b7bd6496-01",
+      "created_at": "2026-06-07T21:05:03.768376+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-210503-diamondforge_xl_v3_variant_03-b7bd6496-01.png",
+      "image_path": "gallery/images/2026/06/20260607-210503-diamondforge_xl_v3_variant_03-b7bd6496-01.png",
+      "filename": "03_00001_.png",
+      "prompt_id": "b7bd6496-6177-4fc3-8c15-47956c942f30",
+      "prompt": "beautiful asian woman, full-body diplomatic swordswoman, white and blue ceremonial uniform, confident standing pose, complete body visible, centered composition, luminous embassy hall background",
+      "negative_prompt": "lowres, blurry, noisy, grain, unfinished image, cropped body, cropped feet, bad anatomy, bad hands, extra fingers, missing fingers, asymmetrical eyes, warped face, malformed mouth, duplicate limbs, text, logo, watermark, signature, overbaked texture, messy background",
+      "style": "DiamondForge XL V3 Test 03",
+      "preset_key": "diamondforge_xl_v3_variant_03",
+      "workflow": "03 dpmpp_2m karras s30 cfg6.0 d0.16",
+      "model": "DiamondForge_XL_V3.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "dpmpp_2m",
+      "scheduler": "karras",
+      "steps": 30,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diamondforge_xl_v3_character/variant_test_20/03",
+      "source_subfolder": "web/diamondforge_xl_v3_character/variant_test_20"
+    },
     {
       "id": "20260607210442-7ae7cbd7-01",
       "created_at": "2026-06-07T21:04:42.187821+00:00",
