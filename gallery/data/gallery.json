@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:08:17.236080+00:00",
+  "updated_at": "2026-06-07T11:09:34.562637+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607110934-322e9029-01",
+      "created_at": "2026-06-07T11:09:34.562637+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-110934-remote_qwen_rapid-322e9029-01.png",
+      "image_path": "gallery/images/2026/06/20260607-110934-remote_qwen_rapid-322e9029-01.png",
+      "filename": "20260607-040902_00001_.png",
+      "prompt_id": "322e9029-a191-42e7-9618-f0cd219b3cb4",
+      "prompt": "masterpiece, best quality, highres, 1girl, mature, glamorous, full body, nude, bare skin, genitals, vagina, crotch, nipples, navel, elegant standing pose, moonlit terrace, night, moonlight, soft lighting, detailed face, detailed eyes, detailed hair, retro fantasy style, Animagine XL 4.0",
+      "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, bad feet, missing limbs, floating limbs, disconnected limbs, mutation, mutated, ugly, disgusting, poorly drawn hands, poorly drawn face, deformed, disfigured, clothes, dress, skirt, pants, shirt, bra, panties, underwear, swimsuit, fabric, garment, shoes, socks, stockings, jewelry, accessory",
+      "style": "Qwen Rapid AIO / Ornamental Anime",
+      "preset_key": "remote_qwen_rapid",
+      "workflow": "Remote checkpoint only",
+      "model": "Qwen-Rapid-AIO-NSFW-v18.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler",
+      "scheduler": "normal",
+      "steps": 22,
+      "cfg": 6.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "server",
+      "target_name": "算力服务器 ComfyUI",
+      "server": {
+        "id": "server",
+        "name": "算力服务器 ComfyUI"
+      },
+      "filename_prefix": "web/remote_qwen_rapid/20260607-040902",
+      "source_subfolder": "web/remote_qwen_rapid"
+    },
     {
       "id": "20260607110817-eff7dab1-01",
       "created_at": "2026-06-07T11:08:17.236080+00:00",
