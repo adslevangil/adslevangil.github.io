@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:03:56.608005+00:00",
+  "updated_at": "2026-06-07T12:04:22.015130+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120422-37e20bbe-01",
+      "created_at": "2026-06-07T12:04:22.015130+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120422-diamondforge_xl_v3_character-37e20bbe-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120422-diamondforge_xl_v3_character-37e20bbe-01.png",
+      "filename": "diamondforge_xl_v3_test_10_00003_.png",
+      "prompt_id": "37e20bbe-a78f-4b03-aac1-50f05b1b4cc4",
+      "prompt": "beautiful latina woman, full-body sky pirate captain, fitted navy coat, belts and gloves, airship dock at dawn background",
+      "negative_prompt": "",
+      "style": "DiamondForge XL V3 / Cinematic Character",
+      "preset_key": "diamondforge_xl_v3_character",
+      "workflow": "DiamondForge XL V3 checkpoint + latent hires refine",
+      "model": "DiamondForge_XL_V3.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "dpmpp_2m",
+      "scheduler": "karras",
+      "steps": 34,
+      "cfg": 7.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diamondforge_xl_v3_character/diamondforge_xl_v3_test_10",
+      "source_subfolder": "web/diamondforge_xl_v3_character"
+    },
     {
       "id": "20260607120356-f717384e-01",
       "created_at": "2026-06-07T12:03:56.608005+00:00",
