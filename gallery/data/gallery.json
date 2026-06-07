@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:20:21.448050+00:00",
+  "updated_at": "2026-06-07T04:20:36.316695+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607042036-5fc8e061-01",
+      "created_at": "2026-06-07T04:20:36.316695+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-042036-animagine_retro_fantasy-5fc8e061-01.png",
+      "image_path": "gallery/images/2026/06/20260607-042036-animagine_retro_fantasy-5fc8e061-01.png",
+      "filename": "40_street_idol_00001_.png",
+      "prompt_id": "5fc8e061-0772-4742-91cd-fc45b36e6753",
+      "prompt": "full-body adult anime woman illustration, trendy charming idol, fashionable cropped jacket and pleated skirt, long boots, cute heart-hand pose, neon shopping street background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/40_street_idol",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607042021-912f5846-01",
       "created_at": "2026-06-07T04:20:21.448050+00:00",
