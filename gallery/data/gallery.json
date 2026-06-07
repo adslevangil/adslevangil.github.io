@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:41:50.466761+00:00",
+  "updated_at": "2026-06-07T04:42:05.351459+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607044205-2f829ffa-01",
+      "created_at": "2026-06-07T04:42:05.351459+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-044205-illustrious_naraken-2f829ffa-01.png",
+      "image_path": "gallery/images/2026/06/20260607-044205-illustrious_naraken-2f829ffa-01.png",
+      "filename": "34_beach_sorceress_00001_.png",
+      "prompt_id": "2f829ffa-cbf0-43d9-90fc-ca89f609918c",
+      "prompt": "full-body adult anime woman illustration, sexy beach sorceress, light summer fantasy outfit, translucent shawl, shell anklets, playful wave pose, bright beach resort background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v1_50/34_beach_sorceress",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v1_50"
+    },
     {
       "id": "20260607044150-fc21608b-01",
       "created_at": "2026-06-07T04:41:50.466761+00:00",
