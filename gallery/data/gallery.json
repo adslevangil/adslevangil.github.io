@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:22:36.208460+00:00",
+  "updated_at": "2026-06-07T04:22:51.244740+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607042251-4388e601-01",
+      "created_at": "2026-06-07T04:22:51.244740+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-042251-animagine_retro_fantasy-4388e601-01.png",
+      "image_path": "gallery/images/2026/06/20260607-042251-animagine_retro_fantasy-4388e601-01.png",
+      "filename": "49_rose_cavalier_00001_.png",
+      "prompt_id": "4388e601-bbb4-4645-9b09-a227f68d27a3",
+      "prompt": "full-body adult anime woman illustration, stunning rose cavalier, pink-white military dress, stockings, cape clasp, one-hand-on-saber pose, imperial parade ground background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/49_rose_cavalier",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607042236-84717b4d-01",
       "created_at": "2026-06-07T04:22:36.208460+00:00",
