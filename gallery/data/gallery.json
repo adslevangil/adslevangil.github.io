@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:13:52.333315+00:00",
+  "updated_at": "2026-06-07T04:14:07.321415+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041407-be2f8f72-01",
+      "created_at": "2026-06-07T04:14:07.321415+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041407-animagine_retro_fantasy-be2f8f72-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041407-animagine_retro_fantasy-be2f8f72-01.png",
+      "filename": "14_sakura_assassin_00001_.png",
+      "prompt_id": "be2f8f72-d3fa-492b-9436-bf4c1caaf534",
+      "prompt": "full-body adult anime woman illustration, mature assassin beauty, sleek pink and black shinobi outfit, exposed thighs, ribbon ornaments, low ready pose, cherry blossom rooftop background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/14_sakura_assassin",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041352-6784e18e-01",
       "created_at": "2026-06-07T04:13:52.333315+00:00",
