@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:15:34.093364+00:00",
+  "updated_at": "2026-06-07T00:15:49.085046+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001549-8c398af0-01",
+      "created_at": "2026-06-07T00:15:49.085046+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001549-animagine_retro_fantasy-8c398af0-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001549-animagine_retro_fantasy-8c398af0-01.png",
+      "filename": "46_classic_baroness_00001_.png",
+      "prompt_id": "8c398af0-809d-4bf1-b6cc-ca2fae306cb2",
+      "prompt": "full-body female anime character illustration, refined baroness woman, emerald riding dress, cameo brooch, gloved hand on fan pose, aristocratic manor garden background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/46_classic_baroness",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001534-d3eb09b1-01",
       "created_at": "2026-06-07T00:15:34.093364+00:00",
