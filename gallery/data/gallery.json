@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:14:37.225628+00:00",
+  "updated_at": "2026-06-07T04:14:52.131159+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041452-1a2d1b2b-01",
+      "created_at": "2026-06-07T04:14:52.131159+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041452-animagine_retro_fantasy-1a2d1b2b-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041452-animagine_retro_fantasy-1a2d1b2b-01.png",
+      "filename": "17_opera_rose_00001_.png",
+      "prompt_id": "1a2d1b2b-3344-4886-8883-999e0687a3dc",
+      "prompt": "full-body adult anime woman illustration, luxurious opera heroine, wine red layered gown, elegant neckline, rose hair ornament, dramatic hand-lift pose, candlelit opera stage background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/17_opera_rose",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041437-9ed6e715-01",
       "created_at": "2026-06-07T04:14:37.225628+00:00",
