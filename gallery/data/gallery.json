@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:05:38.237072+00:00",
+  "updated_at": "2026-06-07T12:06:03.666849+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120603-d74048eb-01",
+      "created_at": "2026-06-07T12:06:03.666849+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120603-diamondforge_xl_v3_character-d74048eb-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120603-diamondforge_xl_v3_character-d74048eb-01.png",
+      "filename": "diamondforge_xl_v3_test_10_00007_.png",
+      "prompt_id": "d74048eb-b691-47bb-9f85-b9d447f4b04b",
+      "prompt": "beautiful fox-eared woman, full-body frontier scout, practical leather and cloth ranger outfit, canyon watchpost background",
+      "negative_prompt": "",
+      "style": "DiamondForge XL V3 / Cinematic Character",
+      "preset_key": "diamondforge_xl_v3_character",
+      "workflow": "DiamondForge XL V3 checkpoint + latent hires refine",
+      "model": "DiamondForge_XL_V3.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "dpmpp_2m",
+      "scheduler": "karras",
+      "steps": 34,
+      "cfg": 7.0,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diamondforge_xl_v3_character/diamondforge_xl_v3_test_10",
+      "source_subfolder": "web/diamondforge_xl_v3_character"
+    },
     {
       "id": "20260607120538-96bef7e2-01",
       "created_at": "2026-06-07T12:05:38.237072+00:00",
