@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T05:12:31.149152+00:00",
+  "updated_at": "2026-06-07T05:12:45.939503+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607051245-8c41aaa3-01",
+      "created_at": "2026-06-07T05:12:45.939503+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-051245-illustrious_naraken_v2-8c41aaa3-01.png",
+      "image_path": "gallery/images/2026/06/20260607-051245-illustrious_naraken_v2-8c41aaa3-01.png",
+      "filename": "44_train_conductor_00001_.png",
+      "prompt_id": "8c41aaa3-90b1-4e38-8280-08e847fa2da5",
+      "prompt": "full-body adult anime woman illustration, stylish train conductor beauty, fitted uniform jacket, pencil skirt, gloves, confident ticket-check pose, vintage station platform background",
+      "negative_prompt": "",
+      "style": "Illustrious XL v2.0 / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken_v2",
+      "workflow": "Illustrious v2.0 checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v2.0.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v2_50/44_train_conductor",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v2_50"
+    },
     {
       "id": "20260607051231-cf2fe1c7-01",
       "created_at": "2026-06-07T05:12:31.149152+00:00",
