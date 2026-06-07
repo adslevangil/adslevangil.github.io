@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:10:42.455666+00:00",
+  "updated_at": "2026-06-07T04:10:57.539861+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041057-488e4749-01",
+      "created_at": "2026-06-07T04:10:57.539861+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041057-animagine_retro_fantasy-488e4749-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041057-animagine_retro_fantasy-488e4749-01.png",
+      "filename": "02_desert_dancer_00001_.png",
+      "prompt_id": "488e4749-31e9-4efc-b998-8f57dbba3119",
+      "prompt": "full-body adult anime woman illustration, alluring desert dancer heroine, jeweled turquoise outfit with flowing veil, toned waist, gold anklets, playful hip-shift pose, sunset palace terrace background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/02_desert_dancer",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041042-fea922c7-01",
       "created_at": "2026-06-07T04:10:42.455666+00:00",
