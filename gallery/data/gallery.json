@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:07:03.382990+00:00",
+  "updated_at": "2026-06-07T00:07:18.393403+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607000718-58220aea-01",
+      "created_at": "2026-06-07T00:07:18.393403+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-000718-animagine_retro_fantasy-58220aea-01.png",
+      "image_path": "gallery/images/2026/06/20260607-000718-animagine_retro_fantasy-58220aea-01.png",
+      "filename": "12_sky_pirate_00001_.png",
+      "prompt_id": "58220aea-df59-45ab-9909-8498b7dce032",
+      "prompt": "full-body female anime character illustration, sky pirate captain woman, asymmetrical black and teal coat, gold hoop earrings, one boot on crate pose, airship deck background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/12_sky_pirate",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607000703-301f0678-01",
       "created_at": "2026-06-07T00:07:03.382990+00:00",
