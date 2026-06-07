@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:07:03.177005+00:00",
+  "updated_at": "2026-06-07T11:08:17.236080+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607110817-eff7dab1-01",
+      "created_at": "2026-06-07T11:08:17.236080+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-110817-illustrious_naraken-eff7dab1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-110817-illustrious_naraken-eff7dab1-01.png",
+      "filename": "20260607-040759_00001_.png",
+      "prompt_id": "eff7dab1-466d-465c-9750-2938f1976f6e",
+      "prompt": "masterpiece, best quality, highres, 1girl, mature, glamorous, full body, **nude, naked, bare body, genitals, vagina, nipples**, elegant standing pose, moonlit terrace, night, moonlight, soft lighting, detailed face, detailed eyes, detailed hair, retro fantasy style, Animagine XL 4.0",
+      "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, bad feet, missing limbs, floating limbs, mutation, mutated, ugly, disgusting, poorly drawn hands, poorly drawn face, deformed, disfigured, **clothes, dress, black evening dress, panties, bra, underwear, swimsuit, fabric, garment**",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/illustrious_naraken/20260607-040759",
+      "source_subfolder": "web/illustrious_naraken"
+    },
     {
       "id": "20260607110703-df6eae68-01",
       "created_at": "2026-06-07T11:07:03.177005+00:00",
