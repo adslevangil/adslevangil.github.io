@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:33:52.370894+00:00",
+  "updated_at": "2026-06-07T04:34:07.520247+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607043407-a45e85ac-01",
+      "created_at": "2026-06-07T04:34:07.520247+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-043407-illustrious_naraken-a45e85ac-01.png",
+      "image_path": "gallery/images/2026/06/20260607-043407-illustrious_naraken-a45e85ac-01.png",
+      "filename": "02_desert_dancer_00001_.png",
+      "prompt_id": "a45e85ac-9200-463c-8921-8d17e5d495f2",
+      "prompt": "full-body adult anime woman illustration, alluring desert dancer heroine, jeweled turquoise outfit with flowing veil, toned waist, gold anklets, playful hip-shift pose, sunset palace terrace background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v1_50/02_desert_dancer",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v1_50"
+    },
     {
       "id": "20260607043352-88053314-01",
       "created_at": "2026-06-07T04:33:52.370894+00:00",
