@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:40:28.380008+00:00",
+  "updated_at": "2026-06-07T11:40:31.613164+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607114031-69441170-01",
+      "created_at": "2026-06-07T11:40:31.613164+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-114031-raena_xl_v2_hires-69441170-01.png",
+      "image_path": "gallery/images/2026/06/20260607-114031-raena_xl_v2_hires-69441170-01.png",
+      "filename": "06_desert_lancer_00001_.png",
+      "prompt_id": "69441170-3a86-4fc8-a3d6-f58e36f7d707",
+      "prompt": "beautiful anime woman, full-body warrior heroine, desert lancer captain, bronze and turquoise armor cloth, long dark braid, poised spear stance, sunlit canyon fortress background",
+      "negative_prompt": "lowres, low score, bad score, worst quality, bad anatomy, bad hands, extra fingers, missing fingers, cropped face, asymmetrical eyes, skewed face, deformed face, text, logo, watermark, signature, jpeg artifacts, blurry",
+      "style": "Raena XL V2 / Hires Character",
+      "preset_key": "raena_xl_v2_hires",
+      "workflow": "Raena XL V2 checkpoint + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_xl_v2_hires_test_20",
+      "source_subfolder": "web/raena_xl_v2_hires_test_20"
+    },
     {
       "id": "20260607114028-5cc2139c-01",
       "created_at": "2026-06-07T11:40:28.380008+00:00",
