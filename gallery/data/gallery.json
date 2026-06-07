@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:11:18.862926+00:00",
+  "updated_at": "2026-06-07T00:11:33.955968+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001133-1d14a71c-01",
+      "created_at": "2026-06-07T00:11:33.955968+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001133-animagine_retro_fantasy-1d14a71c-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001133-animagine_retro_fantasy-1d14a71c-01.png",
+      "filename": "29_retro_nurse_00001_.png",
+      "prompt_id": "1d14a71c-52d1-456f-85cd-47614a779745",
+      "prompt": "full-body female anime character illustration, battlefield nurse woman, white medical cape and green satchel, armband and medicine vials, reassuring forward step pose, wartime aid station background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/29_retro_nurse",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001118-271831c1-01",
       "created_at": "2026-06-07T00:11:18.862926+00:00",
