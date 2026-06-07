@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:19:51.550428+00:00",
+  "updated_at": "2026-06-07T04:20:06.533646+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607042006-632a5bfd-01",
+      "created_at": "2026-06-07T04:20:06.533646+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-042006-animagine_retro_fantasy-632a5bfd-01.png",
+      "image_path": "gallery/images/2026/06/20260607-042006-animagine_retro_fantasy-632a5bfd-01.png",
+      "filename": "38_black_swan_00001_.png",
+      "prompt_id": "632a5bfd-c4b9-4d71-9efd-7094d8849ec1",
+      "prompt": "full-body adult anime woman illustration, elegant black swan dancer, black feathered dress, long neck ribbon, poised ballet-inspired pose, luxurious stage background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/38_black_swan",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041951-e7921073-01",
       "created_at": "2026-06-07T04:19:51.550428+00:00",
