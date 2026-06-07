@@ -19,12 +19,14 @@ const lightboxTarget = document.querySelector("#lightboxTarget");
 const lightboxTitle = document.querySelector("#lightboxTitle");
 const lightboxList = document.querySelector("#lightboxList");
 const lightboxFavorite = document.querySelector("#lightboxFavorite");
+const lightboxDelete = document.querySelector("#lightboxDelete");
 const lightboxPrev = document.querySelector("#lightboxPrev");
 const lightboxNext = document.querySelector("#lightboxNext");
 const allTab = document.querySelector("#allTab");
 const favoritesTab = document.querySelector("#favoritesTab");
 
 let favoriteIds = new Set();
+let deletedIds = new Set();
 let activeEntry = null;
 let currentRenderedEntries = [];
 let favoritesMode = "shared";
@@ -83,18 +85,24 @@ async function loadSharedFavorites() {
   const response = await fetch(`${FAVORITES_API_URL}?v=${Date.now()}`, { cache: "no-store" });
   if (!response.ok) throw new Error("共享收藏接口不可用");
   const payload = await response.json();
-  return Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set();
+  return {
+    favoriteIds: Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set(),
+    deletedIds: Array.isArray(payload.deleted_ids) ? new Set(payload.deleted_ids) : new Set(),
+  };
 }
 
-async function persistSharedFavorite(entryId, favorite) {
+async function persistSharedState(entryId, action, value) {
   const response = await fetch(FAVORITES_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id: entryId, favorite }),
+    body: JSON.stringify({ id: entryId, action, value }),
   });
   if (!response.ok) throw new Error("保存共享收藏失败");
   const payload = await response.json();
-  return Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set();
+  return {
+    favoriteIds: Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set(),
+    deletedIds: Array.isArray(payload.deleted_ids) ? new Set(payload.deleted_ids) : new Set(),
+  };
 }
 
 function isFavorite(entry) {
@@ -105,12 +113,24 @@ async function toggleFavorite(entry) {
   if (!entry?.id) return;
   const shouldFavorite = !favoriteIds.has(entry.id);
   if (favoritesMode === "shared") {
-    favoriteIds = await persistSharedFavorite(entry.id, shouldFavorite);
+    const state = await persistSharedState(entry.id, "favorite", shouldFavorite);
+    favoriteIds = state.favoriteIds;
+    deletedIds = state.deletedIds;
     return;
   }
   if (shouldFavorite) favoriteIds.add(entry.id);
   else favoriteIds.delete(entry.id);
   saveLocalFavorites();
+}
+
+async function deleteEntry(entry) {
+  if (!entry?.id) return;
+  if (favoritesMode !== "shared") {
+    throw new Error("当前客户端没有连上共享图库删除接口");
+  }
+  const state = await persistSharedState(entry.id, "delete", true);
+  favoriteIds = state.favoriteIds;
+  deletedIds = state.deletedIds;
 }
 
 function syncFavoriteButton(button, entry, activeText, inactiveText) {
@@ -181,6 +201,7 @@ function openLightbox(entry) {
     ["文件名前缀", entry.filename_prefix || "-"],
     ["Prompt ID", entry.prompt_id || "-"],
     ["收藏同步", favoritesMode === "shared" ? "共享收藏" : "本地收藏"],
+    ["图库状态", deletedIds.has(entry.id) ? "已删除" : "显示中"],
   ]
     .map(
       ([label, value]) => `
@@ -271,7 +292,7 @@ function sortEntriesForView(entries, view) {
 
 function renderFromState(data) {
   const view = currentView();
-  const allEntries = Array.isArray(data.entries) ? data.entries : [];
+  const allEntries = (Array.isArray(data.entries) ? data.entries : []).filter((entry) => !deletedIds.has(entry.id));
   const baseEntries = view === "favorites" ? allEntries.filter((entry) => isFavorite(entry)) : allEntries;
   const filteredEntries = sortEntriesForView(baseEntries, view);
   const page = currentPage();
@@ -298,10 +319,13 @@ function renderFromState(data) {
 
 async function initFavorites() {
   try {
-    favoriteIds = await loadSharedFavorites();
+    const state = await loadSharedFavorites();
+    favoriteIds = state.favoriteIds;
+    deletedIds = state.deletedIds;
     favoritesMode = "shared";
   } catch {
     favoriteIds = loadLocalFavorites();
+    deletedIds = new Set();
     favoritesMode = "local";
   }
 }
@@ -335,6 +359,22 @@ lightboxFavorite?.addEventListener("click", async () => {
     window.alert(error.message || "收藏保存失败");
   } finally {
     lightboxFavorite.disabled = false;
+  }
+});
+
+lightboxDelete?.addEventListener("click", async () => {
+  if (!activeEntry) return;
+  const confirmed = window.confirm("删除后，这张图会从所有客户端的图库列表里隐藏。确定继续吗？");
+  if (!confirmed) return;
+  lightboxDelete.disabled = true;
+  try {
+    await deleteEntry(activeEntry);
+    lightbox.close();
+    renderFromState(window.__galleryData || { entries: [] });
+  } catch (error) {
+    window.alert(error.message || "删除失败");
+  } finally {
+    lightboxDelete.disabled = false;
   }
 });
 

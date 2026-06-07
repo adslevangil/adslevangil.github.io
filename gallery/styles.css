@@ -404,7 +404,8 @@ h1 {
 }
 
 .tag,
-.favoriteBadge {
+.favoriteBadge,
+.deleteBadge {
   display: inline-flex;
   padding: 7px 12px;
   border-radius: 999px;
@@ -413,9 +414,16 @@ h1 {
   font-size: 12px;
 }
 
-.favoriteBadge {
+.favoriteBadge,
+.deleteBadge {
   border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
+}
+
+.deleteBadge {
+  background: rgba(122, 19, 28, 0.28);
+  border-color: rgba(255, 112, 112, 0.24);
+  color: #ffd7d7;
 }
 
 .metaList {
