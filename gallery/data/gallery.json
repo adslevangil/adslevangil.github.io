@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:12:34.240657+00:00",
+  "updated_at": "2026-06-07T00:12:49.188039+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001249-bd0ddbe1-01",
+      "created_at": "2026-06-07T00:12:49.188039+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001249-animagine_retro_fantasy-bd0ddbe1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001249-animagine_retro_fantasy-bd0ddbe1-01.png",
+      "filename": "34_retro_princess_00001_.png",
+      "prompt_id": "bd0ddbe1-9d69-49c7-8c0f-787260416f8f",
+      "prompt": "full-body female anime character illustration, melancholic fantasy princess woman, pale blue layered gown, sapphire tiara, graceful side pose, stained glass tower room background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/34_retro_princess",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001234-f23e0ddf-01",
       "created_at": "2026-06-07T00:12:34.240657+00:00",
