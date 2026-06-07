@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:12:04.374822+00:00",
+  "updated_at": "2026-06-07T00:12:19.283813+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001219-ca788c9a-01",
+      "created_at": "2026-06-07T00:12:19.283813+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001219-animagine_retro_fantasy-ca788c9a-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001219-animagine_retro_fantasy-ca788c9a-01.png",
+      "filename": "32_retro_angel_00001_.png",
+      "prompt_id": "ca788c9a-2749-4936-b867-77a672b25707",
+      "prompt": "full-body female anime character illustration, angelic guardian woman, cream feather mantle and silver dress armor, halo circlet, descending grace pose, cloud sanctuary background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/32_retro_angel",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001204-5950f6d0-01",
       "created_at": "2026-06-07T00:12:04.374822+00:00",
