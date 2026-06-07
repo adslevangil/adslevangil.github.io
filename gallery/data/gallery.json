@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:40:57.367890+00:00",
+  "updated_at": "2026-06-07T11:41:00.455340+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607114100-36d17908-01",
+      "created_at": "2026-06-07T11:41:00.455340+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-114100-raena_xl_v2_hires-36d17908-01.png",
+      "image_path": "gallery/images/2026/06/20260607-114100-raena_xl_v2_hires-36d17908-01.png",
+      "filename": "15_festival_archer_00001_.png",
+      "prompt_id": "36d17908-78ff-40e7-9336-ac4ad638f52b",
+      "prompt": "beautiful anime woman, full-body festive heroine, star festival archer, pink and gold ribbon costume, gemstone earrings, lively smile, lantern summer festival background",
+      "negative_prompt": "lowres, low score, bad score, worst quality, bad anatomy, bad hands, extra fingers, missing fingers, cropped face, asymmetrical eyes, skewed face, deformed face, text, logo, watermark, signature, jpeg artifacts, blurry",
+      "style": "Raena XL V2 / Hires Character",
+      "preset_key": "raena_xl_v2_hires",
+      "workflow": "Raena XL V2 checkpoint + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_xl_v2_hires_test_20",
+      "source_subfolder": "web/raena_xl_v2_hires_test_20"
+    },
     {
       "id": "20260607114057-67cd60e2-01",
       "created_at": "2026-06-07T11:40:57.367890+00:00",
