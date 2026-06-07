@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:10:17.044906+00:00",
+  "updated_at": "2026-06-07T12:10:38.361651+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607121038-d7646b77-01",
+      "created_at": "2026-06-07T12:10:38.361651+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-121038-raena_envy_digital-d7646b77-01.png",
+      "image_path": "gallery/images/2026/06/20260607-121038-raena_envy_digital-d7646b77-01.png",
+      "filename": "raena_envy_digital_test_10_00009_.png",
+      "prompt_id": "d7646b77-4ab8-45f1-9ae5-bc59c9166bbe",
+      "prompt": "beautiful mermaid-inspired woman, full-body coral priestess, pearl accessories, sea temple walkway background",
+      "negative_prompt": "",
+      "style": "Raena XL V2 / Envy Digital Painting",
+      "preset_key": "raena_envy_digital",
+      "workflow": "Raena XL V2 checkpoint + Envy digital painting LoRA + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "lora": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.8,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_envy_digital/raena_envy_digital_test_10",
+      "source_subfolder": "web/raena_envy_digital"
+    },
     {
       "id": "20260607121017-fae43688-01",
       "created_at": "2026-06-07T12:10:17.044906+00:00",
