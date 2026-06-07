@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:16:34.120130+00:00",
+  "updated_at": "2026-06-07T00:16:49.085558+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607001649-a4f388a1-01",
+      "created_at": "2026-06-07T00:16:49.085558+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-001649-animagine_retro_fantasy-a4f388a1-01.png",
+      "image_path": "gallery/images/2026/06/20260607-001649-animagine_retro_fantasy-a4f388a1-01.png",
+      "filename": "50_classic_gladiator_00001_.png",
+      "prompt_id": "a4f388a1-b8d9-4848-8993-a1e19c22b156",
+      "prompt": "full-body female anime character illustration, arena gladiator woman, bronze armor skirt and red plume helm, chained wrist guards, victorious spear raise pose, coliseum background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/50_classic_gladiator",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607001634-a251fa6e-01",
       "created_at": "2026-06-07T00:16:34.120130+00:00",
