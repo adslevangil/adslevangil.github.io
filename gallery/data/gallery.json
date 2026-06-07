@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:14:22.288079+00:00",
+  "updated_at": "2026-06-07T04:14:37.225628+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607041437-9ed6e715-01",
+      "created_at": "2026-06-07T04:14:37.225628+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-041437-animagine_retro_fantasy-9ed6e715-01.png",
+      "image_path": "gallery/images/2026/06/20260607-041437-animagine_retro_fantasy-9ed6e715-01.png",
+      "filename": "16_pirate_captain_00001_.png",
+      "prompt_id": "9ed6e715-5180-4d0b-acfd-b8e9adf0f94d",
+      "prompt": "full-body adult anime woman illustration, sexy sky pirate captain, cropped black jacket, corset belt, thigh boots, confident leg-forward stance, airship deck background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_animagine_50/16_pirate_captain",
+      "source_subfolder": "web/sexy_bishoujo_animagine_50"
+    },
     {
       "id": "20260607041422-0588e7da-01",
       "created_at": "2026-06-07T04:14:22.288079+00:00",
