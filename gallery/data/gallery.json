@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:57:41.822087+00:00",
+  "updated_at": "2026-06-07T11:58:09.001242+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607115809-d321c35f-01",
+      "created_at": "2026-06-07T11:58:09.001242+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-115809-raena_envy_digital-d321c35f-01.png",
+      "image_path": "gallery/images/2026/06/20260607-115809-raena_envy_digital-d321c35f-01.png",
+      "filename": "20260607-045744_00001_.png",
+      "prompt_id": "d321c35f-0e36-4307-aafc-b77b761c65ed",
+      "prompt": "beautiful asian woman, full-body celestial priestess, teal and gold layered robe, calm standing pose, star observatory background",
+      "negative_prompt": "",
+      "style": "Raena XL V2 / Envy Digital Painting",
+      "preset_key": "raena_envy_digital",
+      "workflow": "Raena XL V2 checkpoint + Envy digital painting LoRA + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "lora": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.8,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_envy_digital/20260607-045744",
+      "source_subfolder": "web/raena_envy_digital"
+    },
     {
       "id": "20260607115741-937b7941-01",
       "created_at": "2026-06-07T11:57:41.822087+00:00",
