@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T12:07:19.975777+00:00",
+  "updated_at": "2026-06-07T12:07:47.934321+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607120747-5e5e6d79-01",
+      "created_at": "2026-06-07T12:07:47.934321+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-120747-raena_envy_digital-5e5e6d79-01.png",
+      "image_path": "gallery/images/2026/06/20260607-120747-raena_envy_digital-5e5e6d79-01.png",
+      "filename": "raena_envy_digital_test_10_00001_.png",
+      "prompt_id": "5e5e6d79-de66-4fc1-a142-d32517283029",
+      "prompt": "beautiful asian woman, full-body royal guardian, white and gold armor, confident standing pose, marble palace courtyard background",
+      "negative_prompt": "",
+      "style": "Raena XL V2 / Envy Digital Painting",
+      "preset_key": "raena_envy_digital",
+      "workflow": "Raena XL V2 checkpoint + Envy digital painting LoRA + latent hires refine",
+      "model": "Raena-XL-2.safetensors",
+      "plugin": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "lora": "EnvyAnimeDigitalPaintingXL02.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 5.8,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/raena_envy_digital/raena_envy_digital_test_10",
+      "source_subfolder": "web/raena_envy_digital"
+    },
     {
       "id": "20260607120719-b92af544-01",
       "created_at": "2026-06-07T12:07:19.975777+00:00",
