@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T00:08:03.626566+00:00",
+  "updated_at": "2026-06-07T00:08:18.707788+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607000818-bf721028-01",
+      "created_at": "2026-06-07T00:08:18.707788+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-000818-animagine_retro_fantasy-bf721028-01.png",
+      "image_path": "gallery/images/2026/06/20260607-000818-animagine_retro_fantasy-bf721028-01.png",
+      "filename": "16_taiga_hunter_00001_.png",
+      "prompt_id": "bf721028-9c3a-4cdc-ab95-a15a8ad7743c",
+      "prompt": "full-body female anime character illustration, broad-shouldered taiga hunter woman, fur mantle and quilted travel gear, bone charms, bow lowered at side pose, snowy pine forest background",
+      "negative_prompt": "",
+      "style": "Animagine XL 4.0 / Retro Fantasy",
+      "preset_key": "animagine_retro_fantasy",
+      "workflow": "Animagine checkpoint only",
+      "model": "animagine-xl-4.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/diverse_female_batch_animagine_only_50/16_taiga_hunter",
+      "source_subfolder": "web/diverse_female_batch_animagine_only_50"
+    },
     {
       "id": "20260607000803-fd677f14-01",
       "created_at": "2026-06-07T00:08:03.626566+00:00",
