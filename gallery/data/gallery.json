@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T11:09:34.562637+00:00",
+  "updated_at": "2026-06-07T11:10:18.670758+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607111018-a48fa264-01",
+      "created_at": "2026-06-07T11:10:18.670758+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-111018-remote_sdxl_base-a48fa264-01.png",
+      "image_path": "gallery/images/2026/06/20260607-111018-remote_sdxl_base-a48fa264-01.png",
+      "filename": "20260607-041012_00001_.png",
+      "prompt_id": "a48fa264-6f6c-4186-ba6c-19ddc4740913",
+      "prompt": "masterpiece, best quality, highres, 1girl, mature, glamorous, full body, nude, bare skin, genitals, vagina, crotch, nipples, navel, elegant standing pose, moonlit terrace, night, moonlight, soft lighting, detailed face, detailed eyes, detailed hair, retro fantasy style, Animagine XL 4.0",
+      "negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, bad feet, missing limbs, floating limbs, disconnected limbs, mutation, mutated, ugly, disgusting, poorly drawn hands, poorly drawn face, deformed, disfigured, clothes, dress, skirt, pants, shirt, bra, panties, underwear, swimsuit, fabric, garment, shoes, socks, stockings, jewelry, accessory",
+      "style": "SDXL Base / Painterly Fantasy",
+      "preset_key": "remote_sdxl_base",
+      "workflow": "Remote checkpoint only",
+      "model": "sd_xl_base_1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler",
+      "scheduler": "normal",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "server",
+      "target_name": "算力服务器 ComfyUI",
+      "server": {
+        "id": "server",
+        "name": "算力服务器 ComfyUI"
+      },
+      "filename_prefix": "web/remote_sdxl_base/20260607-041012",
+      "source_subfolder": "web/remote_sdxl_base"
+    },
     {
       "id": "20260607110934-322e9029-01",
       "created_at": "2026-06-07T11:09:34.562637+00:00",
