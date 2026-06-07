@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T04:35:37.193593+00:00",
+  "updated_at": "2026-06-07T04:35:52.103045+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260607043552-cae0ac46-01",
+      "created_at": "2026-06-07T04:35:52.103045+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260607-043552-illustrious_naraken-cae0ac46-01.png",
+      "image_path": "gallery/images/2026/06/20260607-043552-illustrious_naraken-cae0ac46-01.png",
+      "filename": "09_royal_bunny_guard_00001_.png",
+      "prompt_id": "cae0ac46-87ce-4947-93a4-7c1673a962b7",
+      "prompt": "full-body adult anime woman illustration, glamorous bunny-themed royal guard, tailored white bodysuit armor hybrid, stockings, gold epaulettes, teasing salute pose, lavish palace hall background",
+      "negative_prompt": "",
+      "style": "Illustrious XL / MIN-NARAKEN",
+      "preset_key": "illustrious_naraken",
+      "workflow": "Illustrious checkpoint + MIN-NARAKEN LoRA",
+      "model": "Illustrious-XL-v1.1.safetensors",
+      "plugin": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "lora": "MIN-NARAKEN_v2_illustriousXL.safetensors",
+      "sampler": "euler_ancestral",
+      "scheduler": "simple",
+      "steps": 28,
+      "cfg": 6.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/sexy_bishoujo_illustrious_v1_50/09_royal_bunny_guard",
+      "source_subfolder": "web/sexy_bishoujo_illustrious_v1_50"
+    },
     {
       "id": "20260607043537-2b63a158-01",
       "created_at": "2026-06-07T04:35:37.193593+00:00",
