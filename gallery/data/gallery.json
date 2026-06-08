@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T02:58:18.809765+00:00",
+  "updated_at": "2026-06-08T03:03:27.279535+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608030327-de254fcf-01",
+      "created_at": "2026-06-08T03:03:27.279535+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-030327-anima_turbo_pose_auto-de254fcf-01.png",
+      "image_path": "gallery/images/2026/06/20260608-030327-anima_turbo_pose_auto-de254fcf-01.png",
+      "filename": "20260607-200311_00001_.png",
+      "prompt_id": "de254fcf-ace5-42b6-8779-98fa7af452ca",
+      "prompt": "1girl, full body, anime heroine, dynamic action pose, elegant costume, clean anime rendering, detailed face",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / Turbo + 自动提姿态",
+      "preset_key": "anima_turbo_pose_auto",
+      "workflow": "Anima UNet + Turbo LoRA + 自动 Pose 提取（4 步极速）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "sgm_uniform",
+      "steps": 4,
+      "cfg": 1.2,
+      "width": 768,
+      "height": 1024,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_turbo_pose_auto/20260607-200311",
+      "source_subfolder": "web/anima_turbo_pose_auto"
+    },
     {
       "id": "20260608025818-4f626e01-01",
       "created_at": "2026-06-08T02:58:18.809765+00:00",
