@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-07T21:11:37.667311+00:00",
+  "updated_at": "2026-06-08T02:51:35.171071+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608025135-0ee44044-01",
+      "created_at": "2026-06-08T02:51:35.171071+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-025135-anima_turbo_anytest-0ee44044-01.png",
+      "image_path": "gallery/images/2026/06/20260608-025135-anima_turbo_anytest-0ee44044-01.png",
+      "filename": "20260607-195124_00001_.png",
+      "prompt_id": "0ee44044-97f5-43f3-a4fc-7fc7940f1983",
+      "prompt": "1girl, full body, elegant anime heroine, detailed fantasy costume, standing pose, clean lineart, high quality",
+      "negative_prompt": "lowres, blurry, bad anatomy, bad hands, extra fingers, text, watermark",
+      "style": "Anima Base 1.0 / Turbo + AnyTest 控图",
+      "preset_key": "anima_turbo_anytest",
+      "workflow": "Anima UNet + Turbo LoRA + LLLite AnyTest（4 步极速）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "euler_ancestral",
+      "scheduler": "sgm_uniform",
+      "steps": 4,
+      "cfg": 1.2,
+      "width": 768,
+      "height": 1024,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_turbo_anytest/20260607-195124",
+      "source_subfolder": "web/anima_turbo_anytest"
+    },
     {
       "id": "20260607211137-7ea91a1b-01",
       "created_at": "2026-06-07T21:11:37.667311+00:00",
