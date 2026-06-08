@@ -24,12 +24,19 @@ const lightboxPrev = document.querySelector("#lightboxPrev");
 const lightboxNext = document.querySelector("#lightboxNext");
 const allTab = document.querySelector("#allTab");
 const favoritesTab = document.querySelector("#favoritesTab");
+const toggleSelectModeButton = document.querySelector("#toggleSelectMode");
+const selectPageButton = document.querySelector("#selectPageButton");
+const clearSelectionButton = document.querySelector("#clearSelectionButton");
+const deleteSelectedButton = document.querySelector("#deleteSelectedButton");
+const bulkSummary = document.querySelector("#bulkSummary");
 
 let favoriteIds = new Set();
 let deletedIds = new Set();
+let selectedIds = new Set();
 let activeEntry = null;
 let currentRenderedEntries = [];
 let favoritesMode = "shared";
+let selectionMode = false;
 
 function escapeHtml(value) {
   return String(value || "")
@@ -97,7 +104,7 @@ async function persistSharedState(entryId, action, value) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: entryId, action, value }),
   });
-  if (!response.ok) throw new Error("保存共享收藏失败");
+  if (!response.ok) throw new Error("保存共享状态失败");
   const payload = await response.json();
   return {
     favoriteIds: Array.isArray(payload.favorite_ids) ? new Set(payload.favorite_ids) : new Set(),
@@ -107,6 +114,63 @@ async function persistSharedState(entryId, action, value) {
 
 function isFavorite(entry) {
   return favoriteIds.has(entry.id);
+}
+
+function isSelected(entry) {
+  return selectedIds.has(entry.id);
+}
+
+function syncFavoriteButton(button, entry, activeText, inactiveText) {
+  const favored = isFavorite(entry);
+  button.classList.toggle("active", favored);
+  button.textContent = favored ? activeText : inactiveText;
+  button.setAttribute("aria-label", favored ? "取消收藏" : "加入收藏");
+}
+
+function syncSelectButton(button, entry) {
+  const selected = isSelected(entry);
+  button.classList.toggle("active", selected);
+  button.textContent = selected ? "✓" : "○";
+  button.setAttribute("aria-label", selected ? "取消选择" : "选择");
+}
+
+function setSelectionMode(value) {
+  selectionMode = Boolean(value);
+  if (!selectionMode) {
+    selectedIds.clear();
+  }
+  document.body.classList.toggle("selectionMode", selectionMode);
+  updateBulkBar();
+  renderFromState(window.__galleryData || { entries: [] });
+}
+
+function updateBulkBar() {
+  const count = selectedIds.size;
+  toggleSelectModeButton.textContent = selectionMode ? "退出多选" : "多选模式";
+  toggleSelectModeButton.classList.toggle("active", selectionMode);
+  selectPageButton.disabled = !selectionMode || currentRenderedEntries.length === 0;
+  clearSelectionButton.disabled = !selectionMode || count === 0;
+  deleteSelectedButton.disabled = !selectionMode || count === 0;
+  bulkSummary.textContent = selectionMode ? `已选择 ${count} 张图片` : "未选择图片";
+}
+
+function toggleSelected(entry) {
+  if (!entry?.id) return;
+  if (selectedIds.has(entry.id)) selectedIds.delete(entry.id);
+  else selectedIds.add(entry.id);
+  updateBulkBar();
+}
+
+function selectCurrentPage() {
+  currentRenderedEntries.forEach((entry) => selectedIds.add(entry.id));
+  updateBulkBar();
+  renderFromState(window.__galleryData || { entries: [] });
+}
+
+function clearSelected() {
+  selectedIds.clear();
+  updateBulkBar();
+  renderFromState(window.__galleryData || { entries: [] });
 }
 
 async function toggleFavorite(entry) {
@@ -131,13 +195,25 @@ async function deleteEntry(entry) {
   const state = await persistSharedState(entry.id, "delete", true);
   favoriteIds = state.favoriteIds;
   deletedIds = state.deletedIds;
+  selectedIds.delete(entry.id);
 }
 
-function syncFavoriteButton(button, entry, activeText, inactiveText) {
-  const favored = isFavorite(entry);
-  button.classList.toggle("active", favored);
-  button.textContent = favored ? activeText : inactiveText;
-  button.setAttribute("aria-label", favored ? "取消收藏" : "加入收藏");
+async function deleteSelectedEntries() {
+  if (favoritesMode !== "shared") {
+    throw new Error("当前客户端没有连上共享图库删除接口");
+  }
+  const queue = [...selectedIds];
+  for (const id of queue) {
+    const entry = (window.__galleryData?.entries || []).find((item) => item.id === id);
+    if (!entry) {
+      selectedIds.delete(id);
+      continue;
+    }
+    const state = await persistSharedState(entry.id, "delete", true);
+    favoriteIds = state.favoriteIds;
+    deletedIds = state.deletedIds;
+    selectedIds.delete(entry.id);
+  }
 }
 
 async function loadGallery() {
@@ -230,7 +306,7 @@ function renderCards(entries) {
     const emptyTitle = currentView() === "favorites" ? "还没有收藏图片" : "还没有图片";
     const emptyText =
       currentView() === "favorites"
-        ? "点亮右上角五角星后，图片会自动进入收藏标签，并按最新收藏时间优先显示。"
+        ? "点亮右上角五角星后，图片会自动进入收藏标签。"
         : "等你从生成器成功出图后，这里会自动出现。";
     grid.innerHTML = `
       <article class="card cardEmpty">
@@ -240,6 +316,7 @@ function renderCards(entries) {
         </div>
       </article>
     `;
+    updateBulkBar();
     return;
   }
 
@@ -247,14 +324,26 @@ function renderCards(entries) {
     const node = template.content.firstElementChild.cloneNode(true);
     const button = node.querySelector(".cardButton");
     const favoriteButton = node.querySelector(".favoriteButton");
+    const selectButton = node.querySelector(".selectButton");
     const image = node.querySelector(".cardImage");
+
+    node.classList.toggle("selected", isSelected(entry));
     image.src = resolveImageUrl(entry);
     image.alt = entry.filename || "generated image";
     node.querySelector(".cardStyle").textContent = entry.style || "未命名风格";
     node.querySelector(".cardTime").textContent = formatDate(entry.created_at);
     node.querySelector(".cardTitle").textContent = entry.model || entry.filename || "未命名图片";
-    node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | 点击查看详情`;
+    node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | ${selectionMode ? "点击可选择" : "点击查看详情"}`;
     syncFavoriteButton(favoriteButton, entry, "★", "☆");
+    syncSelectButton(selectButton, entry);
+
+    selectButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      if (!selectionMode) setSelectionMode(true);
+      toggleSelected(entry);
+      renderFromState(window.__galleryData || { entries: [] });
+    });
 
     favoriteButton.addEventListener("click", async (event) => {
       event.stopPropagation();
@@ -273,9 +362,19 @@ function renderCards(entries) {
       }
     });
 
-    button.addEventListener("click", () => openLightbox(entry));
+    button.addEventListener("click", () => {
+      if (selectionMode) {
+        toggleSelected(entry);
+        renderFromState(window.__galleryData || { entries: [] });
+        return;
+      }
+      openLightbox(entry);
+    });
+
     grid.appendChild(node);
   });
+
+  updateBulkBar();
 }
 
 function sortEntriesForView(entries, view) {
@@ -347,6 +446,33 @@ async function init() {
     `;
   }
 }
+
+toggleSelectModeButton?.addEventListener("click", () => {
+  setSelectionMode(!selectionMode);
+});
+
+selectPageButton?.addEventListener("click", () => {
+  selectCurrentPage();
+});
+
+clearSelectionButton?.addEventListener("click", () => {
+  clearSelected();
+});
+
+deleteSelectedButton?.addEventListener("click", async () => {
+  if (!selectedIds.size) return;
+  const confirmed = window.confirm(`删除后，这 ${selectedIds.size} 张图会从所有客户端的图库列表里隐藏。确定继续吗？`);
+  if (!confirmed) return;
+  deleteSelectedButton.disabled = true;
+  try {
+    await deleteSelectedEntries();
+    renderFromState(window.__galleryData || { entries: [] });
+  } catch (error) {
+    window.alert(error.message || "批量删除失败");
+  } finally {
+    deleteSelectedButton.disabled = false;
+  }
+});
 
 lightboxFavorite?.addEventListener("click", async () => {
   if (!activeEntry) return;

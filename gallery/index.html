@@ -60,6 +60,18 @@
       </div>
     </section>
 
+    <section class="bulkBar" id="bulkBar">
+      <div class="bulkBarLeft">
+        <button class="bulkButton" id="toggleSelectMode" type="button">多选模式</button>
+        <button class="bulkButton" id="selectPageButton" type="button" disabled>本页全选</button>
+        <button class="bulkButton" id="clearSelectionButton" type="button" disabled>清空选择</button>
+      </div>
+      <div class="bulkBarRight">
+        <span class="bulkSummary" id="bulkSummary">未选择图片</span>
+        <button class="bulkButton bulkDanger" id="deleteSelectedButton" type="button" disabled>删除选中</button>
+      </div>
+    </section>
+
     <section class="galleryGrid" id="galleryGrid" aria-live="polite"></section>
   </main>
 
@@ -88,6 +100,7 @@
 
   <template id="cardTemplate">
     <article class="card">
+      <button class="selectButton" type="button" aria-label="选择">○</button>
       <button class="favoriteButton" type="button" aria-label="收藏">☆</button>
       <button class="cardButton" type="button">
         <img class="cardImage" alt="" loading="lazy" />

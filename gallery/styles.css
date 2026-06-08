@@ -177,6 +177,63 @@ h1 {
   margin: 22px 0 14px;
 }
 
+.bulkBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bulkBarLeft,
+.bulkBarRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bulkButton {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.bulkButton:hover {
+  transform: translateY(-1px);
+}
+
+.bulkButton:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+.bulkButton.active {
+  background: linear-gradient(135deg, rgba(255, 203, 122, 0.18), rgba(255, 153, 102, 0.18));
+  border-color: rgba(255, 203, 122, 0.4);
+}
+
+.bulkDanger {
+  background: rgba(122, 19, 28, 0.28);
+  border-color: rgba(255, 112, 112, 0.24);
+  color: #ffd7d7;
+}
+
+.bulkSummary {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .toolbarLeft {
   display: grid;
   gap: 4px;
@@ -269,6 +326,41 @@ h1 {
   cursor: pointer;
   font-size: 18px;
   line-height: 1;
+}
+
+.selectButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(5, 9, 17, 0.72);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+body.selectionMode .selectButton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.selectButton.active {
+  background: linear-gradient(135deg, #8ee7ff, #64cfff);
+  border-color: rgba(142, 231, 255, 0.7);
+  color: #07111f;
+}
+
+.card.selected .cardButton {
+  border-color: rgba(142, 231, 255, 0.55);
+  box-shadow: 0 0 0 2px rgba(142, 231, 255, 0.18), var(--shadow);
 }
 
 .favoriteButton.active,
@@ -472,6 +564,15 @@ h1 {
     align-items: stretch;
   }
 
+  .bulkBar {
+    align-items: stretch;
+  }
+
+  .bulkBarLeft,
+  .bulkBarRight {
+    width: 100%;
+  }
+
   .heroStats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -516,6 +617,14 @@ h1 {
   .favoriteButton {
     top: 6px;
     right: 6px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .selectButton {
+    top: 6px;
+    left: 6px;
     width: 28px;
     height: 28px;
     font-size: 16px;
