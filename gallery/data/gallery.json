@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T04:06:54.488689+00:00",
+  "updated_at": "2026-06-08T04:07:32.024630+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608040732-7c65e538-01",
+      "created_at": "2026-06-08T04:07:32.024630+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-040732-anima_base_hq_anytest-7c65e538-01.png",
+      "image_path": "gallery/images/2026/06/20260608-040732-anima_base_hq_anytest-7c65e538-01.png",
+      "filename": "20260607-210657_00001_.png",
+      "prompt_id": "7c65e538-8e47-47f1-a085-3bb5ad212974",
+      "prompt": "1girl, full body, anime city agent heroine, black fitted tactical dress, sleek gloves, composed confident face, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-210657",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608040654-e0d0cb4f-01",
       "created_at": "2026-06-08T04:06:54.488689+00:00",
