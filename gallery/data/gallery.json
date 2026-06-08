@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T05:38:46.998014+00:00",
+  "updated_at": "2026-06-08T05:39:24.734821+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608053924-b41434b6-01",
+      "created_at": "2026-06-08T05:39:24.734821+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-053924-anima_base_hq_anytest-b41434b6-01.png",
+      "image_path": "gallery/images/2026/06/20260608-053924-anima_base_hq_anytest-b41434b6-01.png",
+      "filename": "20260607-223850_00001_.png",
+      "prompt_id": "b41434b6-18ae-46e6-912d-ab11760dc88e",
+      "prompt": "1girl, full body, anime opera duelist heroine, dramatic crimson and black dress, poised theatrical expression, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-223850",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608053846-33e8eaee-01",
       "created_at": "2026-06-08T05:38:46.998014+00:00",
