@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T03:59:22.619666+00:00",
+  "updated_at": "2026-06-08T04:00:00.640940+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608040000-e47dfcc8-01",
+      "created_at": "2026-06-08T04:00:00.640940+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-040000-anima_base_hq_anytest-e47dfcc8-01.png",
+      "image_path": "gallery/images/2026/06/20260608-040000-anima_base_hq_anytest-e47dfcc8-01.png",
+      "filename": "20260607-205926_00001_.png",
+      "prompt_id": "e47dfcc8-5180-4a5f-9609-780dcfa3a729",
+      "prompt": "1girl, full body, anime shrine priestess heroine, ivory and gold sacred robe, graceful expression, ornate accessories, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-205926",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608035922-aaecedb0-01",
       "created_at": "2026-06-08T03:59:22.619666+00:00",
