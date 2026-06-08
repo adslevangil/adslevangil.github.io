@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T04:00:00.640940+00:00",
+  "updated_at": "2026-06-08T04:00:38.779183+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608040038-06adebeb-01",
+      "created_at": "2026-06-08T04:00:38.779183+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-040038-anima_base_hq_anytest-06adebeb-01.png",
+      "image_path": "gallery/images/2026/06/20260608-040038-anima_base_hq_anytest-06adebeb-01.png",
+      "filename": "20260607-210004_00001_.png",
+      "prompt_id": "06adebeb-7124-4ae5-8a39-08fb034e04fd",
+      "prompt": "1girl, full body, anime desert dancer mage heroine, turquoise and gold costume, jeweled ornaments, elegant waist cloth, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-210004",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608040000-e47dfcc8-01",
       "created_at": "2026-06-08T04:00:00.640940+00:00",
