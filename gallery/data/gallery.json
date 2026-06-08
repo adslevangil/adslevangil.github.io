@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T04:05:39.689513+00:00",
+  "updated_at": "2026-06-08T04:06:17.006642+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608040617-91f7ca0a-01",
+      "created_at": "2026-06-08T04:06:17.006642+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-040617-anima_base_hq_anytest-91f7ca0a-01.png",
+      "image_path": "gallery/images/2026/06/20260608-040617-anima_base_hq_anytest-91f7ca0a-01.png",
+      "filename": "20260607-210542_00001_.png",
+      "prompt_id": "91f7ca0a-fb41-4036-a701-0d225d87f129",
+      "prompt": "1girl, full body, anime sky knight heroine, white feathered mantle, polished armor, heroic stance, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-210542",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608040539-bc11d0ce-01",
       "created_at": "2026-06-08T04:05:39.689513+00:00",
