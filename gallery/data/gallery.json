@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T04:10:01.836538+00:00",
+  "updated_at": "2026-06-08T05:28:03.639937+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608052803-46b7ca72-01",
+      "created_at": "2026-06-08T05:28:03.639937+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-052803-anima_base_hq_anytest-46b7ca72-01.png",
+      "image_path": "gallery/images/2026/06/20260608-052803-anima_base_hq_anytest-46b7ca72-01.png",
+      "filename": "20260607-222729_00001_.png",
+      "prompt_id": "46b7ca72-cce1-41ad-b475-fb43051cdc9d",
+      "prompt": "1girl, full body, anime royal guardian heroine, white and sapphire ceremonial armor, elegant face, premium fantasy illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-222729",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608041001-b7bdfb33-01",
       "created_at": "2026-06-08T04:10:01.836538+00:00",
