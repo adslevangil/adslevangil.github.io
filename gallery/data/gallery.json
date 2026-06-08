@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T05:40:02.390248+00:00",
+  "updated_at": "2026-06-08T05:40:40.171638+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608054040-bea473d8-01",
+      "created_at": "2026-06-08T05:40:40.171638+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-054040-anima_base_hq_anytest-bea473d8-01.png",
+      "image_path": "gallery/images/2026/06/20260608-054040-anima_base_hq_anytest-bea473d8-01.png",
+      "filename": "20260607-224006_00001_.png",
+      "prompt_id": "bea473d8-a9aa-4b0a-b6f3-fd65f05cc411",
+      "prompt": "1girl, full body, anime thunder idol heroine, violet concert outfit, sparkling accessories, powerful stage charisma, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-224006",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608054002-dcb05902-01",
       "created_at": "2026-06-08T05:40:02.390248+00:00",
