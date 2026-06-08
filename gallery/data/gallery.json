@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T04:05:02.140348+00:00",
+  "updated_at": "2026-06-08T04:05:39.689513+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608040539-bc11d0ce-01",
+      "created_at": "2026-06-08T04:05:39.689513+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-040539-anima_base_hq_anytest-bc11d0ce-01.png",
+      "image_path": "gallery/images/2026/06/20260608-040539-anima_base_hq_anytest-bc11d0ce-01.png",
+      "filename": "20260607-210505_00001_.png",
+      "prompt_id": "bc11d0ce-1465-4c9c-bd43-9258c8902c09",
+      "prompt": "1girl, full body, anime ocean diva heroine, aqua layered dress, pearl accessories, dreamy expression, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-210505",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608040502-31b227aa-01",
       "created_at": "2026-06-08T04:05:02.140348+00:00",
