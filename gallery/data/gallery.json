@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T05:31:48.441675+00:00",
+  "updated_at": "2026-06-08T05:32:27.488365+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608053227-19d188bb-01",
+      "created_at": "2026-06-08T05:32:27.488365+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-053227-anima_base_hq_anytest-19d188bb-01.png",
+      "image_path": "gallery/images/2026/06/20260608-053227-anima_base_hq_anytest-19d188bb-01.png",
+      "filename": "20260607-223153_00001_.png",
+      "prompt_id": "19d188bb-9d4f-4e51-add3-ef1c33511aa3",
+      "prompt": "1girl, full body, anime festival archer heroine, floral costume, ribbon accessories, cheerful expression, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-223153",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608053148-39ceb068-01",
       "created_at": "2026-06-08T05:31:48.441675+00:00",
