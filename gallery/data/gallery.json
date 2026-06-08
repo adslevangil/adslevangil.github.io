@@ -1,7 +1,38 @@
 {
-  "updated_at": "2026-06-08T05:29:17.918974+00:00",
+  "updated_at": "2026-06-08T05:29:55.413167+00:00",
   "per_page": 40,
   "entries": [
+    {
+      "id": "20260608052955-baaa2117-01",
+      "created_at": "2026-06-08T05:29:55.413167+00:00",
+      "image_url": "https://www.easongame.com/gallery/images/2026/06/20260608-052955-anima_base_hq_anytest-baaa2117-01.png",
+      "image_path": "gallery/images/2026/06/20260608-052955-anima_base_hq_anytest-baaa2117-01.png",
+      "filename": "20260607-222921_00001_.png",
+      "prompt_id": "baaa2117-3897-438f-9573-847008496d4e",
+      "prompt": "1girl, full body, anime academy prefect heroine, formal uniform, graceful expression, premium illustration",
+      "negative_prompt": "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, missing fingers, text, watermark, logo",
+      "style": "Anima Base 1.0 / 高质量 AnyTest 控图",
+      "preset_key": "anima_base_hq_anytest",
+      "workflow": "Anima UNet + AnyTest 控图（高质量版）",
+      "model": "anima-base-v1.0.safetensors",
+      "plugin": "None",
+      "lora": null,
+      "sampler": "er_sde",
+      "scheduler": "simple",
+      "steps": 32,
+      "cfg": 4.5,
+      "width": 832,
+      "height": 1216,
+      "count": 1,
+      "target_id": "local",
+      "target_name": "本地 ComfyUI",
+      "server": {
+        "id": "local",
+        "name": "本地 ComfyUI"
+      },
+      "filename_prefix": "web/anima_base_hq_anytest/20260607-222921",
+      "source_subfolder": "web/anima_base_hq_anytest"
+    },
     {
       "id": "20260608052917-06cd1b32-01",
       "created_at": "2026-06-08T05:29:17.918974+00:00",
