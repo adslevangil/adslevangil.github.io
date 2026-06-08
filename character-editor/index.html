@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Eason Game 角色编辑器，可手动维护角色资料，并通过多代理协作中心自动分析图片生成人设。"
+  />
+  <title>Eason Game | 角色编辑器</title>
+  <link rel="stylesheet" href="/character-editor/styles.css" />
+</head>
+<body>
+  <div class="pageGlow"></div>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">Character Editor</div>
+      <div class="heroRow">
+        <div>
+          <h1>角色编辑器</h1>
+          <p class="lead">
+            维护角色姓名、性别、职业、种族、特点、技能、擅长、爱好、关系和背景故事。
+            也可以调用多代理协作中心，基于角色图片自动分析并生成角色资料草稿。
+          </p>
+        </div>
+        <div class="heroActions">
+          <a class="button buttonPrimary" href="/gallery/">返回图库</a>
+          <a class="button buttonSecondary" href="/">返回主页</a>
+          <a class="button buttonSecondary" href="http://127.0.0.1:8787" target="_blank" rel="noreferrer">打开生成器</a>
+        </div>
+      </div>
+      <div class="heroStats">
+        <div class="stat">
+          <span>角色总数</span>
+          <strong id="characterCount">0</strong>
+        </div>
+        <div class="stat">
+          <span>绑定图片</span>
+          <strong id="linkedImageCount">0</strong>
+        </div>
+        <div class="stat">
+          <span>最近更新</span>
+          <strong id="updatedAt">--</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <aside class="sidebarCard">
+        <div class="sectionHead">
+          <div>
+            <p class="eyebrow">Characters</p>
+            <h2>角色列表</h2>
+          </div>
+          <button class="ghostButton" id="newCharacterButton" type="button">新建角色</button>
+        </div>
+        <input class="searchInput" id="characterSearch" type="search" placeholder="搜索角色姓名、职业、种族..." />
+        <div class="characterList" id="characterList"></div>
+      </aside>
+
+      <section class="editorCard">
+        <div class="sectionHead">
+          <div>
+            <p class="eyebrow">Editor</p>
+            <h2 id="editorTitle">角色详情</h2>
+          </div>
+          <div class="editorActions">
+            <button class="ghostButton" id="duplicateCharacterButton" type="button">复制一份</button>
+            <button class="dangerButton" id="deleteCharacterButton" type="button">删除角色</button>
+            <button class="primaryButton" id="saveCharacterButton" type="button">保存角色</button>
+          </div>
+        </div>
+
+        <div class="editorGrid">
+          <section class="panel">
+            <div class="panelHead">
+              <h3>图片绑定</h3>
+              <span class="muted" id="imageBindingStatus">未绑定图片</span>
+            </div>
+            <div class="fieldGrid twoCol">
+              <label>
+                <span>图片编号</span>
+                <input id="imageEntryId" list="galleryEntryOptions" placeholder="例如 20260608052803-46b7ca72-01" />
+              </label>
+              <label>
+                <span>图片文件名</span>
+                <input id="imageFilename" placeholder="自动带入或手动填写" />
+              </label>
+            </div>
+            <label>
+              <span>图片链接</span>
+              <input id="imageUrl" placeholder="https://www.easongame.com/gallery/images/..." />
+            </label>
+            <div class="buttonRow">
+              <button class="ghostButton" id="refreshImageButton" type="button">刷新图片信息</button>
+              <a class="ghostButton linkLike" id="openImageLink" href="#" target="_blank" rel="noreferrer">打开图片</a>
+            </div>
+            <div class="previewShell">
+              <img id="imagePreview" alt="角色预览图" />
+            </div>
+            <datalist id="galleryEntryOptions"></datalist>
+          </section>
+
+          <section class="panel">
+            <div class="panelHead">
+              <h3>基础信息</h3>
+            </div>
+            <div class="fieldGrid twoCol">
+              <label>
+                <span>角色姓名</span>
+                <input id="name" placeholder="例如：艾琳娜" />
+              </label>
+              <label>
+                <span>性别</span>
+                <input id="gender" placeholder="例如：女" />
+              </label>
+              <label>
+                <span>职业</span>
+                <input id="profession" placeholder="例如：星港导航员" />
+              </label>
+              <label>
+                <span>种族</span>
+                <input id="race" placeholder="例如：精灵 / 人类 / 半龙裔" />
+              </label>
+            </div>
+            <label>
+              <span>角色特点</span>
+              <textarea id="traits" rows="4" placeholder="每行一条，例如：\n银蓝色长发\n说话冷静\n擅长策略"></textarea>
+            </label>
+            <div class="fieldGrid twoCol">
+              <label>
+                <span>技能</span>
+                <textarea id="skills" rows="4" placeholder="每行一条"></textarea>
+              </label>
+              <label>
+                <span>擅长</span>
+                <textarea id="specialties" rows="4" placeholder="每行一条"></textarea>
+              </label>
+            </div>
+            <label>
+              <span>爱好</span>
+              <textarea id="hobbies" rows="3" placeholder="每行一条"></textarea>
+            </label>
+          </section>
+
+          <section class="panel fullWidth">
+            <div class="panelHead">
+              <h3>关系设定</h3>
+              <button class="ghostButton" id="addRelationButton" type="button">新增关系</button>
+            </div>
+            <div class="relationList" id="relationList"></div>
+          </section>
+
+          <section class="panel fullWidth">
+            <div class="panelHead">
+              <h3>背景故事</h3>
+            </div>
+            <label>
+              <span>背景故事</span>
+              <textarea id="backgroundStory" rows="8" placeholder="填写角色经历、动机、冲突、秘密、成长线等。"></textarea>
+            </label>
+          </section>
+
+          <section class="panel fullWidth">
+            <div class="panelHead">
+              <div>
+                <h3>AI 自动生成</h3>
+                <p class="muted">
+                  通过 `100.81.214.54:8799` 多代理协作中心调用 `Claude Code`、`Hermes Alpha`、`Hermes NUC` 三个代理，
+                  基于当前绑定图片自动分析并生成人设草稿。
+                </p>
+              </div>
+              <button class="primaryButton" id="runAiButton" type="button">开始 AI 分析</button>
+            </div>
+            <label>
+              <span>额外要求</span>
+              <textarea id="aiInstructions" rows="3" placeholder="例如：请偏向日式 RPG 角色写法，补足人物气质、技能和背景故事。"></textarea>
+            </label>
+            <div class="statusBox" id="aiStatus">尚未开始 AI 分析。</div>
+            <div class="suggestionToolbar" id="suggestionToolbar" hidden>
+              <button class="ghostButton" id="applyMergedSuggestionButton" type="button">应用融合结果</button>
+            </div>
+            <div class="suggestionGrid" id="suggestionGrid"></div>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <template id="relationTemplate">
+    <article class="relationItem">
+      <div class="fieldGrid relationGrid">
+        <label>
+          <span>关系类型</span>
+          <select class="relationType">
+            <option value="lover">爱人</option>
+            <option value="parents">父母</option>
+            <option value="friend">朋友</option>
+            <option value="archenemy">死敌</option>
+            <option value="blood_feud">世仇</option>
+            <option value="teacher">老师</option>
+            <option value="other">其他</option>
+          </select>
+        </label>
+        <label>
+          <span>对象姓名</span>
+          <input class="relationName" placeholder="例如：雷欧" />
+        </label>
+        <label>
+          <span>目标角色 ID</span>
+          <input class="relationCharacterId" placeholder="例如：CHAR-..." />
+        </label>
+        <label>
+          <span>目标图片编号</span>
+          <input class="relationImageEntryId" placeholder="例如：202606..." />
+        </label>
+      </div>
+      <label>
+        <span>关系说明</span>
+        <textarea class="relationNote" rows="2" placeholder="补充关系细节。"></textarea>
+      </label>
+      <div class="buttonRow">
+        <a class="ghostButton linkLike relationCharacterLink" href="#" target="_blank" rel="noreferrer">打开角色详情</a>
+        <button class="dangerButton removeRelationButton" type="button">删除这条关系</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="suggestionTemplate">
+    <article class="suggestionCard">
+      <div class="panelHead">
+        <div>
+          <h3 class="suggestionTitle"></h3>
+          <span class="muted suggestionMeta"></span>
+        </div>
+        <button class="ghostButton applySuggestionButton" type="button">应用这份建议</button>
+      </div>
+      <pre class="suggestionJson"></pre>
+      <details class="rawResponse">
+        <summary>查看原始回复</summary>
+        <pre class="suggestionRaw"></pre>
+      </details>
+    </article>
+  </template>
+
+  <script src="/character-editor/app.js"></script>
+</body>
+</html>
