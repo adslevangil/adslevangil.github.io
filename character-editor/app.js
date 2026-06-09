@@ -93,7 +93,7 @@ function defaultCharacter() {
     updated_at: new Date().toISOString(),
     image_entry_id: linked?.id || imageId || "",
     image_filename: linked?.filename || "",
-    image_url: linked?.image_path ? `/${linked.image_path}` : linked?.image_url || "",
+    image_url: linked?.image_url || (linked?.image_path ? `/${linked.image_path}` : ""),
     name: "",
     gender: "",
     profession: "",
@@ -225,7 +225,7 @@ function bindImageFields(character) {
   if (linked) {
     character.image_entry_id = linked.id || character.image_entry_id || "";
     character.image_filename = linked.filename || character.image_filename || "";
-    character.image_url = linked.image_path ? `/${linked.image_path}` : linked.image_url || character.image_url || "";
+    character.image_url = linked.image_url || (linked.image_path ? `/${linked.image_path}` : "") || character.image_url || "";
   }
   imageBindingStatus.textContent = character.image_entry_id
     ? `已绑定图片编号 ${character.image_entry_id}`
@@ -409,7 +409,7 @@ function refreshImageFromGallery() {
   if (linked) {
     character.image_entry_id = linked.id || character.image_entry_id;
     character.image_filename = linked.filename || character.image_filename;
-    character.image_url = linked.image_path ? `/${linked.image_path}` : linked.image_url || character.image_url;
+    character.image_url = linked.image_url || (linked.image_path ? `/${linked.image_path}` : "") || character.image_url;
   }
   bindImageFields(character);
 }
