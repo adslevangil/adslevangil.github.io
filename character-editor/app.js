@@ -172,9 +172,17 @@ function resolveGalleryEntry(entryId) {
 function resolveGalleryEntryByFilename(filename) {
   const normalized = String(filename || "").trim().toLowerCase();
   if (!normalized) return null;
-  return (
-    galleryEntries.find((entry) => String(entry.filename || "").trim().toLowerCase() === normalized) || null
-  );
+  const matches = galleryEntries.filter((entry) => String(entry.filename || "").trim().toLowerCase() === normalized);
+  if (matches.length !== 1) {
+    return null;
+  }
+  return matches[0];
+}
+
+function countGalleryEntriesByFilename(filename) {
+  const normalized = String(filename || "").trim().toLowerCase();
+  if (!normalized) return 0;
+  return galleryEntries.filter((entry) => String(entry.filename || "").trim().toLowerCase() === normalized).length;
 }
 
 function renderStats() {
@@ -222,16 +230,21 @@ function bindImageFields(character) {
   const linked =
     resolveGalleryEntry(character.image_entry_id) ||
     resolveGalleryEntryByFilename(character.image_filename);
+  const filenameMatchCount = countGalleryEntriesByFilename(character.image_filename);
   if (linked) {
     character.image_entry_id = linked.id || character.image_entry_id || "";
     character.image_filename = linked.filename || character.image_filename || "";
     character.image_url = linked.image_url || (linked.image_path ? `/${linked.image_path}` : "") || character.image_url || "";
   }
-  imageBindingStatus.textContent = character.image_entry_id
-    ? `已绑定图片编号 ${character.image_entry_id}`
-    : character.image_filename
-      ? `已按文件名匹配图片 ${character.image_filename}`
-      : "未绑定图片";
+  if (character.image_entry_id) {
+    imageBindingStatus.textContent = `已绑定图片编号 ${character.image_entry_id}`;
+  } else if (character.image_filename && filenameMatchCount > 1) {
+    imageBindingStatus.textContent = `文件名 ${character.image_filename} 对应 ${filenameMatchCount} 张图，请改用图片编号绑定`;
+  } else if (character.image_filename) {
+    imageBindingStatus.textContent = `已按文件名匹配图片 ${character.image_filename}`;
+  } else {
+    imageBindingStatus.textContent = "未绑定图片";
+  }
   imageEntryId.value = character.image_entry_id || "";
   imageFilename.value = character.image_filename || "";
   imageUrl.value = character.image_url || "";
@@ -403,6 +416,12 @@ function refreshImageFromGallery() {
   character.image_entry_id = imageEntryId.value.trim();
   character.image_filename = imageFilename.value.trim();
   character.image_url = imageUrl.value.trim();
+  const filenameMatchCount = countGalleryEntriesByFilename(character.image_filename);
+  if (!character.image_entry_id && character.image_filename && filenameMatchCount > 1) {
+    bindImageFields(character);
+    window.alert(`文件名 ${character.image_filename} 在图库中匹配到 ${filenameMatchCount} 张图片，请改用图片编号绑定。`);
+    return;
+  }
   const linked =
     resolveGalleryEntry(character.image_entry_id) ||
     resolveGalleryEntryByFilename(character.image_filename);
