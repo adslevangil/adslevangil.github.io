@@ -261,9 +261,11 @@ function openLightbox(entry) {
   lightboxImage.alt = entry.prompt || entry.filename || "generated image";
   lightboxStyle.textContent = entry.style || "未命名风格";
   lightboxTarget.textContent = entry.target_name || entry.target_id || "未知服务器";
-  lightboxTitle.textContent = entry.filename || "生成详情";
+  lightboxTitle.textContent = entry.id ? `图片编号 ${entry.id}` : (entry.filename || "生成详情");
   syncFavoriteButton(lightboxFavorite, entry, "★ 已收藏", "☆ 收藏");
   lightboxList.innerHTML = [
+    ["图片编号", entry.id || "-"],
+    ["文件名", entry.filename || "-"],
     ["提示词", entry.prompt || "无"],
     ["负面词", entry.negative_prompt || "无"],
     ["风格", entry.style || "无"],
@@ -333,7 +335,7 @@ function renderCards(entries) {
     node.querySelector(".cardStyle").textContent = entry.style || "未命名风格";
     node.querySelector(".cardTime").textContent = formatDate(entry.created_at);
     node.querySelector(".cardTitle").textContent = entry.model || entry.filename || "未命名图片";
-    node.querySelector(".cardSubline").textContent = `${entry.target_name || entry.target_id || "未知服务器"} | ${selectionMode ? "点击可选择" : "点击查看详情"}`;
+    node.querySelector(".cardSubline").textContent = `${entry.id || "无编号"} | ${entry.target_name || entry.target_id || "未知服务器"} | ${selectionMode ? "点击可选择" : "点击查看详情"}`;
     syncFavoriteButton(favoriteButton, entry, "★", "☆");
     syncSelectButton(selectButton, entry);
 
