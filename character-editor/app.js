@@ -160,7 +160,13 @@ function setStatus(text, kind = "") {
 }
 
 function resolveGalleryEntry(entryId) {
-  return galleryEntries.find((entry) => entry.id === String(entryId || "").trim()) || null;
+  const normalized = String(entryId || "").trim();
+  if (!normalized) return null;
+  return (
+    galleryEntries.find((entry) => entry.id === normalized) ||
+    resolveGalleryEntryByFilename(normalized) ||
+    null
+  );
 }
 
 function resolveGalleryEntryByFilename(filename) {
