@@ -163,6 +163,14 @@ function resolveGalleryEntry(entryId) {
   return galleryEntries.find((entry) => entry.id === String(entryId || "").trim()) || null;
 }
 
+function resolveGalleryEntryByFilename(filename) {
+  const normalized = String(filename || "").trim().toLowerCase();
+  if (!normalized) return null;
+  return (
+    galleryEntries.find((entry) => String(entry.filename || "").trim().toLowerCase() === normalized) || null
+  );
+}
+
 function renderStats() {
   characterCount.textContent = String(store.characters.length);
   linkedImageCount.textContent = String(store.characters.filter((item) => item.image_entry_id || item.image_url).length);
@@ -205,12 +213,19 @@ function renderCharacterList() {
 }
 
 function bindImageFields(character) {
-  const linked = resolveGalleryEntry(character.image_entry_id);
+  const linked =
+    resolveGalleryEntry(character.image_entry_id) ||
+    resolveGalleryEntryByFilename(character.image_filename);
   if (linked) {
+    character.image_entry_id = linked.id || character.image_entry_id || "";
     character.image_filename = linked.filename || character.image_filename || "";
     character.image_url = linked.image_path ? `/${linked.image_path}` : linked.image_url || character.image_url || "";
   }
-  imageBindingStatus.textContent = character.image_entry_id ? `已绑定图片编号 ${character.image_entry_id}` : "未绑定图片";
+  imageBindingStatus.textContent = character.image_entry_id
+    ? `已绑定图片编号 ${character.image_entry_id}`
+    : character.image_filename
+      ? `已按文件名匹配图片 ${character.image_filename}`
+      : "未绑定图片";
   imageEntryId.value = character.image_entry_id || "";
   imageFilename.value = character.image_filename || "";
   imageUrl.value = character.image_url || "";
@@ -382,8 +397,11 @@ function refreshImageFromGallery() {
   character.image_entry_id = imageEntryId.value.trim();
   character.image_filename = imageFilename.value.trim();
   character.image_url = imageUrl.value.trim();
-  const linked = resolveGalleryEntry(character.image_entry_id);
+  const linked =
+    resolveGalleryEntry(character.image_entry_id) ||
+    resolveGalleryEntryByFilename(character.image_filename);
   if (linked) {
+    character.image_entry_id = linked.id || character.image_entry_id;
     character.image_filename = linked.filename || character.image_filename;
     character.image_url = linked.image_path ? `/${linked.image_path}` : linked.image_url || character.image_url;
   }
