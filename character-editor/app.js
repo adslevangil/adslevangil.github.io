@@ -43,6 +43,7 @@ let galleryEntries = [];
 let activeCharacterId = null;
 let activeAiPayload = null;
 let activePollTimer = null;
+let relationAutosaveTimer = null;
 
 const relationTypes = {
   lover: "爱人",
@@ -157,6 +158,13 @@ function setStatus(text, kind = "") {
   aiStatus.textContent = text;
   aiStatus.className = "statusBox";
   if (kind) aiStatus.classList.add(kind);
+}
+
+function clearRelationAutosaveTimer() {
+  if (relationAutosaveTimer) {
+    window.clearTimeout(relationAutosaveTimer);
+    relationAutosaveTimer = null;
+  }
 }
 
 function resolveGalleryEntry(entryId) {
@@ -287,6 +295,7 @@ function renderRelations(relations = []) {
       if (!character) return;
       character.relations.splice(index, 1);
       renderRelations(character.relations);
+      scheduleRelationAutosave();
     });
     relationList.appendChild(node);
   });
@@ -352,7 +361,8 @@ function applyFormToCharacter(character) {
   character.updated_at = new Date().toISOString();
 }
 
-async function saveCharacter() {
+async function saveCharacter(options = {}) {
+  const { silent = false } = options;
   let character = getActiveCharacter();
   if (!character) {
     character = defaultCharacter();
@@ -371,6 +381,11 @@ async function saveCharacter() {
   renderStats();
   renderCharacterList();
   renderEditor();
+  clearRelationAutosaveTimer();
+  if (!silent) {
+    const relationCount = payload.character?.relations?.length ?? character.relations?.length ?? 0;
+    setStatus(`角色已保存，当前已保存 ${relationCount} 条关系设定。`, "success");
+  }
 }
 
 async function deleteCharacter() {
@@ -431,6 +446,23 @@ function refreshImageFromGallery() {
     character.image_url = linked.image_url || (linked.image_path ? `/${linked.image_path}` : "") || character.image_url;
   }
   bindImageFields(character);
+}
+
+function scheduleRelationAutosave() {
+  const character = getActiveCharacter();
+  if (!character) return;
+  clearRelationAutosaveTimer();
+  setStatus("关系设定已修改，正在自动保存...", "running");
+  relationAutosaveTimer = window.setTimeout(async () => {
+    try {
+      await saveCharacter({ silent: true });
+      const savedCharacter = getActiveCharacter();
+      const relationCount = savedCharacter?.relations?.length ?? 0;
+      setStatus(`关系设定已自动保存，当前已保存 ${relationCount} 条。`, "success");
+    } catch (error) {
+      setStatus(`关系自动保存失败：${error.message}`, "error");
+    }
+  }, 900);
 }
 
 function renderSuggestionCard(title, meta, payload, raw, applyHandler) {
@@ -542,6 +574,7 @@ async function pollAiTask(taskId, attempt = 0) {
 
 window.addEventListener("beforeunload", () => {
   clearAiPollTimer();
+  clearRelationAutosaveTimer();
 });
 
 function wireEvents() {
@@ -561,6 +594,15 @@ function wireEvents() {
     character.relations = character.relations || [];
     character.relations.push({ type: "friend", name: "", target_character_id: "", target_image_entry_id: "", note: "" });
     renderRelations(character.relations);
+    scheduleRelationAutosave();
+  });
+  relationList.addEventListener("input", (event) => {
+    if (!event.target.closest(".relationItem")) return;
+    scheduleRelationAutosave();
+  });
+  relationList.addEventListener("change", (event) => {
+    if (!event.target.closest(".relationItem")) return;
+    scheduleRelationAutosave();
   });
   saveCharacterButton.addEventListener("click", saveCharacter);
   deleteCharacterButton.addEventListener("click", deleteCharacter);
