@@ -29,10 +29,9 @@ const relationTemplate = document.querySelector("#relationTemplate");
 const addRelationButton = document.querySelector("#addRelationButton");
 const suggestionGrid = document.querySelector("#suggestionGrid");
 const suggestionTemplate = document.querySelector("#suggestionTemplate");
-const suggestionToolbar = document.querySelector("#suggestionToolbar");
 const aiStatus = document.querySelector("#aiStatus");
 const aiInstructions = document.querySelector("#aiInstructions");
-const applyMergedSuggestionButton = document.querySelector("#applyMergedSuggestionButton");
+const agentSelect = document.querySelector("#agentSelect");
 const runAiButton = document.querySelector("#runAiButton");
 const saveCharacterButton = document.querySelector("#saveCharacterButton");
 const deleteCharacterButton = document.querySelector("#deleteCharacterButton");
@@ -43,6 +42,7 @@ let store = { updated_at: null, characters: [] };
 let galleryEntries = [];
 let activeCharacterId = null;
 let activeAiPayload = null;
+let activePollTimer = null;
 
 const relationTypes = {
   lover: "爱人",
@@ -274,7 +274,6 @@ function renderEditor() {
     backgroundStoryInput.value = "";
     renderRelations([]);
     suggestionGrid.innerHTML = "";
-    suggestionToolbar.hidden = true;
     return;
   }
 
@@ -401,6 +400,13 @@ function renderSuggestionCard(title, meta, payload, raw, applyHandler) {
   suggestionGrid.appendChild(node);
 }
 
+function clearAiPollTimer() {
+  if (activePollTimer) {
+    window.clearTimeout(activePollTimer);
+    activePollTimer = null;
+  }
+}
+
 function applySuggestionToForm(profile) {
   const character = getActiveCharacter();
   if (!character) return;
@@ -431,9 +437,9 @@ async function runAiAnalysis() {
     return;
   }
   runAiButton.disabled = true;
-  setStatus("AI 正在向 3 个代理提交分析任务并等待回报，请稍候。", "running");
+  clearAiPollTimer();
+  setStatus("AI 正在向所选代理提交分析任务，请稍候。", "running");
   suggestionGrid.innerHTML = "";
-  suggestionToolbar.hidden = true;
   activeAiPayload = null;
   try {
     const payload = await fetchJson(`${CHARACTER_API_URL}/ai-generate`, {
@@ -444,38 +450,56 @@ async function runAiAnalysis() {
         image_url: character.image_url,
         image_filename: character.image_filename,
         current_character: character,
+        agent: agentSelect.value,
         extra_instructions: aiInstructions.value.trim(),
       }),
     });
-    activeAiPayload = payload;
-    if (payload.merged_profile) {
-      suggestionToolbar.hidden = false;
-    }
-    setStatus(`AI 分析完成，已收到 ${payload.replies?.length || 0} 个代理回复。`, "success");
-    if (payload.merged_profile) {
-      renderSuggestionCard(
-        "融合建议",
-        "将 3 个代理的可解析字段合并后的结果",
-        payload.merged_profile,
-        payload.prompt || "",
-        () => applySuggestionToForm(payload.merged_profile),
-      );
-    }
-    (payload.suggestions || []).forEach((item) => {
-      renderSuggestionCard(
-        item.agent_name || item.agent || "代理建议",
-        item.agent || "",
-        item.profile || {},
-        item.raw_body || "",
-        () => applySuggestionToForm(item.profile || {}),
-      );
-    });
+    const taskId = payload.task_id;
+    setStatus(`AI 任务已提交给 ${agentSelect.options[agentSelect.selectedIndex]?.text || agentSelect.value}，正在等待分析完成。任务号：${taskId}`, "running");
+    await pollAiTask(taskId);
   } catch (error) {
     setStatus(error.message || "AI 分析失败。", "error");
-  } finally {
     runAiButton.disabled = false;
+    clearAiPollTimer();
   }
 }
+
+async function pollAiTask(taskId, attempt = 0) {
+  try {
+    const payload = await fetchJson(`${CHARACTER_API_URL}/ai-tasks/${encodeURIComponent(taskId)}?v=${Date.now()}`);
+    activeAiPayload = payload;
+    const completedCount = Array.isArray(payload.completed_agents) ? payload.completed_agents.length : 0;
+    if (payload.status === "completed") {
+      suggestionGrid.innerHTML = "";
+      (payload.suggestions || []).forEach((item) => {
+        renderSuggestionCard(
+          item.agent_name || item.agent || "代理建议",
+          item.agent || "",
+          item.profile || {},
+          item.raw_body || "",
+          () => applySuggestionToForm(item.profile || {}),
+        );
+      });
+      setStatus(`AI 分析完成，已收到 ${payload.replies?.length || 0} 个代理回复。`, "success");
+      runAiButton.disabled = false;
+      clearAiPollTimer();
+      return;
+    }
+    const totalAgents = Array.isArray(payload.assigned_agents) && payload.assigned_agents.length ? payload.assigned_agents.length : 1;
+    setStatus(`AI 正在分析中，当前已完成 ${completedCount}/${totalAgents} 个代理。`, "running");
+    activePollTimer = window.setTimeout(() => {
+      pollAiTask(taskId, attempt + 1);
+    }, attempt < 10 ? 2500 : 4000);
+  } catch (error) {
+    setStatus(error.message || "AI 分析失败。", "error");
+    runAiButton.disabled = false;
+    clearAiPollTimer();
+  }
+}
+
+window.addEventListener("beforeunload", () => {
+  clearAiPollTimer();
+});
 
 function wireEvents() {
   characterList.addEventListener("click", (event) => {
@@ -500,11 +524,6 @@ function wireEvents() {
   newCharacterButton.addEventListener("click", addNewCharacter);
   duplicateCharacterButton.addEventListener("click", duplicateCharacter);
   runAiButton.addEventListener("click", runAiAnalysis);
-  applyMergedSuggestionButton.addEventListener("click", () => {
-    if (activeAiPayload?.merged_profile) {
-      applySuggestionToForm(activeAiPayload.merged_profile);
-    }
-  });
 }
 
 async function init() {

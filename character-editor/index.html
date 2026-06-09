@@ -166,20 +166,24 @@
               <div>
                 <h3>AI 自动生成</h3>
                 <p class="muted">
-                  通过 `100.81.214.54:8799` 多代理协作中心调用 `Claude Code`、`Hermes Alpha`、`Hermes NUC` 三个代理，
-                  基于当前绑定图片自动分析并生成人设草稿。
+                  通过 `100.81.214.54:8799` 多代理协作中心，按你手动选择的代理来分析当前绑定图片并生成人设草稿。
                 </p>
               </div>
               <button class="primaryButton" id="runAiButton" type="button">开始 AI 分析</button>
             </div>
             <label>
+              <span>选择代理</span>
+              <select id="agentSelect">
+                <option value="hermes-alpha">Hermes Alpha</option>
+                <option value="hermes-nuc">Hermes NUC</option>
+                <option value="claude-code">Claude Code</option>
+              </select>
+            </label>
+            <label>
               <span>额外要求</span>
               <textarea id="aiInstructions" rows="3" placeholder="例如：请偏向日式 RPG 角色写法，补足人物气质、技能和背景故事。"></textarea>
             </label>
             <div class="statusBox" id="aiStatus">尚未开始 AI 分析。</div>
-            <div class="suggestionToolbar" id="suggestionToolbar" hidden>
-              <button class="ghostButton" id="applyMergedSuggestionButton" type="button">应用融合结果</button>
-            </div>
             <div class="suggestionGrid" id="suggestionGrid"></div>
           </section>
         </div>
