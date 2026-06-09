@@ -1,4 +1,4 @@
-const CHARACTER_API_URL = "https://ailogo-system-product-name.taile51706.ts.net/character-api";
+const CHARACTER_API_URL = "https://lalalabuy.com/eason-character-api";
 const GALLERY_DATA_URL = "/gallery/data/gallery.json";
 
 const characterCount = document.querySelector("#characterCount");

@@ -1,6 +1,6 @@
 const PAGE_SIZE = 40;
 const FAVORITES_KEY = "eason_game_gallery_favorites_v1";
-const FAVORITES_API_URL = "https://ailogo-system-product-name.taile51706.ts.net/gallery-favorites/favorites";
+const FAVORITES_API_URL = "https://lalalabuy.com/eason-gallery-favorites/favorites";
 
 const grid = document.querySelector("#galleryGrid");
 const totalCount = document.querySelector("#totalCount");
