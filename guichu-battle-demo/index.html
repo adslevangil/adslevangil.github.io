@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="鬼畜修仙传战斗演示页：左右像素战斗单位对攻，角色晃动并叠加刀光特效。"
+  />
+  <title>鬼畜修仙传 - 战斗演示</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+SC:wght@400;500;700&display=swap");
+
+    :root {
+      --frame-w: 600px;
+      --frame-h: 460px;
+      --unit-scale: 0.42;
+      --unit-w: calc(var(--frame-w) * var(--unit-scale));
+      --unit-h: calc(var(--frame-h) * var(--unit-scale));
+      --field-w: 1180px;
+      --field-h: 664px;
+      --bg: #07111f;
+      --panel: rgba(9, 18, 28, 0.8);
+      --panel-strong: rgba(10, 19, 34, 0.94);
+      --line: rgba(255, 232, 169, 0.22);
+      --text: #f7f2e7;
+      --muted: rgba(233, 240, 255, 0.78);
+      --gold: #f2c879;
+      --cyan: #8ee7ff;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(77, 173, 255, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(4, 8, 18, 0.2), rgba(4, 8, 18, 0.92)),
+        url("/easongame.png") center / cover fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 217, 123, 0.08), transparent 36%),
+        linear-gradient(300deg, rgba(85, 213, 255, 0.08), transparent 34%);
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(1280px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 24px;
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(11, 18, 29, 0.92), rgba(10, 24, 38, 0.82));
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      font-family: "Bebas Neue", "Noto Sans SC", sans-serif;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 860px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #07111f;
+      background: linear-gradient(135deg, #f4cf84, #8ee7ff);
+      box-shadow: 0 14px 30px rgba(142, 231, 255, 0.2);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .battle-shell {
+      position: relative;
+      width: 100%;
+      max-width: var(--field-w);
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+      background:
+        linear-gradient(to bottom, rgba(250, 251, 245, 0.18), rgba(11, 44, 18, 0.12)),
+        url("./assets/bg_001_grassland_forest.png") center / cover no-repeat;
+      aspect-ratio: 1180 / 664;
+    }
+
+    .battle-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(29, 66, 19, 0.18) 0%, transparent 35%),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 0%, transparent 24%);
+      pointer-events: none;
+    }
+
+    .ground-line {
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      bottom: 22%;
+      height: 4px;
+      background: linear-gradient(to right, transparent, rgba(55, 71, 31, 0.3), transparent);
+      filter: blur(1px);
+    }
+
+    .hud {
+      position: absolute;
+      inset: 14px 16px auto;
+      z-index: 6;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .panel {
+      padding: 10px 14px;
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 251, 244, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 24px rgba(36, 50, 28, 0.15);
+    }
+
+    .panel small {
+      display: block;
+      margin-bottom: 3px;
+      color: #475569;
+    }
+
+    .panel strong {
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    .unit {
+      position: absolute;
+      width: var(--unit-w);
+      height: var(--unit-h);
+      bottom: 18%;
+      background-repeat: no-repeat;
+      background-size: calc(var(--frame-w) * 4 * var(--unit-scale)) calc(var(--frame-h) * var(--unit-scale));
+      image-rendering: pixelated;
+      transform-origin: 50% 100%;
+      will-change: transform, filter, opacity;
+      z-index: 2;
+    }
+
+    .unit::after {
+      content: "";
+      position: absolute;
+      left: 22%;
+      right: 22%;
+      bottom: 6%;
+      height: 12%;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28), transparent 72%);
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    .left {
+      right: 6%;
+      background-image: url("./assets/idle_transparent.png");
+    }
+
+    .right {
+      left: 6%;
+      transform: scaleX(-1);
+      background-image: url("./assets/idle_transparent.png");
+    }
+
+    .unit.idle {
+      animation: idleFrames 900ms steps(4) infinite;
+    }
+
+    .unit.attacking {
+      background-image: url("./assets/sword_attack_transparent.png");
+      animation: attackFrames 520ms steps(4) 1, lungeForward 520ms ease-out 1;
+      z-index: 3;
+    }
+
+    .unit.hit {
+      animation: hitShake 280ms ease-out 1;
+      filter: brightness(1.18);
+    }
+
+    .left.attacking {
+      transform: translateX(28px);
+    }
+
+    .right.attacking {
+      transform: scaleX(-1) translateX(28px);
+    }
+
+    .right.hit {
+      transform: scaleX(-1);
+    }
+
+    .left.hit {
+      transform: translateX(-6px);
+    }
+
+    .unit-label {
+      position: absolute;
+      bottom: calc(18% + var(--unit-h) + 14px);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 18px rgba(26, 39, 17, 0.14);
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      z-index: 6;
+    }
+
+    .unit-label.left-label {
+      right: 8%;
+    }
+
+    .unit-label.right-label {
+      left: 8%;
+    }
+
+    .slash {
+      position: absolute;
+      width: 220px;
+      height: 110px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+      background:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0 20%, rgba(168, 215, 255, 0.9) 22%, rgba(76, 149, 255, 0.36) 48%, transparent 70%);
+      filter: blur(1px);
+      transform-origin: center;
+      mix-blend-mode: screen;
+    }
+
+    .slash::before,
+    .slash::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-top: 4px solid rgba(198, 231, 255, 0.92);
+      border-radius: 50%;
+      transform: rotate(-14deg);
+    }
+
+    .slash::after {
+      inset: 28px 18px;
+      opacity: 0.72;
+    }
+
+    .slash.show {
+      opacity: 1;
+      animation: slashBurst 320ms ease-out 1;
+    }
+
+    .info-bar {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(10, 19, 34, 0.8);
+      box-shadow: var(--shadow);
+    }
+
+    .info-bar strong {
+      color: var(--gold);
+    }
+
+    .info-bar p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    @keyframes idleFrames {
+      from { background-position: 0 0; }
+      to { background-position: calc(var(--frame-w) * -4 * var(--unit-scale)) 0; }
+    }
+
+    @keyframes attackFrames {
+      from { background-position: 0 0; }
+      to { background-position: calc(var(--frame-w) * -4 * var(--unit-scale)) 0; }
+    }
+
+    @keyframes lungeForward {
+      0% { translate: 0 0; }
+      35% { translate: 18px -4px; }
+      100% { translate: 0 0; }
+    }
+
+    @keyframes hitShake {
+      0% { translate: 0 0; }
+      20% { translate: 10px 0; }
+      45% { translate: -8px 0; }
+      70% { translate: 6px 0; }
+      100% { translate: 0 0; }
+    }
+
+    @keyframes slashBurst {
+      0% { opacity: 0; scale: 0.86; }
+      30% { opacity: 1; scale: 1; }
+      100% { opacity: 0; scale: 1.12; }
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: min(100vw - 20px, 1280px);
+        padding-top: 16px;
+      }
+
+      .hero {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .hud {
+        inset: 10px 10px auto;
+        gap: 10px;
+      }
+
+      .panel {
+        padding: 8px 10px;
+      }
+
+      .panel strong {
+        font-size: 14px;
+      }
+
+      .unit-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>GUICHU XIUXIAN BATTLE DEMO</h1>
+      <p>
+        这是《鬼畜修仙传》的第一版战场演示页。当前方案采用“像素战斗位姿 + 受击晃动 + 刀光特效”的轻量化表现，
+        不追求连续复杂动画，重点验证左右站位、攻击节奏、受击反馈与整体氛围。
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/">返回 Eason Game</a>
+        <a class="button button-secondary" href="/guichu-xiuxian-map.html?v=4">查看修仙地图</a>
+      </div>
+    </section>
+
+    <section class="battle-shell" aria-label="鬼畜修仙传战斗演示">
+      <div class="hud">
+        <div class="panel">
+          <small>Left Unit</small>
+          <strong>Cloud Swordsman Mirror</strong>
+        </div>
+        <div class="panel">
+          <small>Right Unit</small>
+          <strong>Cloud Swordsman</strong>
+        </div>
+      </div>
+
+      <div class="ground-line"></div>
+      <div class="battle-overlay"></div>
+
+      <div class="unit-label left-label">Left Slot</div>
+      <div class="unit-label right-label">Right Slot</div>
+
+      <div id="leftUnit" class="unit left idle" aria-label="left battle unit"></div>
+      <div id="rightUnit" class="unit right idle" aria-label="right battle unit"></div>
+
+      <div id="slashLeft" class="slash"></div>
+      <div id="slashRight" class="slash"></div>
+    </section>
+
+    <section class="info-bar">
+      <p><strong>当前验证目标：</strong> 两个像素小人在山脉草地背景中左右对攻，攻击时前冲，受击时晃动，刀光特效叠加在角色身上。</p>
+      <p><strong>表现原则：</strong> 战斗结果可预先计算，战场演出只承担“反馈”和“气氛”职责，后续可继续替换角色与特效素材。</p>
+    </section>
+  </main>
+
+  <script>
+    const leftUnit = document.getElementById("leftUnit");
+    const rightUnit = document.getElementById("rightUnit");
+    const slashLeft = document.getElementById("slashLeft");
+    const slashRight = document.getElementById("slashRight");
+
+    function placeSlashOnTarget(slash, target, mirrored) {
+      const shell = document.querySelector(".battle-shell").getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
+      const width = 220;
+      const height = 110;
+      const left = rect.left - shell.left + rect.width * 0.5 - width * 0.5;
+      const top = rect.top - shell.top + rect.height * 0.34 - height * 0.5;
+
+      slash.style.left = `${left}px`;
+      slash.style.top = `${top}px`;
+      slash.style.bottom = "auto";
+      slash.style.right = "auto";
+      slash.style.transform = mirrored ? "scaleX(-1) rotate(-10deg)" : "rotate(-10deg)";
+    }
+
+    function animateExchange(attacker, target, slash, mirroredSlash) {
+      attacker.classList.remove("idle", "hit");
+      attacker.classList.add("attacking");
+
+      window.setTimeout(() => {
+        placeSlashOnTarget(slash, target, mirroredSlash);
+        slash.classList.remove("show");
+        void slash.offsetWidth;
+        slash.classList.add("show");
+
+        target.classList.remove("idle");
+        target.classList.add("hit");
+      }, 180);
+
+      window.setTimeout(() => {
+        slash.classList.remove("show");
+        target.classList.remove("hit");
+        target.classList.add("idle");
+      }, 520);
+
+      window.setTimeout(() => {
+        attacker.classList.remove("attacking");
+        attacker.classList.add("idle");
+      }, 540);
+    }
+
+    function startLoop() {
+      animateExchange(leftUnit, rightUnit, slashLeft, true);
+      window.setTimeout(() => animateExchange(rightUnit, leftUnit, slashRight, false), 1150);
+    }
+
+    startLoop();
+    window.setInterval(startLoop, 2300);
+  </script>
+</body>
+</html>
